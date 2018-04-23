@@ -16,35 +16,30 @@ counterNPC = 0;
 
         if (player.rect.getGlobalBounds().intersects(NPCArray[counterNPC].rect.getGlobalBounds())) {
 
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::X)){
-                npc.setSpeak(true);
-                window.draw(graphic.text1.sprite);
-            }
-
             if (player.getDirection() == Character::Direction::Up) {
 
-                player.setMoveUp(false);
+                player.moveUp = false;
                 player.rect.move(0, 1);
                 player.setDirection(Character::Direction::Up);
 
             }
             else if (player.getDirection() == Character::Direction::Down) {
 
-                player.setMoveDown(false);
+                player.moveDown = false;
                 player.rect.move(0, -1);
                 player.setDirection(Character::Direction::Down);
             }
 
             else if (player.getDirection() == Character::Direction::Left) {
 
-                player.setMoveLeft(false);
+                player.moveLeft = false;
                 player.rect.move(1, 0);
                 player.setDirection(Character::Direction::Left);
 
             }
             else if (player.getDirection() == Character::Direction::Right) {
 
-                player.setMoveRight(false);
+                player.moveRight = false;
                 player.rect.move(-1, 0);
                 player.setDirection(Character::Direction::Right);
 
@@ -60,14 +55,12 @@ counterNPC = 0;
         if (player.rect.getGlobalBounds().intersects(ItemArray[counterItem].rect.getGlobalBounds())) {
 
             if (ItemArray[counterItem].getType() == "bicycle") {
-                player.setRideBicycle(true);
+                player.setBicyclePickUp(true);
 
             }
 
-            else if (ItemArray[counterItem].getType() == "pokeball"){
-                //player.sprite.setTexture(graphic.texturePlayer);
+            else if (ItemArray[counterItem].getType() == "Megaball" || ItemArray[counterItem].getType() == "Masterball"){
                 player.increaseScore(ItemArray[counterItem].pokeballValue);
-                cout<<"score: "<<player.getScore()<<endl;
             }
 
 

@@ -1,13 +1,9 @@
-//
-//
-//
 
 #ifndef POKEMONVIDEOGAME_POKEMON_H
 #define POKEMONVIDEOGAME_POKEMON_H
 
 
 #include "SpecialAttack.h"
-#include "Bullet.h"
 #include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
@@ -16,13 +12,12 @@ using namespace std;
 
 class Pokemon {
 public:
-    Pokemon() {
-        rect.setSize(sf::Vector2f(64, 64));
-        rect.setPosition(200, 200);
-    }
-    ~Pokemon();
+    Pokemon() {}
+
+    virtual ~Pokemon();
 
     void update();
+    void updateDirection();
 
     int attack(Pokemon& ComputerPlayer);
 
@@ -38,17 +33,20 @@ public:
 
     SpecialAttack* specialAttack;
 
+    const string &getName() const;
+    void setName(const string &name);
+
 
     sf::RectangleShape rect;
     sf::Sprite sprite;
 
 protected:
-    int hp;
+    int direction = 0;
+    int hp = 30;
     std::string name;
-    vector <Bullet*> bulletVec;
+
     bool isHit;
-   // bool isDead = true;
-    // int damage;
+
 };
 
 #endif //GIOCO0_POKEMON_H

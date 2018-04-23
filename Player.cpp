@@ -1,6 +1,4 @@
-//
-//
-//
+
 
 #include "Player.h"
 
@@ -20,23 +18,16 @@ void Player :: move() {
         moveLeft = true;
         moveRight = true;
 
-        if(rideBicycle){
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
-                sprite.setTexture(textureExchange);
-                sprite.setTextureRect(sf::IntRect(30 * 2, counterWalking* 30 , 30, 30));
-                speed = 3;
-            }
-
-            else{
-                sprite.setTexture(myTexture);
-                sprite.setTextureRect(sf::IntRect(28 * 2, counter* 30 , 28, 30));
-                speed = 1;
-            }
+        //Use bicycle
+        if(isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
+            rideBicycle = true;
+            sprite.setTextureRect(sf::IntRect(30 * 2, counterWalking * 30, 30, 30));
+            speed = 3;
 
         }
         else{
-            sprite.setTexture(myTexture);
-            sprite.setTextureRect(sf::IntRect(28 * 2, counter* 30 , 28, 30));
+            rideBicycle = false;
+            sprite.setTextureRect(sf::IntRect(28 * 2, counterWalking1* 30 , 28, 30));
             speed = 1;
         }
 
@@ -54,27 +45,19 @@ void Player :: move() {
         moveLeft = true;
         moveRight = true;
 
-        if(rideBicycle){
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
-                sprite.setTexture(textureExchange);
-                sprite.setTextureRect(sf::IntRect(0, counterWalking* 30 , 30, 30));
-                speed = 3;
-            }
-
-            else{
-                sprite.setTexture(myTexture);
-                sprite.setTextureRect(sf::IntRect(0 , counter* 30 , 28, 30));
-                speed = 1;
-            }
+        if(isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
+            rideBicycle = true;
+            sprite.setTextureRect(sf::IntRect(0, counterWalking * 30, 30, 30));
+            speed = 3;
 
         }
-        else{ //movimento giocatore senza bici
-            sprite.setTexture(myTexture);
-            sprite.setTextureRect(sf::IntRect(0 , counter* 30 , 28, 30));
+        else{
+            rideBicycle = false;
+            sprite.setTextureRect(sf::IntRect(0 , counterWalking1* 30 , 30, 30));
             speed = 1;
         }
 
-        if (rect.getPosition().y > 550) {
+        if (rect.getPosition().y > 475) {
             moveDown = false;
         }
     }
@@ -86,21 +69,15 @@ void Player :: move() {
         moveLeft = true;
         moveRight = true;
 
-        if(rideBicycle){
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
-                sprite.setTexture(textureExchange);
-                sprite.setTextureRect(sf::IntRect(30 , counterWalking* 30 , 30, 30));
-                speed = 3;
-            }
-            else {
-                sprite.setTexture(myTexture);
-                sprite.setTextureRect(sf::IntRect(28 , counter* 30 , 28, 30));
-                speed = 1;
-            }
+        if(isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
+            rideBicycle = true;
+            sprite.setTextureRect(sf::IntRect(28, counterWalking * 30, 28, 30));
+            speed = 3;
+
         }
         else{
-            sprite.setTexture(myTexture);
-            sprite.setTextureRect(sf::IntRect(28 , counter* 30 , 28, 30));
+            rideBicycle = false;
+            sprite.setTextureRect(sf::IntRect(28 , counterWalking1* 30 , 30, 30));
             speed = 1;
         }
 
@@ -117,21 +94,14 @@ void Player :: move() {
         moveLeft = true;
         moveRight = true;
 
-        if(rideBicycle){
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-                sprite.setTexture(textureExchange);
-                sprite.setTextureRect(sf::IntRect(30 * 3, counterWalking * 30, 30, 30));
-                speed = 3;
-            }
-            else{
-                sprite.setTexture(myTexture);
-                sprite.setTextureRect(sf::IntRect(28 * 3, counter* 30 , 28, 30));
-                speed = 1;
-            }
+        if(isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
+            rideBicycle = true;
+            sprite.setTextureRect(sf::IntRect(30 * 3, counterWalking * 30, 30, 30));
+            speed = 3;
         }
         else{
-            sprite.setTexture(myTexture);
-            sprite.setTextureRect(sf::IntRect(28 * 3, counter* 30 , 28, 30));
+            rideBicycle = false;
+            sprite.setTextureRect(sf::IntRect(28 * 3, counterWalking1* 30 , 28, 30));
             speed = 1;
         }
 
@@ -142,9 +112,9 @@ void Player :: move() {
     }
 
 
-    counter++; //per il giocatore senza bici
-    if( counter == 6){
-        counter = 0;
+    counterWalking1++; //per il giocatore senza bici
+    if( counterWalking1 == 6){
+        counterWalking1 = 0;
     }
     counterWalking++; //per il giocatore con la bici
     if(counterWalking == 3){
@@ -161,8 +131,20 @@ int Player::getScore() const {
     return score;
 }
 
-void Player::setRideBicycle(bool rideBicycle) {
-    Player::rideBicycle = rideBicycle;
+
+bool Player::isBicyclePickUp() const {
+    return bicyclePickUp;
 }
 
+void Player::setBicyclePickUp(bool bicyclePickUp) {
+    Player::bicyclePickUp = bicyclePickUp;
+}
+
+bool Player::isStartBattle() const {
+    return startBattle;
+}
+
+void Player::setStartBattle(bool startBattle) {
+    Player::startBattle = startBattle;
+}
 

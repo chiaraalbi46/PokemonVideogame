@@ -21,12 +21,9 @@ public:
 
     int generateRandom(int max);
 
-    bool getSpeak() const;
-
-    void setSpeak(bool speak);
 
 protected:
-    bool speak = false;
+    int speed = 1;
     int movementLength = 100;
 };
 

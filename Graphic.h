@@ -1,24 +1,23 @@
-//
-//
-//
+
 
 #ifndef POKEMONVIDEOGAME_GRAPHIC_H
 #define POKEMONVIDEOGAME_GRAPHIC_H
 
 #include <SFML/Graphics.hpp>
-#include "Character.h"
 #include "NPC.h"
 #include "Player.h"
 #include "Item.h"
 #include <vector>
-#include <string>
+#include <iostream>
+#include <sstream>
 
+using  namespace std;
 
 class Graphic {
 public:
 
-    Graphic(std:: string b = "bicycle", std:: string ba = "bacca", std:: string p = "pokeball"  ) :
-            bicycle("bicycle"), bacca("bacca"), pokeball ("pokeball"), NPC1(), NPC2(), text1(), text2()  {}
+    Graphic( ) : bicycle("bicycle"), berry1("cherry berry "), berry2("peach berry"),  pokeball1 ("Megaball"), pokeball2 ("Masterball"), NPC1(), NPC2() {}
+
 
     ~Graphic(){}
 
@@ -26,6 +25,7 @@ public:
     int loadTextures();
 
 
+    void setText(Player &player);
     void setNPC();
     void setFont();
     void setItem();
@@ -35,10 +35,10 @@ public:
     sf::Texture textureNPC1;
     sf::Texture textureNPC2;
     sf::Texture textureBicycle;
-    sf::Texture textureBacca;
-    sf::Texture texturePokeball;
-    sf::Texture texturetext1;
-    sf::Texture texturetext2;
+    sf::Texture textureBerry1;
+    sf::Texture textureBerry2;
+    sf::Texture texturePokeball1;
+    sf::Texture texturePokeball2;
     sf::Texture texturePlayerBike;
 
 
@@ -47,12 +47,12 @@ public:
     NPC NPC1;
     NPC NPC2;
 
-    NPC text1;
-    NPC text2;
 
     Item bicycle;
-    Item bacca;
-    Item pokeball;
+    Item berry1;
+    Item berry2;
+    Item pokeball1;
+    Item pokeball2;
 
     const int levelBackground[336] =
             {

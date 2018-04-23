@@ -8,14 +8,6 @@ void NPC::update() {
     sprite.setPosition(rect.getPosition());
 }
 
-bool NPC::getSpeak() const {
-    return speak;
-}
-
-void NPC::setSpeak(bool speak) {
-    NPC::speak = speak;
-}
-
 int NPC::generateRandom(int max) {
     int randomNum = rand();
     int random = (randomNum % max) + 1;
@@ -23,7 +15,24 @@ int NPC::generateRandom(int max) {
 }
 
 void NPC::move() {
-    if (direction == Character::Direction::Left && moveLeft) {
+    if (direction == Character::Direction::Up && moveUp) {
+        rect.move(0,-speed);
+        sprite.setTextureRect(sf::IntRect( counterWalking*32, 0, 32, 32));
+        if (rect.getPosition().y < 0) {
+            moveUp = false;
+        }
+
+
+    }
+    else if (direction == Character::Direction::Down && moveDown) {
+        rect.move(0, speed);
+        sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 * 1, 32, 32));
+        if (rect.getPosition().y > 550) {
+            moveDown = false;
+        }
+
+    }
+    else if (direction == Character::Direction::Left && moveLeft) {
         rect.move(-speed, 0);
         sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 * 2, 32, 32));
 
@@ -32,7 +41,8 @@ void NPC::move() {
 
         }
 
-    } else if (direction == Character::Direction::Right && moveRight) {
+    }
+    else if (direction == Character::Direction::Right && moveRight) {
         rect.move(speed, 0);
         sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 * 3, 32, 32));
 
@@ -41,29 +51,6 @@ void NPC::move() {
         }
 
 
-    } else if (direction == Character::Direction::Up && moveUp) {
-        rect.move(0,-speed);
-        sprite.setTextureRect(sf::IntRect( counterWalking*32, 0, 32, 32));
-        if (rect.getPosition().y < 0) {
-            moveUp = false;
-        }
-
-
-    } else if (direction == Character::Direction::Down && moveDown) {
-        rect.move(0, speed);
-        sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 * 1, 32, 32));
-        if (rect.getPosition().y > 550) {
-            moveDown = false;
-        }
-
-    }
-
-    if(getSpeak()){
-        moveDown = false;
-        moveUp = false;
-        moveRight = false;
-        moveLeft = false;
-        speed = 0;
     }
 
 
@@ -72,9 +59,9 @@ void NPC::move() {
         counterWalking = 0;
     }
 
-    counter++;
-    if (counter >= movementLength) {
-        direction = static_cast<Direction>(generateRandom(10));
-        counter = 0;
+    counterWalking1++;
+    if (counterWalking1 >= movementLength) {
+        direction = static_cast<Direction>(generateRandom(6));
+        counterWalking1 = 0;
     }
 }

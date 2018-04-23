@@ -1,42 +1,32 @@
-//
-//
-//
 
 #ifndef POKEMONVIDEOGAME_BULLET_H
 #define POKEMONVIDEOGAME_BULLET_H
 
-
+#include <SFML/Graphics.hpp>
 
 class Bullet {
-    public:
-    int getDirection()  {
-        return direction;
-    }
+    Bullet();
+
+    void update();
 
     void setDirection(int direction) {
         Bullet::direction = direction;
     }
 
-    float getPosX()  {
-        return posX;
-    }
+    int direction = 0;
+    bool isDestroyed = false;
 
-    void setPosX(float posX) {
-        Bullet::posX = posX;
-    }
+    sf::RectangleShape rect;
+    sf::Sprite sprite;
 
-    float getPosY() {
-        return posY;
-    }
-
-    void setPosY(float posY) {
-        Bullet::posY = posY;
-    }
 
 private:
-    float posX;
-    float posY;
-    int direction;
+    float movementSpeed = 10.0f;
+    int attackDamage = 3;
+    int counterLifeTime = 0;
+    int lifeTime = 50; //"lunghezza" del tratto del proiettile
+    int counterAnimation = 0;
+
 };
 
 

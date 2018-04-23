@@ -13,7 +13,7 @@ int main() {
     Graphic graphic;
     Collision collision;
 
-    int counter = 0;
+
     int counterNPC = 0;
     int counterItem = 0;
 
@@ -24,14 +24,7 @@ int main() {
     graphic.loadTextures();
     graphic.setFont();
 
-
-    //Load spritePlayer
     Player player;
-    player.sprite.setTexture(graphic.texturePlayer);
-    player.myTexture = graphic.texturePlayer;
-
-    player.textureExchange = graphic.texturePlayerBike;
-
 
     NPC npc;
 
@@ -46,12 +39,14 @@ int main() {
     NPCArray.push_back(graphic.NPC1);
     NPCArray.push_back(graphic.NPC2);
 
+    graphic.setItem();
     //Item vector array
     std::vector<Item> ItemArray;
-    graphic.setItem();
     ItemArray.push_back(graphic.bicycle);
-    ItemArray.push_back(graphic.bacca);
-    ItemArray.push_back(graphic.pokeball);
+    ItemArray.push_back(graphic.pokeball1);
+    ItemArray.push_back(graphic.pokeball2);
+    ItemArray.push_back(graphic.berry1);
+    ItemArray.push_back(graphic.berry2);
 
 
 
@@ -72,6 +67,17 @@ int main() {
 
 
         window.draw(map);
+
+        graphic.setText(player);
+
+        //Load spritePlayer
+        if(player.rideBicycle) {
+            player.sprite.setTexture(graphic.texturePlayerBike);
+        }
+        else if(!player.rideBicycle)
+        {
+            player.sprite.setTexture(graphic.texturePlayer);
+        }
 
         //update player
         player.update();
@@ -100,18 +106,18 @@ int main() {
 
 
         //delete item
-        counter = 0;
+        counterItem = 0;
         for(auto iter2 = ItemArray.begin(); iter2 != ItemArray.end(); iter2++){
-            if(ItemArray[counter].isPickedUp()){
+            if(ItemArray[counterItem].isPickedUp()){
                 ItemArray.erase(iter2);
 
                 break;
             }
-            counter++;
+            counterItem++;
         }
 
 
-        window.draw(player.textScore);
+        window.draw(player.text);
         window.draw(player.sprite);
 
 

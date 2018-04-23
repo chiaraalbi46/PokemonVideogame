@@ -7,7 +7,6 @@
 
 #include "Character.h"
 #include "Item.h"
-#include "Graphic.h"
 
 
 
@@ -18,7 +17,7 @@ public:
         rect.setSize(sf::Vector2f(25, 30));
         rect.setPosition(100, 100);
         rect.setFillColor(sf::Color::Transparent);
-        sprite.setTextureRect(sf::IntRect(0, counter * 30, 28, 30));
+        sprite.setTextureRect(sf::IntRect(0, counterWalking1 * 30, 28, 30));
     }
 
     ~Player() {}
@@ -28,22 +27,24 @@ public:
 
     void move() override;
 
-
+    int score = 0;
     int getScore() const;
     int increaseScore(int value);
 
-    void setRideBicycle(bool rideBicycle);
+    bool isBicyclePickUp() const;
+    void setBicyclePickUp(bool bicyclePickUp);
 
+    bool isStartBattle() const;
+    void setStartBattle(bool startBattle);
 
+    bool rideBicycle = false;
 
-    sf::Texture myTexture;
-    sf::Texture textureExchange;
+    bool startBattle = false;
 
 
 protected:
-    bool rideBicycle = false;
-
-    int score = 0;
+    bool bicyclePickUp = false;
+    int speed = 1;
 
 
 };

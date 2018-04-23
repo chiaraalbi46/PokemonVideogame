@@ -1,6 +1,4 @@
-//
-//
-//
+
 
 #ifndef POKEMONVIDEOGAME_ITEM_H
 #define POKEMONVIDEOGAME_ITEM_H
@@ -21,9 +19,6 @@ public:
 
     sf::Sprite sprite;
     sf::RectangleShape rect;
-
-    bool isTooken = false;
-
 
     int pokeballValue = 5;
 

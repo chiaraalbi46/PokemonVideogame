@@ -23,21 +23,6 @@ public:
 
     virtual void move () = 0;
 
-    bool isMoveRight() const;
-    void setMoveRight(bool moveRight);
-
-    bool isMoveDown() const;
-    void setMoveDown(bool moveDown);
-
-    bool isMoveLeft() const;
-    void setMoveLeft(bool moveLeft);
-
-    bool isMoveUp() const;
-    void setMoveUp(bool moveUp);
-
-    float getSpeed() const;
-    void setSpeed(float speed);
-
     Direction getDirection() const;
     void setDirection(Direction direction);
 
@@ -47,19 +32,21 @@ public:
     sf::RectangleShape rect;
     sf::Sprite sprite;
 
-    sf::Text textScore;
+    sf::Text text;
 
-
-protected:
-    std::string name;
-    float speed = 1;
     bool moveLeft = true;
     bool moveRight = true;
     bool moveUp = true;
     bool moveDown = true;
+
+
+protected:
+    std::string name;
+
     Direction direction = Direction::Down;
     int counterWalking = 0;
-    int counter = 0;
+    int counterWalking1 = 0;
+    int counterWalking2 = 0;
 
 
 
