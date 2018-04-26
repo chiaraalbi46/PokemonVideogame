@@ -2,8 +2,7 @@
 #ifndef POKEMONVIDEOGAME_POKEMON_H
 #define POKEMONVIDEOGAME_POKEMON_H
 
-
-#include "SpecialAttack.h"
+#include "Bullet.h"
 #include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
@@ -19,8 +18,6 @@ public:
     void update();
     void updateDirection();
 
-    int attack(Pokemon& ComputerPlayer);
-
     int getHp() const{
         return hp;
     }
@@ -29,18 +26,17 @@ public:
 
     int subtractHp();
 
-    bool isDead();
-
-    SpecialAttack* specialAttack;
 
     const string &getName() const;
     void setName(const string &name);
 
+    int challenge(Pokemon &ComputerPlayer, vector<Bullet> &bulletArray);
 
     sf::RectangleShape rect;
     sf::Sprite sprite;
 
 protected:
+    Bullet* bulletPtr;
     int direction = 0;
     int hp = 30;
     std::string name;

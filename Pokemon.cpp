@@ -7,12 +7,6 @@ void Pokemon::update() {
 
 Pokemon::~Pokemon() {}
 
-int Pokemon::attack(Pokemon &ComputerPlayer) {
-    specialAttack->useAttack();
-    if(isHit){
-        ComputerPlayer.subtractHp();
-    }
-}
 
 void Pokemon::updateDirection() {
 
@@ -32,11 +26,6 @@ int Pokemon::subtractHp() {
     return hp;
 }
 
-bool Pokemon::isDead() {
-    if(hp == 0)
-        return true;
-}
-
 int Pokemon::increaseHp() {
     hp = hp + 20 ;
 }
@@ -50,4 +39,57 @@ void Pokemon::setName(const string &name) {
 }
 
 
+int Pokemon::challenge(Pokemon &ComputerPlayer, vector<Bullet> &bulletArray){
+    Bullet bullet = *bulletPtr;
+
+    int shot = 0;
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        shot = 3;
+    }
+
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+
+        shot = 4;
+
+    }
+
+
+    switch (shot) {
+
+
+        case (3) :
+
+            bullet.rect.setPosition(rect.getPosition().x + rect.getSize().x / 2 - bullet.rect.getSize().x / 2,
+                                    rect.getPosition().y + rect.getSize().y / 2 - bullet.rect.getSize().y / 2);
+
+            bullet.setDirection(3);
+            bulletArray.push_back(bullet);
+            break;
+
+
+        case (4) :
+
+            bullet.rect.setPosition(rect.getPosition().x + rect.getSize().x / 2 - bullet.rect.getSize().x / 2,
+                                    rect.getPosition().y + rect.getSize().y / 2 - bullet.rect.getSize().y / 2);
+
+
+            bullet.setDirection(4);
+            bulletArray.push_back(bullet);
+
+            break;
+
+        default:
+
+            break;
+
+    }
+
+
+    if(isHit){
+        ComputerPlayer.subtractHp();
+    }
+
+}
 

@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 class Bullet {
+public:
     Bullet();
 
     void update();
@@ -18,6 +19,9 @@ class Bullet {
 
     sf::RectangleShape rect;
     sf::Sprite sprite;
+    sf::Texture attackTexture;
+
+    virtual int loadTexture();
 
 
 private:
@@ -26,6 +30,9 @@ private:
     int counterLifeTime = 0;
     int lifeTime = 50; //"lunghezza" del tratto del proiettile
     int counterAnimation = 0;
+
+protected:
+    int adder;
 
 };
 

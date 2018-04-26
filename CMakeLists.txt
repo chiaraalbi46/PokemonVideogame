@@ -4,8 +4,9 @@ project(PokemonVideogame)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES main.cpp Bullet.cpp Bullet.h Character.cpp Character.h Collision.cpp Collision.h Graphic.cpp Graphic.h Item.cpp Item.h
-        NPC.cpp NPC.h Player.cpp Player.h Pokemon.cpp Pokemon.h SpecialAttack.h TileMap.cpp TileMap.h PokemonFactory.cpp PokemonFactory.h
-        WaterPokemon.cpp WaterPokemon.h FirePokemon.cpp FirePokemon.h ElectricPokemon.cpp ElectricPokemon.h)
+        NPC.cpp NPC.h Player.cpp Player.h Pokemon.cpp Pokemon.h TileMap.cpp TileMap.h PokemonFactory.cpp PokemonFactory.h
+        WaterPokemon.cpp WaterPokemon.h FirePokemon.cpp FirePokemon.h ElectricPokemon.cpp ElectricPokemon.h WaterBullet.cpp
+        WaterBullet.h FireBullet.cpp FireBullet.h)
 add_executable(PokemonVideogame ${SOURCE_FILES})
 
 add_library(core ${SOURCE_FILES})

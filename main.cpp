@@ -5,7 +5,6 @@
 #include "Graphic.h"
 #include "TileMap.h"
 #include "Collision.h"
-#include "Item.h"
 #include <windows.h>
 
 int main() {
