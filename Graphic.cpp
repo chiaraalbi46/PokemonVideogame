@@ -2,8 +2,6 @@
 
 #include "Graphic.h"
 
-
-
 int Graphic::loadTextures() {
 
    //Texture player
@@ -46,7 +44,7 @@ int Graphic::loadTextures() {
 }
 
 void Graphic::setFont() {
-    font.loadFromFile("../Risorse/arial.ttf");
+    font.loadFromFile("../Risorse/pokemonnormal.ttf");
 }
 
 void Graphic::setNPC() {

@@ -148,3 +148,11 @@ void Player::setStartBattle(bool startBattle) {
     Player::startBattle = startBattle;
 }
 
+bool Player::isEnemy() const {
+    return enemy;
+}
+
+void Player::setEnemy(bool enemy) {
+    Player::enemy = enemy;
+}
+

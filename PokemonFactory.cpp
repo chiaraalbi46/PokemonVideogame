@@ -4,6 +4,7 @@
 #include "WaterPokemon.h"
 #include "FirePokemon.h"
 #include "ElectricPokemon.h"
+#include "GrassPokemon.h"
 
 
 PokemonFactory:: ~PokemonFactory(){}
@@ -19,6 +20,9 @@ Pokemon *PokemonFactory::createPokemon(PokemonType type) {
     }
     else if(type == PokemonType :: PokemonElectric){
         return new ElectricPokemon();
+    }
+    else if(type == PokemonType :: PokemonGrass) {
+        return new GrassPokemon();
     }
 
 }

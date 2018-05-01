@@ -24,12 +24,14 @@ public:
 
 
     void update();
-
     void move() override;
 
     int score = 0;
     int getScore() const;
     int increaseScore(int value);
+
+    bool isEnemy() const;
+    void setEnemy(bool enemy);
 
     bool isBicyclePickUp() const;
     void setBicyclePickUp(bool bicyclePickUp);
@@ -38,15 +40,27 @@ public:
     void setStartBattle(bool startBattle);
 
     bool rideBicycle = false;
-
     bool startBattle = false;
 
+    bool enemy0 = false;
+    bool enemy1 = false;
+    bool enemy2 = false;
+    bool enemy3 = false;
+
+    bool click0 = false;
+    bool click1 = false;
+    bool click2 = false;
+    bool click3 = false;
+    bool click4 = false;
+    bool click5 = false;
+    bool click6 = false;
+    bool click7 = false;
 
 protected:
     bool bicyclePickUp = false;
     int speed = 1;
 
-
+    bool enemy = false;         // E' il nemico
 };
 
 

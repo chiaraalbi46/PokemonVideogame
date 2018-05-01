@@ -26,7 +26,6 @@ public:
 
     int subtractHp();
 
-
     const string &getName() const;
     void setName(const string &name);
 
