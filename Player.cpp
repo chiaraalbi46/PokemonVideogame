@@ -7,7 +7,6 @@ void Player::update() {
     sprite.setPosition(rect.getPosition());
 }
 
-
 void Player :: move() {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&& moveUp) {
@@ -123,7 +122,6 @@ void Player :: move() {
 
 };
 
-
 int Player::increaseScore(int value) {
     score += value;
 }
@@ -131,28 +129,31 @@ int Player::getScore() const {
     return score;
 }
 
-
 bool Player::isBicyclePickUp() const {
     return bicyclePickUp;
 }
-
 void Player::setBicyclePickUp(bool bicyclePickUp) {
     Player::bicyclePickUp = bicyclePickUp;
-}
-
-bool Player::isStartBattle() const {
-    return startBattle;
-}
-
-void Player::setStartBattle(bool startBattle) {
-    Player::startBattle = startBattle;
 }
 
 bool Player::isEnemy() const {
     return enemy;
 }
-
 void Player::setEnemy(bool enemy) {
     Player::enemy = enemy;
+}
+
+bool Player::isCollGym() const {
+    return collGym;
+}
+void Player::setCollGym(bool collGym) {
+    Player::collGym = collGym;
+}
+
+bool Player::isEnterGym() const {
+    return enterGym;
+}
+void Player::setEnterGym(bool enterGym) {
+    Player::enterGym = enterGym;
 }
 

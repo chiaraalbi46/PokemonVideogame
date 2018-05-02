@@ -71,5 +71,36 @@ counterNPC = 0;
 
 };
 
+void Collision::collisionGym(Player &player, Graphic &graphic) {
+    if (player.rect.getGlobalBounds().intersects(graphic.gym.sprite.getGlobalBounds())) {
+
+        if (player.getDirection() == Character::Direction::Left) {
+
+            player.moveLeft = false;
+            player.rect.move(1, 0);
+            player.setDirection(Character::Direction::Left);
+
+        } else if (player.getDirection() == Character::Direction::Right) {
+
+            player.moveRight = false;
+            player.rect.move(-1, 0);
+            player.setDirection(Character::Direction::Right);
+
+        } else if (player.getDirection() == Character::Direction::Up) {
+            player.setCollGym(true);
+            player.moveUp = false;
+            player.rect.move(0, 1);
+            player.setDirection(Character::Direction::Up);
+
+        } else if (player.getDirection() == Character::Direction::Down) {
+
+            player.moveDown = false;
+            player.rect.move(0, -1);
+            player.setDirection(Character::Direction::Down);
+        }
+    }
+
+}
+
 
 

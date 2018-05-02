@@ -36,11 +36,13 @@ public:
     bool isBicyclePickUp() const;
     void setBicyclePickUp(bool bicyclePickUp);
 
-    bool isStartBattle() const;
-    void setStartBattle(bool startBattle);
+    bool isCollGym() const;
+    void setCollGym(bool collGym);
+
+    bool isEnterGym() const;
+    void setEnterGym(bool enterGym);
 
     bool rideBicycle = false;
-    bool startBattle = false;
 
     bool enemy0 = false;
     bool enemy1 = false;
@@ -57,9 +59,10 @@ public:
     bool click7 = false;
 
 protected:
+    bool collGym = false;
+    bool enterGym = false;   // Entra o no in palestra
     bool bicyclePickUp = false;
     int speed = 1;
-
     bool enemy = false;         // E' il nemico
 };
 

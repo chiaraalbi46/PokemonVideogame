@@ -11,7 +11,7 @@
 
 int main() {
     enum Gamestate {
-        Initialize, Playing
+        Initialize, Playing, Fighting
     };
 
     Gamestate gameState = Initialize;
@@ -26,7 +26,7 @@ int main() {
     int counterNPC = 0;
     int counterItem = 0;
 
-    sf::RenderWindow window(sf::VideoMode(800, 500), "Game");
+    sf::RenderWindow window(sf::VideoMode(900, 507), "Game");
 
     window.setFramerateLimit(60);
 
@@ -39,8 +39,10 @@ int main() {
 
     // Mappa
     TileMap map;
-    if (!map.load("../Risorse/tileset.png", sf::Vector2u(32, 32), graphic.levelBackground, 21, 16))
+    if (!map.load("../Risorse/tileset.png", sf::Vector2u(48, 48), graphic.levelBackground, 29, 16))
         return -1;
+
+    graphic.setBackgroundBattle(window, player);    // Set battaglia
 
     std::vector<Pokemon *> Array;   // Array pokemon generico
     Array.push_back(graphicPokemon.floatzel);
@@ -196,8 +198,22 @@ int main() {
 
         window.clear();
 
+        if (player.isEnterGym()) {
+            if (gameState == Playing) {
+                gameState = Fighting;
+            }
+        } else {
+            gameState = Playing;
+        }
 
-        window.draw(map);
+        if (gameState == Fighting) {
+            window.clear();
+            window.draw(graphic.spriteBattle);    // Disegna palestra sfondo
+            window.display();
+        }
+        else if (gameState == Playing) {
+            window.draw(map);
+        }
 
         if (gameState == Playing) {
             graphic.setText(player);
@@ -234,6 +250,8 @@ int main() {
             //collisions
             collision.collision(window, graphic, player, NPCArray, npc, ItemArray);
 
+            //collision gym
+            collision.collisionGym(player, graphic);
 
             //delete item
             counterItem = 0;
@@ -246,10 +264,13 @@ int main() {
                 counterItem++;
             }
 
-
+            window.draw(graphic.gym.sprite);
             window.draw(player.text);
             window.draw(player.sprite);
 
+            if (player.isCollGym()) {
+                graphic.setBattleText(window, player);
+            }
 
             window.display();
         }

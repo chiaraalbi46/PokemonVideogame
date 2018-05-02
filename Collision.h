@@ -12,17 +12,21 @@
 #include <vector>
 
 
+
 class Collision {
 
 public:
     void collision(sf:: RenderWindow &window, Graphic &graphic, Player &player, std::vector<NPC> &NPCArray,
                    NPC &npc, std:: vector<Item> &ItemArray);
 
+    void collisionGym(Player &player, Graphic &graphic);
+
 protected:
     int counterItem;
     int counterNPC;
 
 };
+
 
 
 #endif //POKEMONVIDEOGAME_COLLISION_H
