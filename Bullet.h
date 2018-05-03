@@ -2,43 +2,66 @@
 #ifndef POKEMONVIDEOGAME_BULLET_H
 #define POKEMONVIDEOGAME_BULLET_H
 
+using namespace std;
 #include <SFML/Graphics.hpp>
 
+enum class BulletType {BulletWater, BulletFire, BulletElectric, BulletGrass};
 class Bullet {
 public:
-    Bullet();
+    Bullet(){
+        rect.setSize(sf::Vector2f(48, 48));
+        rect.setPosition(30, 20); //di default
+        rect.setFillColor(sf::Color::Blue);
+        loadTexture();
+        loadEffectTexture();
+        adder = 0;
+    }
+    const string &getName() const;
+    void setName(const string &name);
+    void update(int &typeAttack, int& adder1);
+    void updateEffects ();
 
-    void update();
+    virtual int loadTexture();
+    virtual int loadEffectTexture();
 
     void setDirection(int direction) {
         Bullet::direction = direction;
     }
 
-    void setMovementSpeed(float movementSpeed){
-        Bullet::movementSpeed = movementSpeed;
-    }
+    BulletType getType() const;
+    void setType(BulletType type);
+
+    //attributi per gli spari
+    int counterLifeTime = 0;
+    int lifeTime; //"lunghezza" del tratto del proiettile
+
+    int counter = 0;
+    int counterAnimation = 0;
+
+    int counterAnimation1 = 0;
+
     int direction = 0;
     bool isDestroyed = false;
+    float attackDamage;
+
+    int adder;
 
     sf::RectangleShape rect;
     sf::Sprite sprite;
-    sf::Texture attackTexture;
+    sf::Texture attack1Texture;
+    sf::Texture attack2Texture;
+    sf::Texture attack3Texture;
 
-    virtual int loadTexture();
-
-    int attackDamage = 3;
-
-private:
-    float movementSpeed = 40.0f;
-
-    int counterLifeTime = 0;
-    int lifeTime = 50; //"lunghezza" del tratto del proiettile
-    int counterAnimation = 0;
+    sf::Sprite effect1;
+    sf::Texture effect1Texture;
 
 protected:
-    int adder;
+    float movementSpeed = 10;
+    string name;
+    BulletType type;
 
 };
+
 
 
 #endif //POKEMONVIDEOGAME_BULLET_H

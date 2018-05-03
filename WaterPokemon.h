@@ -10,6 +10,7 @@ public:
     WaterPokemon(){
         bulletPtr = new WaterBullet;
         isAlive = true;
+        type = PokemonType ::PokemonWater;
     }
 
     virtual ~WaterPokemon() {}

@@ -2,16 +2,12 @@
 #ifndef POKEMONVIDEOGAME_COLLISION_H
 #define POKEMONVIDEOGAME_COLLISION_H
 
+#include <SFML/Graphics.hpp>
+#include <vector>
 #include "NPC.h"
 #include "Player.h"
 #include "Graphic.h"
 #include "Item.h"
-#include "Bullet.h"
-#include "Pokemon.h"
-#include "Text.h"
-#include <vector>
-
-
 
 class Collision {
 
@@ -20,22 +16,15 @@ public:
 
     void collisionItem(Player &player, std:: vector<Item> &ItemArray);
 
-    void collisionNpcItem(Graphic &graphic, std:: vector<NPC> NPCArray);
-
     void collisionGym(Player &player, Graphic &graphic);
 
-    void PokemonAttack(Pokemon &pokemon, Bullet &bullet, vector<Bullet> &bulletArray, Player &player);
+    void collisionNpcItem(Graphic &graphic, std:: vector<NPC> NPCArray);
 
-    void BulletCollidesPokemon(vector<Pokemon> &pokemonOpponentArray, vector<Bullet> &bulletArray,
-                               Text &textDisplay, vector<Text> &textArray);
+    void PokemonAttack(Pokemon &pokemon, Bullet &bullet, vector<Bullet> &bulletArray, Player &player, int &adder1, Bullet &effect);
 
-private:
-    int counterBullet;
-    int countePokemon;
-
-
+    void BulletCollidesPokemon( Pokemon *pokemon,std:: vector<Bullet> &bulletArray, Bullet &effect,
+                                Text &textDisplay, std :: vector<Text> &textArray, float &a);
 };
-
 
 
 #endif //POKEMONVIDEOGAME_COLLISION_H

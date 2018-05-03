@@ -12,6 +12,7 @@ public:
     GrassPokemon(){
         bulletPtr = new GrassBullet;
         isAlive = true;
+        type = PokemonType ::PokemonGrass;
     }
 
     virtual ~GrassPokemon() {}

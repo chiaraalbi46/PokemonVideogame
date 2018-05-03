@@ -10,6 +10,7 @@ public:
     FirePokemon() {
         bulletPtr = new FireBullet;
         isAlive = true;
+        type = PokemonType ::PokemonFire;
     }
 
     virtual ~FirePokemon() {}

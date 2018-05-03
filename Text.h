@@ -8,9 +8,9 @@
 class Text {
 public:
     sf::Text text;
-    float movementSpeed = 2.0f;
+    float movementSpeed = 45;
     int counter = 0;
-    int lifeTime = 40;
+    int lifeTime = 3;
     bool isDestroyed = false;
 
     Text();

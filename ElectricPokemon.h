@@ -11,6 +11,7 @@ public:
     ElectricPokemon() {
         bulletPtr = new ElectricBullet;
         isAlive = true;
+        type = PokemonType ::PokemonElectric;
     }
 
     virtual ~ElectricPokemon() {}

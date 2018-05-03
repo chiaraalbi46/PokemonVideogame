@@ -10,7 +10,9 @@ public:
         rect.setFillColor(sf::Color:: Green);
         rect.setSize(sf::Vector2f(48, 48));
         loadTexture();
+        loadEffectTexture();
         adder = 1;
+        type = BulletType :: BulletGrass;
     }
 };
 

@@ -1,11 +1,11 @@
 
 #include "Pokemon.h"
 
+
 void Pokemon::update() {
     sprite.setPosition(rect.getPosition());
-}
 
-Pokemon::~Pokemon() {}
+}
 
 void Pokemon::updateDirection(Player &player) {
     if (!player.isSelect()) {
@@ -21,11 +21,20 @@ void Pokemon::updateDirection(Player &player) {
     }
 };
 
-
 const string &Pokemon::getName() const {
     return name;
 }
-
 void Pokemon::setName(const string &name) {
     Pokemon::name = name;
 }
+
+int Pokemon::getHp() const {
+    return hp;
+}
+
+PokemonType Pokemon::getType() const {
+    return type;
+}
+
+
+

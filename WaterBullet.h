@@ -12,7 +12,9 @@ public:
         rect.setSize(sf::Vector2f(48, 48));
         rect.setFillColor(sf::Color::Cyan);
         loadTexture();
+        loadEffectTexture();
         adder = 2;
+        type = BulletType :: BulletWater;
     }
 };
 

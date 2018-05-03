@@ -4,13 +4,15 @@
 
 #include "Bullet.h"
 
-class FireBullet : public Bullet {
+class FireBullet : public  Bullet  {
 public:
     FireBullet(){
-        rect.setFillColor(sf::Color::Yellow);
+        rect.setFillColor(sf::Color::Red);
         rect.setSize(sf::Vector2f(48, 48));
         loadTexture();
-        adder = 0;
+        loadEffectTexture();
+        adder = 3;
+        type = BulletType :: BulletFire;
     }
 };
 

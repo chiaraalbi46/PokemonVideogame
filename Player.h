@@ -13,7 +13,7 @@ public:
 
     Player() : Character() {
         rect.setSize(sf::Vector2f(25, 30));
-        rect.setPosition(100, 100);
+        rect.setPosition(420, 300);
         rect.setFillColor(sf::Color::Transparent);
         sprite.setTextureRect(sf::IntRect(0, counterWalking1 * 30, 28, 30));
     }
@@ -21,13 +21,11 @@ public:
     ~Player() {}
 
     void update();
+
     void move() override;
 
     int getScore() const;
     int increaseScore(int value);
-
-    bool isEnemy() const;
-    void setEnemy(bool enemy);
 
     bool isBicyclePickUp() const;
     void setBicyclePickUp(bool bicyclePickUp);
@@ -44,11 +42,19 @@ public:
     bool isSelectAttack() const;
     void setSelectAttack(bool selectAttack);
 
+    bool isEnemy() const;
+    void setEnemy(bool enemy);
+
     bool isEnemyTurn() const;
     void setEnemyTurn(bool enemyTurn);
 
-    int score = 0;
+    bool isAttack() const;
+    void setAttack(bool attack);
+
+    int vel = 0; // velocità collisione
+
     bool rideBicycle = false;
+    int score = 0;
 
     bool pokemon0 = true;
     bool pokemon1 = false;
@@ -69,16 +75,40 @@ public:
     bool click6 = false;
     bool click7 = false;
 
-protected:
-    bool collGym = false;
-    bool enterGym = false;   // Entra o no in palestra
-    bool bicyclePickUp = false;
-    int speed = 1;
-    bool enemy = false;         // E' il nemico
-    bool select = false;
-    bool selectAttack = false;
-    bool enemyTurn = false;
-};
+    bool enemyAttack = false;   // Fa attaccare nemico
 
+    bool options = true;
+
+    bool isCambio() const;
+    void setCambio(bool cambio);
+
+    bool isFight() const;
+    void setFight(bool fight);
+
+    bool isGameRestart() const;
+    void setGameRestart(bool gameRestart);
+
+    bool textBicycle = false;
+
+    bool textLost1 = false;
+    bool textLost2 = false;
+
+    bool playing = false;
+    bool fighting = false;
+protected:
+    bool fight = true;
+    bool gameRestart = false;
+    bool cambio = true;    // cambia pokemon quando muore un altro
+    int speed = 1;
+    bool bicyclePickUp = false;
+    bool collGym = false;
+    bool enterGym = false;      // Entra o no in palestra
+    bool select = false;        // Seleziona pokemon
+    bool selectAttack = false;  // scelgo il mio attacco
+    bool attack = false;        // il mio pokemon attacca
+    bool enemy = false;         // E' il nemico
+    bool enemyTurn = false;
+
+};
 
 #endif //POKEMONVIDEOGAME_PLAYER_H
