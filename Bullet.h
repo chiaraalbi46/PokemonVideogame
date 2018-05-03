@@ -14,6 +14,9 @@ public:
         Bullet::direction = direction;
     }
 
+    void setMovementSpeed(float movementSpeed){
+        Bullet::movementSpeed = movementSpeed;
+    }
     int direction = 0;
     bool isDestroyed = false;
 
@@ -23,10 +26,11 @@ public:
 
     virtual int loadTexture();
 
+    int attackDamage = 3;
 
 private:
-    float movementSpeed = 10.0f;
-    int attackDamage = 3;
+    float movementSpeed = 40.0f;
+
     int counterLifeTime = 0;
     int lifeTime = 50; //"lunghezza" del tratto del proiettile
     int counterAnimation = 0;

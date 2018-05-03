@@ -5,7 +5,7 @@
 
 #include "Pokemon.h"
 
-enum class PokemonType {PokemonWater, PokemonFire, PokemonElectric};
+enum class PokemonType {PokemonWater, PokemonFire, PokemonElectric, PokemonGrass};
 
 class PokemonFactory {
 public:

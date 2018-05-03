@@ -3,10 +3,15 @@
 #define POKEMONVIDEOGAME_WATERPOKEMON_H
 
 #include "Pokemon.h"
+#include "WaterBullet.h"
 
 class WaterPokemon : public Pokemon {
 public:
-    WaterPokemon(){}
+    WaterPokemon(){
+        bulletPtr = new WaterBullet;
+        isAlive = true;
+    }
+
     virtual ~WaterPokemon() {}
 
 };

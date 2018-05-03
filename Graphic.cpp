@@ -2,11 +2,9 @@
 
 #include "Graphic.h"
 
-
-
 int Graphic::loadTextures() {
 
-   //Texture player
+    //Texture player
     if (!texturePlayer.loadFromFile("../Risorse/player.png")) {
         return EXIT_FAILURE;
     }
@@ -43,10 +41,15 @@ int Graphic::loadTextures() {
         return EXIT_FAILURE;
     }
 
+    //load gym texture
+    if (!textureGym.loadFromFile("../Risorse/gym.png")) {
+        return EXIT_FAILURE;
+    }
+
 }
 
 void Graphic::setFont() {
-    font.loadFromFile("../Risorse/arial.ttf");
+    font.loadFromFile("../Risorse/pokemonnormal.ttf");
 }
 
 void Graphic::setNPC() {
@@ -87,6 +90,10 @@ void Graphic:: setItem(){
     pokeball2.rect.setPosition(250, 150);
     pokeball2.sprite.setTexture(texturePokeball2);
 
+    gym.setType("Gym");
+    gym.rect.setSize(sf::Vector2f(206, 128));
+    gym.sprite.setPosition(370, 0);
+    gym.sprite.setTexture(textureGym);
 }
 
 void Graphic::setText(Player &player) {
@@ -100,6 +107,51 @@ void Graphic::setText(Player &player) {
     player.text.setPosition(5, 5);
 
 }
+
+
+int Graphic ::setBattleText(sf::RenderWindow &window, Player &player) {
+
+    if(player.isCollGym()) {
+        textBattle.setString("Do you want to fight? \n  YES \n \n  NO  ");
+        textBattle.setFont(font);
+        textBattle.setFillColor(sf::Color::Black);
+        textBattle.setPosition(370, 130);
+        textBattle.setCharacterSize(20);
+        window.draw(textBattle);
+        window.display();
+    }
+
+    sf::Event event;
+    while (true) {
+        while (window.pollEvent(event)) {
+            if (sf::Mouse::getPosition(window).x > 380 && sf::Mouse::getPosition(window).x < 460 &&
+                sf::Mouse::getPosition(window).y > 150 && sf::Mouse::getPosition(window).y < 190 &&
+                sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                player.setEnterGym(true);
+                player.setCollGym(false);
+                return 0;
+            }
+            else if (sf::Mouse::getPosition(window).x > 380 && sf::Mouse::getPosition(window).x < 460 &&
+                     sf::Mouse::getPosition(window).y > 210 && sf::Mouse::getPosition(window).y < 260 &&
+                     sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                player.setEnterGym(false);
+                player.setCollGym(false);
+
+                return 0;
+            }
+        }
+    }
+};
+
+int Graphic :: setBackgroundBattle(sf::RenderWindow &window, Player &player) {
+    // Load Background
+    if (!textureBattle.loadFromFile("../Risorse/backgroundbattle.png")) {
+        return EXIT_FAILURE;
+    }
+    spriteBattle.setTexture(textureBattle);
+    spriteBattle.setPosition(0, 0);
+}
+
 
 
 

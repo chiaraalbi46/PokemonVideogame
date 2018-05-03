@@ -7,10 +7,12 @@
 
 class FirePokemon : public Pokemon{
 public:
-    FirePokemon() {}
+    FirePokemon() {
+        bulletPtr = new FireBullet;
+        isAlive = true;
+    }
+
     virtual ~FirePokemon() {}
-
 };
-
 
 #endif //POKEMONVIDEOGAME_FIREPOKEMON_H

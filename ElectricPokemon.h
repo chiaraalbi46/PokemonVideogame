@@ -4,10 +4,14 @@
 #define POKEMONVIDEOGAME_ELECTRICPOKEMON_H
 
 #include "Pokemon.h"
+#include "ElectricBullet.h"
 
 class ElectricPokemon : public Pokemon{
 public:
-    ElectricPokemon() {}
+    ElectricPokemon() {
+        bulletPtr = new ElectricBullet;
+        isAlive = true;
+    }
 
     virtual ~ElectricPokemon() {}
 };

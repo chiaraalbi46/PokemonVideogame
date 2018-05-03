@@ -1,21 +1,22 @@
 
 #include "Bullet.h"
 
-Bullet::Bullet() {
+Bullet :: Bullet(){
     rect.setSize(sf::Vector2f(32, 32));
-    rect.setPosition(30, 20);
+    rect.setPosition(30, 20); //di default
     rect.setFillColor(sf::Color::Blue);
+    loadTexture();
     adder = 0;
 }
 
 void Bullet::update() {
 
-    if(direction == 3) {//Left
+    if(direction == 1) {//Left
         rect.move(-movementSpeed, 0);
         sprite.setTextureRect(sf::IntRect(adder*32 + counterAnimation*32, 32*2, 32, 32));
     }
 
-    if(direction == 4) {//Right
+    if(direction == 2) {//Right
         rect.move(movementSpeed, 0);
         sprite.setTextureRect(sf::IntRect(adder*32 + counterAnimation*32, 32*3 , 32, 32));
     }

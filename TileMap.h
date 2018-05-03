@@ -1,6 +1,4 @@
-//
-//
-//
+
 
 #ifndef POKEMONVIDEOGAME_TILEMAP_H
 #define POKEMONVIDEOGAME_TILEMAP_H

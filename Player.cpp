@@ -7,7 +7,6 @@ void Player::update() {
     sprite.setPosition(rect.getPosition());
 }
 
-
 void Player :: move() {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&& moveUp) {
@@ -123,7 +122,6 @@ void Player :: move() {
 
 };
 
-
 int Player::increaseScore(int value) {
     score += value;
 }
@@ -131,20 +129,55 @@ int Player::getScore() const {
     return score;
 }
 
-
 bool Player::isBicyclePickUp() const {
     return bicyclePickUp;
 }
-
 void Player::setBicyclePickUp(bool bicyclePickUp) {
     Player::bicyclePickUp = bicyclePickUp;
 }
 
-bool Player::isStartBattle() const {
-    return startBattle;
+bool Player::isEnemy() const {
+    return enemy;
+}
+void Player::setEnemy(bool enemy) {
+    Player::enemy = enemy;
 }
 
-void Player::setStartBattle(bool startBattle) {
-    Player::startBattle = startBattle;
+bool Player::isCollGym() const {
+    return collGym;
+}
+void Player::setCollGym(bool collGym) {
+    Player::collGym = collGym;
+}
+
+bool Player::isEnterGym() const {
+    return enterGym;
+}
+void Player::setEnterGym(bool enterGym) {
+    Player::enterGym = enterGym;
+}
+
+bool Player::isSelect() const {
+    return select;
+}
+
+void Player::setSelect(bool select) {
+    Player::select = select;
+}
+
+bool Player::isSelectAttack() const {
+    return selectAttack;
+}
+
+void Player::setSelectAttack(bool selectAttack) {
+    Player::selectAttack = selectAttack;
+}
+
+bool Player::isEnemyTurn() const {
+    return enemyTurn;
+}
+
+void Player::setEnemyTurn(bool enemyTurn) {
+    Player::enemyTurn = enemyTurn;
 }
 
