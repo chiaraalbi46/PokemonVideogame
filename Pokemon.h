@@ -3,20 +3,27 @@
 #define POKEMONVIDEOGAME_POKEMON_H
 
 #include "Bullet.h"
+#include "Player.h"
 #include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include "FireBullet.h"
 
 using namespace std;
 
 class Pokemon {
 public:
-    Pokemon() {}
+    Pokemon() {
+        rect.setSize(sf::Vector2f(200, 218));
+        sprite.setTextureRect(sf::IntRect(186, 0, 185, 218));
+        rect.setPosition(70, 180);
+        hp = 400;
+    }
 
     virtual ~Pokemon();
 
     void update();
-    void updateDirection();
+    void updateDirection(Player &player);
 
     int getHp() const{
         return hp;
@@ -29,17 +36,15 @@ public:
     const string &getName() const;
     void setName(const string &name);
 
-    int challenge(Pokemon &ComputerPlayer, vector<Bullet> &bulletArray);
+    Bullet *bulletPtr;
+    int direction = 0;
 
     sf::RectangleShape rect;
     sf::Sprite sprite;
 
 protected:
-    Bullet* bulletPtr;
-    int direction = 0;
-    int hp = 30;
     std::string name;
-
+    int hp = 30;
     bool isHit;
 
 };

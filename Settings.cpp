@@ -120,3 +120,101 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
         window.display();
     }
 }
+
+int Settings::choosePokemon(sf::RenderWindow &window, int &choosen2, std::vector<Pokemon*> PokemonArray, GraphicPokemon &graphicPokemon,Player &player) {
+    if(player.isSelect()) {
+        int counterPok = 0;
+        int pos = 0;
+        for (auto iter3 = PokemonArray.begin(); iter3 != PokemonArray.end(); iter3++) {
+            PokemonArray[counterPok]->updateDirection(player);
+            PokemonArray[counterPok]->sprite.setPosition(10, 10 + pos);
+            window.draw(PokemonArray[counterPok]->sprite);
+            counterPok++;
+            pos = pos + 50;
+        }
+        window.display();
+    }
+
+    sf::Event event;
+    while (true) {
+        while (window.pollEvent(event)) {
+            if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 163 &&
+                sf::Mouse::getPosition(window).y > 20 && sf::Mouse::getPosition(window).y < 60 &&
+                sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                choosen2 = 0;
+                player.setSelect(false);
+                player.pokemon0 = true;
+                player.pokemon1 = false;
+                player.pokemon2 = false;
+                player.pokemon3 = false;
+                return 0;
+            }
+            else if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 163 &&
+                     sf::Mouse::getPosition(window).y > 70 && sf::Mouse::getPosition(window).y < 110 &&
+                     sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                choosen2 = 1;
+                player.setSelect(false);
+                player.pokemon0 = false;
+                player.pokemon1 = true;
+                player.pokemon2 = false;
+                player.pokemon3 = false;
+                return 0;
+            }
+            else if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 163 &&
+                     sf::Mouse::getPosition(window).y > 130 && sf::Mouse::getPosition(window).y < 170 &&
+                     sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                player.setSelect(false);
+                player.pokemon0 = false;
+                player.pokemon1 = false;
+                player.pokemon2 = true;
+                player.pokemon3 = false;
+                choosen2 = 2;
+                return 0;
+            }
+            else if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 163 &&
+                     sf::Mouse::getPosition(window).y > 140 && sf::Mouse::getPosition(window).y < 180 &&
+                     sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                choosen2 = 3;
+                player.setSelect(false);
+                player.pokemon0 = false;
+                player.pokemon1 = false;
+                player.pokemon2 = false;
+                player.pokemon3 = true;
+                return 0;
+            }
+        }
+    }
+}
+
+
+
+int Settings ::chooseOptions(sf::RenderWindow &window, Player &player) {
+    sf::Texture optionsTexture;
+    if (!optionsTexture.loadFromFile("../Risorse/options.png")) {
+        return EXIT_FAILURE;
+    }
+    sf:: Sprite options;
+    options.setTexture(optionsTexture);// Mostra opzioni scelta
+    options.setPosition(100, 400);
+    window.draw(options);
+    window.display();
+
+    sf::Event event;
+    while (true) {
+        while (window.pollEvent(event)) {
+            if (sf::Mouse::getPosition(window).x > 100 && sf::Mouse::getPosition(window).x < 313 &&
+                sf::Mouse::getPosition(window).y > 400 && sf::Mouse::getPosition(window).y < 455 &&
+                sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                player.setSelect(true);
+                return 0;
+            }
+            else if (sf::Mouse::getPosition(window).x > 100 && sf::Mouse::getPosition(window).x < 313 &&
+                     sf::Mouse::getPosition(window).y > 460 && sf::Mouse::getPosition(window).y < 510 &&
+                     sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                player.setSelectAttack(true);
+                return 0;
+            }
+        }
+    }
+};
+

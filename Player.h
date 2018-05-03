@@ -22,11 +22,9 @@ public:
 
     ~Player() {}
 
-
     void update();
     void move() override;
 
-    int score = 0;
     int getScore() const;
     int increaseScore(int value);
 
@@ -42,7 +40,22 @@ public:
     bool isEnterGym() const;
     void setEnterGym(bool enterGym);
 
+    bool isSelect() const;
+    void setSelect(bool select);
+
+    bool isSelectAttack() const;
+    void setSelectAttack(bool selectAttack);
+
+    bool isEnemyTurn() const;
+    void setEnemyTurn(bool enemyTurn);
+
+    int score = 0;
     bool rideBicycle = false;
+
+    bool pokemon0 = true;
+    bool pokemon1 = false;
+    bool pokemon2 = false;
+    bool pokemon3 = false;
 
     bool enemy0 = false;
     bool enemy1 = false;
@@ -64,6 +77,9 @@ protected:
     bool bicyclePickUp = false;
     int speed = 1;
     bool enemy = false;         // E' il nemico
+    bool select = false;
+    bool selectAttack = false;
+    bool enemyTurn = false;
 };
 
 

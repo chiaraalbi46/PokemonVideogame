@@ -7,19 +7,19 @@ void Pokemon::update() {
 
 Pokemon::~Pokemon() {}
 
-
-void Pokemon::updateDirection() {
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        direction = 3;
-        sprite.setTextureRect(sf::IntRect(28, 0, 28, 30));
+void Pokemon::updateDirection(Player &player) {
+    if (!player.isSelect()) {
+        direction = 2;
+        sprite.setTextureRect(sf::IntRect(186, 0, 185, 218));
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        direction = 4;
-        sprite.setTextureRect(sf::IntRect(28 * 3, 0, 28, 30));
+    else {
+        sprite.setTextureRect(sf::IntRect( 367 , 0, 115 , 60));
     }
-
-}
+    if (player.isEnemy()) {
+        direction = 1;
+        sprite.setTextureRect(sf::IntRect(0, 0, 182, 218));
+    }
+};
 
 int Pokemon::subtractHp() {
     hp -= 20;
@@ -37,59 +37,3 @@ const string &Pokemon::getName() const {
 void Pokemon::setName(const string &name) {
     Pokemon::name = name;
 }
-
-
-int Pokemon::challenge(Pokemon &ComputerPlayer, vector<Bullet> &bulletArray){
-    Bullet bullet = *bulletPtr;
-
-    int shot = 0;
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        shot = 3;
-    }
-
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-
-        shot = 4;
-
-    }
-
-
-    switch (shot) {
-
-
-        case (3) :
-
-            bullet.rect.setPosition(rect.getPosition().x + rect.getSize().x / 2 - bullet.rect.getSize().x / 2,
-                                    rect.getPosition().y + rect.getSize().y / 2 - bullet.rect.getSize().y / 2);
-
-            bullet.setDirection(3);
-            bulletArray.push_back(bullet);
-            break;
-
-
-        case (4) :
-
-            bullet.rect.setPosition(rect.getPosition().x + rect.getSize().x / 2 - bullet.rect.getSize().x / 2,
-                                    rect.getPosition().y + rect.getSize().y / 2 - bullet.rect.getSize().y / 2);
-
-
-            bullet.setDirection(4);
-            bulletArray.push_back(bullet);
-
-            break;
-
-        default:
-
-            break;
-
-    }
-
-
-    if(isHit){
-        ComputerPlayer.subtractHp();
-    }
-
-}
-

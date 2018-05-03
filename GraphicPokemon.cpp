@@ -72,11 +72,12 @@ void GraphicPokemon :: setPokemon(){
     bulbasaur->sprite.setTexture(textureBulbasaur);
 }
 
-void GraphicPokemon::setPokemonOpponent(sf::RenderWindow &window, vector <Pokemon*> &PokemonEnemyArray, Player &player, int &choosen4) {
+void GraphicPokemon::setPokemonOpponent(sf::RenderWindow &window, vector <Pokemon*> &PokemonEnemyArray, Player &player,
+                                        int &choosen4) {
     player.setEnemy(true);
     PokemonEnemyArray[choosen4]->rect.setPosition(600, 180);
     PokemonEnemyArray[choosen4]->update();
-    PokemonEnemyArray[choosen4]->updateDirection();
+    PokemonEnemyArray[choosen4]->updateDirection(player);
     window.draw(PokemonEnemyArray[choosen4]->sprite);
 }
 

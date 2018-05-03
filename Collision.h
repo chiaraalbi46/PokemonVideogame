@@ -9,6 +9,8 @@
 #include "Player.h"
 #include "Graphic.h"
 #include "Item.h"
+#include "Bullet.h"
+#include "Pokemon.h"
 #include <vector>
 
 
@@ -20,6 +22,8 @@ public:
                    NPC &npc, std:: vector<Item> &ItemArray);
 
     void collisionGym(Player &player, Graphic &graphic);
+
+
 
 protected:
     int counterItem;

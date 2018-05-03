@@ -25,6 +25,8 @@ int main() {
 
     int counterNPC = 0;
     int counterItem = 0;
+    int counterBullet = 0;
+    int counterPok = 0;
 
     sf::RenderWindow window(sf::VideoMode(900, 507), "Game");
 
@@ -34,8 +36,9 @@ int main() {
     graphic.setFont();
 
     Player player;
-
     NPC npc;
+
+    sf::Clock clock;
 
     // Mappa
     TileMap map;
@@ -43,6 +46,8 @@ int main() {
         return -1;
 
     graphic.setBackgroundBattle(window, player);    // Set battaglia
+    graphicPokemon.loadTexturePokemon(player);
+    graphicPokemon.setPokemon();
 
     std::vector<Pokemon *> Array;   // Array pokemon generico
     Array.push_back(graphicPokemon.floatzel);
@@ -161,12 +166,10 @@ int main() {
 
             counterPok++;
         }
-
         gameState = Playing;
     }
 
-
-    //Enemy vector array
+   //Enemy vector array
     std::vector<NPC> NPCArray;
     graphic.setNPC();
     NPCArray.push_back(graphic.NPC1);
@@ -181,7 +184,9 @@ int main() {
     ItemArray.push_back(graphic.berry1);
     ItemArray.push_back(graphic.berry2);
 
-
+    // Bullet Vector Array
+    Bullet bullet;
+    std::vector<Bullet> bulletArray;
 
     while (window.isOpen()) {
 
@@ -209,7 +214,6 @@ int main() {
         if (gameState == Fighting) {
             window.clear();
             window.draw(graphic.spriteBattle);    // Disegna palestra sfondo
-            window.display();
         }
         else if (gameState == Playing) {
             window.draw(map);
@@ -274,7 +278,48 @@ int main() {
 
             window.display();
         }
+        if (gameState == Fighting) {
+            int choosen2 = 0;    //scelta pokemon
+            graphicPokemon.setPokemonOpponent(window, PokemonEnemyArray, player, choosen2);
+            player.setEnemy(false);  // direzione != 1
 
+            if (player.pokemon0) {
+                PokemonArray[0]->update();
+                choosen2 = 0;
+                window.draw(PokemonArray[0]->sprite);
+            } else if (player.pokemon1) {
+                PokemonArray[1]->update();
+                choosen2 = 1;
+                window.draw(PokemonArray[1]->sprite);
+            } else if (player.pokemon2) {
+                PokemonArray[2]->update();
+                choosen2 = 2;
+                window.draw(PokemonArray[2]->sprite);
+            }
+            else if (player.pokemon3){
+                PokemonArray[3]->update();
+                choosen2 = 3;
+                window.draw(PokemonArray[3]->sprite);
+            }
+            settings.chooseOptions(window, player); // Attacca o Cambia pokemon
+            window.display();
+
+            if (player.isSelect()) {
+                settings.choosePokemon(window, choosen2, PokemonArray, graphicPokemon, player);
+                PokemonArray[choosen2]->updateDirection(player);
+                PokemonArray[choosen2]->update();
+                if(choosen2 == 0){
+                    window.draw(PokemonArray[0]->sprite);
+                }
+                else if (choosen2 == 1){
+                    window.draw(PokemonArray[1]->sprite);
+                }
+                else {
+                    window.draw(PokemonArray[2]->sprite);
+                }
+                window.display();
+            }
+        }
     }
 
     return 0;

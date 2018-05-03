@@ -6,11 +6,16 @@
 
 #include "Bullet.h"
 
-class WaterBullet : public Bullet {
+class WaterBullet: public Bullet{
 public:
-    WaterBullet();
-
+    WaterBullet(){
+        rect.setSize(sf::Vector2f(48, 48));
+        rect.setFillColor(sf::Color::Cyan);
+        loadTexture();
+        adder = 2;
+    }
 };
+
 
 
 #endif //POKEMONVIDEOGAME_WATERBULLET_H

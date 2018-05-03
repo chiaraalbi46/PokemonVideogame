@@ -9,8 +9,6 @@ class FirePokemon : public Pokemon{
 public:
     FirePokemon() {}
     virtual ~FirePokemon() {}
-
 };
-
 
 #endif //POKEMONVIDEOGAME_FIREPOKEMON_H

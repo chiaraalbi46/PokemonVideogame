@@ -157,3 +157,27 @@ void Player::setEnterGym(bool enterGym) {
     Player::enterGym = enterGym;
 }
 
+bool Player::isSelect() const {
+    return select;
+}
+
+void Player::setSelect(bool select) {
+    Player::select = select;
+}
+
+bool Player::isSelectAttack() const {
+    return selectAttack;
+}
+
+void Player::setSelectAttack(bool selectAttack) {
+    Player::selectAttack = selectAttack;
+}
+
+bool Player::isEnemyTurn() const {
+    return enemyTurn;
+}
+
+void Player::setEnemyTurn(bool enemyTurn) {
+    Player::enemyTurn = enemyTurn;
+}
+
