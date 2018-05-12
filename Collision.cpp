@@ -1,5 +1,3 @@
-
-#include <iostream>
 #include "Collision.h"
 
 
@@ -37,10 +35,11 @@ void Collision ::collisionNPC(Player &player, std::vector<NPC> &NPCArray, NPC &n
     }
 }
 
-void Collision ::collisionItem(Player &player, std :: vector<Item> &ItemArray) {
+void Collision ::collisionItem(Player &player, std :: vector<Item> &ItemArray, Graphic &graphic) {
     //player collides object
     for (auto itr = ItemArray.begin(); itr != ItemArray.end(); itr++) {
         if (player.rect.getGlobalBounds().intersects(itr->rect.getGlobalBounds())) {
+            graphic.soundItem.play();
 
             if (itr->getType() == "bicycle" ) {
                 player.setBicyclePickUp(true);
@@ -55,41 +54,71 @@ void Collision ::collisionItem(Player &player, std :: vector<Item> &ItemArray) {
 
 };
 
-void Collision ::collisionNpcItem(Graphic &graphic, std:: vector<NPC> NPCArray) {
-    for (auto iter = NPCArray.begin(); iter != NPCArray.end(); iter++) {
-        if (iter->sprite.getGlobalBounds().intersects(graphic.gym.sprite.getGlobalBounds())) {
+/*
+void Collision ::collisionNpcItem(Graphic &graphic, std:: vector<NPC> NPCArray, std:: vector<sf:: RectangleShape> &wallArray ) {
 
-            if (iter->getDirection() == Character::Direction::Left) {
+    for (auto iter = wallArray.begin(); iter != wallArray.end(); iter++) {
+        for (auto iter1 = NPCArray.begin(); iter1 != NPCArray.end(); iter1++) {
+            if (iter1->rect.getGlobalBounds().intersects(iter1->rect.getGlobalBounds())) {
 
-                iter->moveLeft = false;
-                iter->rect.move(1, 0);
-                iter->setDirection(Character::Direction::Left);
+                if (iter1->getDirection() == Character::Direction::Left) {
+                iter1->moveLeft = false;
+                iter1->rect.move(0.5, 0);
+                iter1->setDirection(Character::Direction::Left);
 
-            } else if (iter->getDirection() == Character::Direction::Right) {
+                }
+                else if (iter1->getDirection() == Character::Direction::Right) {
 
-                iter->moveRight = false;
-                iter->rect.move(-1, 0);
-                iter->setDirection(Character::Direction::Right);
+                iter1->moveRight = false;
+                iter1->rect.move(-0.5f, 0);
+                iter1->setDirection(Character::Direction::Right);
 
-            } else if (iter->getDirection() == Character::Direction::Up) {
-                iter->moveUp = false;
-                iter->rect.move(0, 1);
-                iter->setDirection(Character::Direction::Up);
+                } else if (iter1->getDirection() == Character::Direction::Up) {
+                iter1->moveUp = false;
+                iter1->rect.move(0, 0.5);
+                iter1->setDirection(Character::Direction::Up);
 
-            } else if (iter->getDirection() == Character::Direction::Down) {
+            }
+            else if (iter1->getDirection() == Character::Direction::Down) {
 
-                iter->moveDown = false;
-                iter->rect.move(0, -1);
-                iter->setDirection(Character::Direction::Down);
+                iter1->moveDown = false;
+                iter1->rect.move(0, -0.5f);
+                iter1->setDirection(Character::Direction::Down);
             }
         }
     }
 
 
+}*/
+
+void Collision ::collisionMap(Player &player, std::vector<sf:: RectangleShape> &mapArray) {
+    for (auto iter = mapArray.begin(); iter != mapArray.end(); iter++) {
+        if (player.rect.getGlobalBounds().intersects(iter->getGlobalBounds())) {
+
+            if (player.getDirection() == Character::Direction::Left) {
+                player.moveLeft = false;
+                player.rect.move(1 + player.vel, 0);
+                player.setDirection(Character::Direction::Left);
+            } else if (player.getDirection() == Character::Direction::Right) {
+                player.moveRight = false;
+                player.rect.move(-1 - player.vel, 0);
+                player.setDirection(Character::Direction::Right);
+            } else if (player.getDirection() == Character::Direction::Up) {
+                player.moveUp = false;
+                player.rect.move(0, 1 + player.vel);
+                player.setDirection(Character::Direction::Up);
+
+            } else if (player.getDirection() == Character::Direction::Down) {
+                player.moveDown = false;
+                player.rect.move(0, -1 - player.vel);
+                player.setDirection(Character::Direction::Down);
+            }
+        }
+    }
 }
 
 void Collision::collisionGym(Player &player, Graphic &graphic) {
-    if (player.rect.getGlobalBounds().intersects(graphic.gym.sprite.getGlobalBounds())) {
+    if (player.rect.getGlobalBounds().intersects(graphic.gym.getGlobalBounds())) {
 
         if (player.getDirection() == Character::Direction::Left) {
 
@@ -141,12 +170,11 @@ void Collision::PokemonAttack(Pokemon &pokemon, Bullet &bullet, vector<Bullet> &
 
 //Collisioni bullet - pokemon avversario
 void Collision::BulletCollidesPokemon(Pokemon *pokemon, vector<Bullet> &bulletArray, Bullet &effect, Text &textDisplay,
-                                      std :: vector<Text> &textArray, float &a) {
+                                      std :: vector<Text> &textArray, float &a, Graphic &graphic) {
     for (auto iter = bulletArray.begin(); iter != bulletArray.end(); iter++) {
         if (iter->rect.getGlobalBounds().intersects(pokemon->rect.getGlobalBounds())) {
             effect.updateEffects();    // Effetti
             a = a + 0.1f;
-
             //Debolezze
             if(pokemon->getType() == PokemonType ::PokemonFire && iter->getType() == BulletType ::BulletWater){
                 iter->attackDamage += 3;
@@ -174,6 +202,7 @@ void Collision::BulletCollidesPokemon(Pokemon *pokemon, vector<Bullet> &bulletAr
             if(pokemon->getType() == PokemonType ::PokemonGrass && iter->getType() == BulletType ::BulletElectric){
                 iter->attackDamage -= 1;
             }
+
 
             cout << "I punti vita di " << pokemon->getName() << " sono  " << pokemon->getHp() << endl;
             pokemon->hp = pokemon->hp - iter->attackDamage;

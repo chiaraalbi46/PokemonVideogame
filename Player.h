@@ -3,6 +3,7 @@
 #ifndef POKEMONVIDEOGAME_PLAYER_H
 #define POKEMONVIDEOGAME_PLAYER_H
 
+
 #include "Character.h"
 #include "Item.h"
 
@@ -13,7 +14,7 @@ public:
 
     Player() : Character() {
         rect.setSize(sf::Vector2f(25, 30));
-        rect.setPosition(420, 300);
+        rect.setPosition(1200, 800);
         rect.setFillColor(sf::Color::Transparent);
         sprite.setTextureRect(sf::IntRect(0, counterWalking1 * 30, 28, 30));
     }
@@ -36,6 +37,9 @@ public:
     bool isEnterGym() const;
     void setEnterGym(bool enterGym);
 
+    bool isPrebattle() const;
+    void setPrebattle(bool prebattle);
+
     bool isSelect() const;
     void setSelect(bool select);
 
@@ -50,6 +54,15 @@ public:
 
     bool isAttack() const;
     void setAttack(bool attack);
+
+    bool isCambio() const;
+    void setCambio(bool cambio);
+
+    bool isFight() const;
+    void setFight(bool fight);
+
+    bool isGameRestart() const;
+    void setGameRestart(bool gameRestart);
 
     int vel = 0; // velocità collisione
 
@@ -79,30 +92,34 @@ public:
 
     bool options = true;
 
-    bool isCambio() const;
-    void setCambio(bool cambio);
-
-    bool isFight() const;
-    void setFight(bool fight);
-
-    bool isGameRestart() const;
-    void setGameRestart(bool gameRestart);
-
     bool textBicycle = false;
 
     bool textLost1 = false;
     bool textLost2 = false;
 
-    bool playing = false;
-    bool fighting = false;
+    bool playing = false;  //Inizio gioco
+
+    bool one = true;      //Menu
+    bool two = false;
+    bool three = false;
+
+    bool triangle1 = false;
+    bool triangle2 = false;
+
+    bool start1 = false;  //Professore Oak
+    bool start2 = false;
+    bool start3 = false;
+
 protected:
-    bool fight = true;
-    bool gameRestart = false;
-    bool cambio = true;    // cambia pokemon quando muore un altro
     int speed = 1;
     bool bicyclePickUp = false;
     bool collGym = false;
     bool enterGym = false;      // Entra o no in palestra
+
+    bool prebattle = false;   //Capopalestra
+    bool fight = true;        // Combatto
+    bool gameRestart = false;
+    bool cambio = true;    // cambia pokemon quando muore un altro
     bool select = false;        // Seleziona pokemon
     bool selectAttack = false;  // scelgo il mio attacco
     bool attack = false;        // il mio pokemon attacca
@@ -110,5 +127,6 @@ protected:
     bool enemyTurn = false;
 
 };
+
 
 #endif //POKEMONVIDEOGAME_PLAYER_H

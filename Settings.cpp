@@ -1,4 +1,3 @@
-
 #include "Settings.h"
 
 int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, GraphicPokemon &graphicPokemon, Player &player) {
@@ -49,9 +48,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
 
                 choosen = 4;
                 return 0;
-            }
-
-                //Rapidash
+            }                //Rapidash
             else if (sf::Mouse::getPosition(window).x > 676 && sf::Mouse::getPosition(window).x < 900 &&
                      sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 253 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -185,3 +182,146 @@ int Settings::choosePokemon(sf::RenderWindow &window, int &choosen2, std::vector
     }
 }
 
+int Settings :: menu(sf::RenderWindow &window, int &press, Player &player) {
+    sf:: Texture textureMenu;
+    sf:: Sprite spriteMenu;
+    if (!textureMenu.loadFromFile("../Risorse/menu.png")) {
+        return EXIT_FAILURE;
+    }
+    spriteMenu.setTexture(textureMenu);
+    spriteMenu.setPosition(0, 0);
+    sf:: Sprite triangle;
+    sf:: Texture textureTriangle;
+
+    if (!textureTriangle.loadFromFile("../Risorse/triangle.png")) {
+        return EXIT_FAILURE;
+    }
+    triangle.setTexture(textureTriangle);
+    triangle.setPosition(220, 160);
+
+
+    sf::Event event;
+    while (true) {
+
+        while (window.pollEvent(event)) {
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.one) {
+                press = 0;
+                return 0;
+            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.two) {
+                press = 1;
+                return 0;
+            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.three) {
+                press = 2;
+                return 0;
+            }
+        }
+        window.clear();
+        window.draw(spriteMenu);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard:: Up)){
+            triangle.setPosition(220, 160);
+            player.one = true;
+            player.two = false;
+            player.triangle1 = false;
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard:: Down) &&  (triangle.getPosition().y == 160) && !player.triangle1 ){
+            triangle.setPosition(220, 260);
+            player.two = true;
+            player.one = false;
+            player.three = false;
+        }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard:: Down)){
+            triangle.setPosition(220, 360);
+            player.three = true;
+            player.two = false;
+        }
+        window.draw(triangle);
+        // player.triangle1 = true;
+        window.display();
+    }
+}
+
+int Settings::options(sf::RenderWindow &window, Player &player, Graphic &graphic) {
+    window.clear();
+    window.draw(graphic.controls);
+    window.draw(graphic.textControls);
+    window.display();
+
+    sf::Event event;
+    while (true) {
+        while (window.pollEvent(event)) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+                player.one = true;
+                player.two = false;
+                return 0;
+            }
+        }
+    }
+
+}
+
+int Settings::credits(sf::RenderWindow &window, Player &player, Graphic &graphic) {
+    window.clear();
+    window.draw(graphic.controls);
+    window.draw(graphic.textControls);
+    window.display();
+
+    sf::Event event;
+    while (true) {
+        while (window.pollEvent(event)) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+                player.one = true;
+                player.three = false;
+                return 0;
+            }
+        }
+    }
+}
+
+int Settings::start1(sf::RenderWindow &window, Player &player, Graphic &graphic) {
+    window.clear();
+    window.draw(graphic.start1);
+    window.display();
+
+    sf::Event event;
+    while (true) {
+        while (window.pollEvent(event)) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.start1) {
+                return 0;
+            }
+        }
+        player.start1 = true;
+    }
+}
+
+int Settings::start2(sf::RenderWindow &window, Player &player, Graphic &graphic) {
+    window.clear();
+    window.draw(graphic.start2);
+    window.display();
+
+    sf::Event event;
+    while (true) {
+        while (window.pollEvent(event)) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.start2) {
+                return 0;
+            }
+        }
+        player.start2= true;
+    }
+}
+
+int Settings::start3(sf::RenderWindow &window, Player &player, Graphic &graphic) {
+    window.clear();
+    window.draw(graphic.start3);
+    window.display();
+
+    sf::Event event;
+    while (true) {
+        while (window.pollEvent(event)) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.start3) {
+                return 0;
+            }
+        }
+        player.start3= true;
+    }
+}

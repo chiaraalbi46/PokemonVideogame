@@ -5,10 +5,9 @@ set(CMAKE_CXX_STANDARD 11)
 set(SFML_ROOT C:/Users/Niki/SFML)
 
 set(SOURCE_FILES main.cpp Bullet.cpp Bullet.h Character.cpp Character.h Collision.cpp Collision.h Graphic.cpp Graphic.h
-        Item.cpp Item.h NPC.cpp NPC.h Player.cpp Player.h Pokemon.cpp Pokemon.h TileMap.cpp TileMap.h
-        PokemonFactory.cpp PokemonFactory.h WaterPokemon.h FirePokemon.h ElectricPokemon.h WaterBullet.h
-        FireBullet.h GraphicPokemon.cpp GraphicPokemon.h GrassPokemon.h Settings.cpp Settings.h GrassBullet.h ElectricBullet.h
-        Text.cpp Text.h)
+        Item.cpp Item.h NPC.cpp NPC.h Player.cpp Player.h Pokemon.cpp Pokemon.h PokemonFactory.cpp PokemonFactory.h WaterPokemon.h
+        FirePokemon.h ElectricPokemon.h WaterBullet.h FireBullet.h GraphicPokemon.cpp GraphicPokemon.h GrassPokemon.h Settings.cpp
+        Settings.h GrassBullet.h ElectricBullet.h Text.cpp Text.h Map.cpp Map.h)
 add_executable(PokemonVideogame ${SOURCE_FILES})
 
 add_library(core ${SOURCE_FILES})

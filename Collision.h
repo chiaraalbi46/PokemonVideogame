@@ -14,17 +14,17 @@ class Collision {
 public:
     void collisionNPC(Player &player, std::vector<NPC> &NPCArray, NPC &npc);
 
-    void collisionItem(Player &player, std:: vector<Item> &ItemArray);
+    void collisionItem(Player &player, std:: vector<Item> &ItemArray, Graphic &graphic);
 
     void collisionGym(Player &player, Graphic &graphic);
 
-    void collisionNpcItem(Graphic &graphic, std:: vector<NPC> NPCArray);
+    //  void collisionNpcItem(Graphic &graphic, std:: vector<NPC> NPCArray);
 
     void PokemonAttack(Pokemon &pokemon, Bullet &bullet, vector<Bullet> &bulletArray, Player &player, int &adder1, Bullet &effect);
 
     void BulletCollidesPokemon( Pokemon *pokemon,std:: vector<Bullet> &bulletArray, Bullet &effect,
-                                Text &textDisplay, std :: vector<Text> &textArray, float &a);
+                                Text &textDisplay, std :: vector<Text> &textArray, float &a, Graphic &graphic);
+
+    void collisionMap(Player &player, std::vector<sf:: RectangleShape> &mapArray);
 };
-
-
 #endif //POKEMONVIDEOGAME_COLLISION_H

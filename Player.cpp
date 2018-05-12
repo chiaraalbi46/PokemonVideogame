@@ -2,6 +2,7 @@
 #include "Player.h"
 
 
+
 void Player::update() {
     sprite.setPosition(rect.getPosition());
 }
@@ -22,6 +23,7 @@ void Player :: move() {
             rideBicycle = true;
             speed = 3;
             sprite.setTextureRect(sf::IntRect(30 * 2, counterWalking * 30, 30, 30));
+            vel = 2;
         }
         else {
             speed=1;
@@ -48,6 +50,7 @@ void Player :: move() {
             rideBicycle=true;
             sprite.setTextureRect(sf::IntRect(0, counterWalking * 30, 30, 30));
             speed = 3;
+            vel = 2;
         }
         else {
             speed=1;
@@ -74,6 +77,7 @@ void Player :: move() {
             rideBicycle=true;
             sprite.setTextureRect(sf::IntRect(28, counterWalking * 30, 28, 30));
             speed = 3;
+            vel = 2;
         }
         else{
             speed=1;
@@ -100,6 +104,7 @@ void Player :: move() {
             rideBicycle=true;
             sprite.setTextureRect(sf::IntRect(30 * 3, counterWalking * 30, 30, 30));
             speed = 3;
+            vel = 2;
         }
         else {
             speed=1;
@@ -203,7 +208,6 @@ void Player::setAttack(bool attack) {
 bool Player::isCambio() const {
     return cambio;
 }
-
 void Player::setCambio(bool cambio) {
     Player::cambio = cambio;
 }
@@ -211,7 +215,6 @@ void Player::setCambio(bool cambio) {
 bool Player::isGameRestart() const {
     return gameRestart;
 }
-
 void Player::setGameRestart(bool gameRestart) {
     Player::gameRestart = gameRestart;
 }
@@ -219,8 +222,15 @@ void Player::setGameRestart(bool gameRestart) {
 bool Player::isFight() const {
     return fight;
 }
-
 void Player::setFight(bool fight) {
     Player::fight = fight;
 }
+
+bool Player::isPrebattle() const {
+    return prebattle;
+}
+void Player::setPrebattle(bool prebattle) {
+    Player::prebattle = prebattle;
+}
+
 
