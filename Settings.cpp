@@ -17,38 +17,51 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
 
         while (window.pollEvent(event)) {
 
+            //Floatzel
             if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 224 &&
                 sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 253 &&
                 sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 choosen = 0;
                 return 0;
             }
+
+            //Infernape
             else if (sf::Mouse::getPosition(window).x > 451 && sf::Mouse::getPosition(window).x < 674 &&
                      sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 253 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-                choosen = 1;
 
+                choosen = 1;
                 return 0;
             }
-            else if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 224 &&
-                     sf::Mouse::getPosition(window).y > 255 && sf::Mouse::getPosition(window).y < 507 &&
-                     sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-                choosen = 3;
-                return 0;
-            }
+
+            //Luxray
             else if (sf::Mouse::getPosition(window).x > 451 && sf::Mouse::getPosition(window).x < 674 &&
                      sf::Mouse::getPosition(window).y > 255 && sf::Mouse::getPosition(window).y < 507 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+
                 choosen = 2;
                 return 0;
-            }                //Blastoise
+            }
+
+            //Breloom
+            else if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 224 &&
+                     sf::Mouse::getPosition(window).y > 255 && sf::Mouse::getPosition(window).y < 507 &&
+                     sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+
+                choosen = 3;
+                return 0;
+            }
+
+            //Blastoise
             else if (sf::Mouse::getPosition(window).x > 226 && sf::Mouse::getPosition(window).x < 449 &&
                      sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 253 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 
                 choosen = 4;
                 return 0;
-            }                //Rapidash
+            }
+
+            //Rapidash
             else if (sf::Mouse::getPosition(window).x > 676 && sf::Mouse::getPosition(window).x < 900 &&
                      sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 253 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -57,7 +70,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 return 0;
             }
 
-                //Zapdos
+            //Zapdos
             else if (sf::Mouse::getPosition(window).x > 676 && sf::Mouse::getPosition(window).x < 900 &&
                      sf::Mouse::getPosition(window).y > 255 && sf::Mouse::getPosition(window).y < 507 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -66,7 +79,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 return 0;
             }
 
-                //Bulbasaur
+            //Bulbasaur
             else if (sf::Mouse::getPosition(window).x > 226 && sf::Mouse::getPosition(window).x < 449 &&
                      sf::Mouse::getPosition(window).y > 255 && sf::Mouse::getPosition(window).y < 507 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -96,7 +109,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
             window.draw(graphicPokemon.spriteCheck);
         }
         if(player.click4) {
-            graphicPokemon.spriteCheck.setPosition(226, 0); //blastoise
+            graphicPokemon.spriteCheck.setPosition(226, 0);
             window.draw(graphicPokemon.spriteCheck);
         }
         if(player.click5) {
@@ -170,12 +183,10 @@ int Settings::choosePokemon(sf::RenderWindow &window, int &choosen2, std::vector
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                 choosen2 = 3;
                 player.setSelect(false);
-
                 player.pokemon0 = false;
                 player.pokemon1 = false;
                 player.pokemon2 = false;
                 player.pokemon3 = true;
-
                 return 0;
             }
         }
@@ -199,7 +210,6 @@ int Settings :: menu(sf::RenderWindow &window, int &press, Player &player) {
     triangle.setTexture(textureTriangle);
     triangle.setPosition(220, 160);
 
-
     sf::Event event;
     while (true) {
 
@@ -208,36 +218,66 @@ int Settings :: menu(sf::RenderWindow &window, int &press, Player &player) {
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.one) {
                 press = 0;
                 return 0;
-            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.two) {
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.two) {
                 press = 1;
                 return 0;
-            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.three) {
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && player.three) {
                 press = 2;
                 return 0;
             }
+
+            window.clear();
+            window.draw(spriteMenu);
+
+            if(player.two){
+                if(sf::Keyboard::isKeyPressed((sf::Keyboard::Down))){ //tasto3
+                    triangle.setPosition(220, 360);
+                    player.one = false;
+                    player.two = false;
+                    player.three = true;
+                }
+                else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){ //tasto1
+                    triangle.setPosition(220, 160);
+                    player.one = true;
+                    player.two = false;
+                    player.three = false;
+                }
+            }
+            else if(player.three){
+                if(sf::Keyboard::isKeyPressed((sf::Keyboard::Down))){ //tasto1
+                    triangle.setPosition(220, 160);
+                    player.one = true;
+                    player.two = false;
+                    player.three = false;
+                }
+                else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){ //tasto2
+                    triangle.setPosition(220, 260);
+                    player.one = false;
+                    player.two = true;
+                    player.three = false;
+                }
+            }
+            else if(player.one){
+                if(sf::Keyboard::isKeyPressed((sf::Keyboard::Down))){ //tasto2
+                    triangle.setPosition(220, 260);
+                    player.one = false;
+                    player.two = true;
+                    player.three = false;
+                }
+                else if(sf::Keyboard::isKeyPressed((sf::Keyboard::Up))){ //tasto3
+                    triangle.setPosition(220, 360);
+                    player.one = false;
+                    player.two = false;
+                    player.three = true;
+                }
+            }
+
+            window.draw(triangle);
+            window.display();
         }
-        window.clear();
-        window.draw(spriteMenu);
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard:: Up)){
-            triangle.setPosition(220, 160);
-            player.one = true;
-            player.two = false;
-            player.triangle1 = false;
-        }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard:: Down) &&  (triangle.getPosition().y == 160) && !player.triangle1 ){
-            triangle.setPosition(220, 260);
-            player.two = true;
-            player.one = false;
-            player.three = false;
-        }
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard:: Down)){
-            triangle.setPosition(220, 360);
-            player.three = true;
-            player.two = false;
-        }
-        window.draw(triangle);
-        // player.triangle1 = true;
-        window.display();
+
     }
 }
 
@@ -306,7 +346,7 @@ int Settings::start2(sf::RenderWindow &window, Player &player, Graphic &graphic)
                 return 0;
             }
         }
-        player.start2= true;
+        player.start2 = true;
     }
 }
 
@@ -322,6 +362,6 @@ int Settings::start3(sf::RenderWindow &window, Player &player, Graphic &graphic)
                 return 0;
             }
         }
-        player.start3= true;
+        player.start3 = true;
     }
 }

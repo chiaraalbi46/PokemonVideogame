@@ -35,7 +35,7 @@ void Collision ::collisionNPC(Player &player, std::vector<NPC> &NPCArray, NPC &n
     }
 }
 
-void Collision ::collisionItem(Player &player, std :: vector<Item> &ItemArray, Graphic &graphic) {
+void Collision ::collisionItem(Player &player, std :: vector<Item> &ItemArray, Graphic &graphic) { //modificare con counterItem - score 
     //player collides object
     for (auto itr = ItemArray.begin(); itr != ItemArray.end(); itr++) {
         if (player.rect.getGlobalBounds().intersects(itr->rect.getGlobalBounds())) {
@@ -99,16 +99,19 @@ void Collision ::collisionMap(Player &player, std::vector<sf:: RectangleShape> &
                 player.moveLeft = false;
                 player.rect.move(1 + player.vel, 0);
                 player.setDirection(Character::Direction::Left);
-            } else if (player.getDirection() == Character::Direction::Right) {
+            }
+            else if (player.getDirection() == Character::Direction::Right) {
                 player.moveRight = false;
                 player.rect.move(-1 - player.vel, 0);
                 player.setDirection(Character::Direction::Right);
-            } else if (player.getDirection() == Character::Direction::Up) {
+            }
+            else if (player.getDirection() == Character::Direction::Up) {
                 player.moveUp = false;
                 player.rect.move(0, 1 + player.vel);
                 player.setDirection(Character::Direction::Up);
 
-            } else if (player.getDirection() == Character::Direction::Down) {
+            }
+            else if (player.getDirection() == Character::Direction::Down) {
                 player.moveDown = false;
                 player.rect.move(0, -1 - player.vel);
                 player.setDirection(Character::Direction::Down);
@@ -126,19 +129,22 @@ void Collision::collisionGym(Player &player, Graphic &graphic) {
             player.rect.move(1, 0);
             player.setDirection(Character::Direction::Left);
 
-        } else if (player.getDirection() == Character::Direction::Right) {
+        }
+        else if (player.getDirection() == Character::Direction::Right) {
 
             player.moveRight = false;
             player.rect.move(-1, 0);
             player.setDirection(Character::Direction::Right);
 
-        } else if (player.getDirection() == Character::Direction::Up) {
+        }
+        else if (player.getDirection() == Character::Direction::Up) {
             player.setCollGym(true);
             player.moveUp = false;
             player.rect.move(0, 1);
             player.setDirection(Character::Direction::Up);
 
-        } else if (player.getDirection() == Character::Direction::Down) {
+        }
+        else if (player.getDirection() == Character::Direction::Down) {
 
             player.moveDown = false;
             player.rect.move(0, -1);

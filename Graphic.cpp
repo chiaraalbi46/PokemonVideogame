@@ -63,7 +63,7 @@ int Graphic::loadTextures(GraphicPokemon &strategy) {
         return EXIT_FAILURE;
     }
 
-    if (!textureControls.loadFromFile("../Risorse/Controls.png")) {
+    if (!textureControls.loadFromFile("../Risorse/controls.png")) {
         return EXIT_FAILURE;
     }
 
@@ -192,7 +192,7 @@ void Graphic ::setMenu() {
     controls.setTexture(textureControls);
     controls.setPosition(0, 0);
 
-    textControls.setString("Press A for return to menu");
+    textControls.setString("Press A to return to menu");
     textControls.setFont(font);
     textControls.setFillColor(sf:: Color::Yellow );
     textControls.setCharacterSize(30);
@@ -299,7 +299,7 @@ int Graphic :: setBackgroundBattle(sf::RenderWindow &window, Player &player){
     prebattle.setTexture(texturePrebattle);
     prebattle.setPosition(0, 0);
 
-    restart.setString("-Press Enter for play again" );
+    restart.setString("-Press Enter to play again" );
     restart.setPosition(70, 420 );
     restart.setFillColor(sf::Color:: Green);
     restart.setCharacterSize(22);

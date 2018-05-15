@@ -48,6 +48,7 @@ public:
     sf::SoundBuffer bufferItem;
     sf::Sound soundItem;
 
+    //Textures&sprites&texts
     sf::Sprite controls;
     sf:: Texture textureControls;
     sf::Text textControls;
@@ -68,7 +69,6 @@ public:
 
     sf:: Text textBicycle;
 
-    //Textures
     sf::Texture texturePlayer;
     sf::Texture texturePlayerBike;
 
@@ -118,6 +118,7 @@ public:
     sf::Texture textureGameOver;
 
     sf:: Text restart;
+
     //NPC
     NPC NPC1;
     NPC NPC2;
@@ -135,7 +136,7 @@ public:
     Item pokeball1;
     Item pokeball2;
 
-    //Texture&Front
+
     sf::Font font;
 
 };

@@ -1,6 +1,3 @@
-//
-// Created by Niki on 12/05/2018.
-//
 
 #include "Map.h"
 
@@ -338,6 +335,214 @@ void Map ::setBlock() {
     tile24.setSize(sf::Vector2f(23, 21));
     tile24.setFillColor(sf:: Color ::Transparent);
 
+    rect1.setFillColor(sf::Color::Transparent);
+    rect1.setSize(sf::Vector2f(877, 431));
+    rect1.setPosition(0, 1783);
+
+    rect2.setFillColor(sf::Color::Transparent);
+    rect2.setSize(sf::Vector2f(351, 172));
+    rect2.setPosition(0, 1610);
+
+    rect3.setFillColor(sf::Color::Transparent);
+    rect3.setSize(sf::Vector2f(123, 694));
+    rect3.setPosition(0, 926);
+
+    rect4.setFillColor(sf::Color::Transparent);
+    rect4.setSize(sf::Vector2f(331, 324));
+    rect4.setPosition(0, 926);
+
+    rect5.setFillColor(sf::Color::Transparent);
+    rect5.setSize(sf::Vector2f(95, 77));
+    rect5.setPosition(125, 1305);
+
+    rect6.setFillColor(sf::Color::Transparent);
+    rect6.setSize(sf::Vector2f(105, 42));
+    rect6.setPosition(211, 1338);
+
+    rect7.setFillColor(sf::Color::Transparent);
+    rect7.setSize(sf::Vector2f(76, 56));
+    rect7.setPosition(177, 1370);
+
+    rect8.setFillColor(sf::Color::Transparent);
+    rect8.setSize(sf::Vector2f(57, 51));
+    rect8.setPosition(291, 1376);
+
+    rect9.setFillColor(sf::Color::Transparent);
+    rect9.setSize(sf::Vector2f(106, 66));
+    rect9.setPosition(179, 1481);
+
+    rect10.setFillColor(sf::Color::Transparent);
+    rect10.setSize(sf::Vector2f(50, 13));
+    rect10.setPosition(125, 1526);
+
+    rect11.setFillColor(sf::Color::Transparent);
+    rect11.setSize(sf::Vector2f(20, 12));
+    rect11.setPosition(277, 1530);
+
+    rect12.setFillColor(sf::Color::Transparent);
+    rect12.setSize(sf::Vector2f(64, 51));
+    rect12.setPosition(435, 1488);
+
+    rect13.setFillColor(sf::Color::Transparent);
+    rect13.setSize(sf::Vector2f(58, 57));
+    rect13.setPosition(435, 1370);
+
+    rect14.setFillColor(sf::Color::Transparent);
+    rect14.setSize(sf::Vector2f(27, 105));
+    rect14.setPosition(324, 1515);
+
+    rect15.setFillColor(sf::Color::Transparent);
+    rect15.setSize(sf::Vector2f(36, 76));
+    rect15.setPosition(344, 1514);
+
+    rect16.setFillColor(sf::Color::Transparent);
+    rect16.setSize(sf::Vector2f(199, 28));
+    rect16.setPosition(360, 1562);
+
+    rect17.setFillColor(sf::Color::Transparent);
+    rect17.setSize(sf::Vector2f(41, 86));
+    rect17.setPosition(499, 1482);
+
+    rect18.setFillColor(sf::Color::Transparent);
+    rect18.setSize(sf::Vector2f(41, 44));
+    rect18.setPosition(519, 1546);
+
+    rect19.setFillColor(sf::Color::Transparent);
+    rect19.setSize(sf::Vector2f(475, 157));
+    rect19.setPosition(401, 1642);
+
+    rect20.setFillColor(sf::Color::Transparent);
+    rect20.setSize(sf::Vector2f(269, 117));
+    rect20.setPosition(607, 1546);
+
+    rect21.setFillColor(sf::Color::Transparent);
+    rect21.setSize(sf::Vector2f(330, 51));
+    rect21.setPosition(403, 1199);
+
+    rect22.setFillColor(sf::Color::Transparent);
+    rect22.setSize(sf::Vector2f(314, 452));
+    rect22.setPosition(419, 752);
+
+    rect23.setFillColor(sf::Color::Transparent);
+    rect23.setSize(sf::Vector2f(57, 783));
+    rect23.setPosition(676, 0);
+
+    side1.setFillColor(sf::Color::Transparent);
+    side1.setSize(sf::Vector2f(261, 100));
+    side1.setPosition(88, 750);
+
+    side2.setFillColor(sf::Color::Transparent);
+    side2.setSize(sf::Vector2f(139, 38));
+    side2.setPosition(80, 720);
+
+    side3.setFillColor(sf::Color::Transparent);
+    side3.setSize(sf::Vector2f(93, 150));
+    side3.setPosition(0, 720);
+
+    side4.setFillColor(sf::Color::Transparent);
+    side4.setSize(sf::Vector2f(107, 220));
+    side4.setPosition(0, 506);
+
+    side5.setFillColor(sf::Color::Transparent);
+    side5.setSize(sf::Vector2f(100, 38));
+    side5.setPosition(73, 542);
+
+    side6.setFillColor(sf::Color::Transparent);
+    side6.setSize(sf::Vector2f(26, 43));
+    side6.setPosition(195, 559);
+
+    side7.setFillColor(sf::Color::Transparent);
+    side7.setSize(sf::Vector2f(207, 5));
+    side7.setPosition(110, 674);
+
+    side8.setFillColor(sf::Color::Transparent);
+    side8.setSize(sf::Vector2f(90, 76));
+    side8.setPosition(179, 603);
+
+    side9.setFillColor(sf::Color::Transparent);
+    side9.setSize(sf::Vector2f(24, 294));
+    side9.setPosition(406, 924);
+
+    side10.setFillColor(sf::Color::Transparent);
+    side10.setSize(sf::Vector2f(317, 4));
+    side10.setPosition(371, 674);
+
+    side11.setFillColor(sf::Color::Transparent);
+    side11.setSize(sf::Vector2f(74, 67));
+    side11.setPosition(387, 547);
+
+    side12.setFillColor(sf::Color::Transparent);
+    side12.setSize(sf::Vector2f(58, 59));
+    side12.setPosition(547, 443);
+
+    side13.setFillColor(sf::Color::Transparent);
+    side13.setSize(sf::Vector2f(232, 5));
+    side13.setPosition(451, 430);
+
+    side14.setFillColor(sf::Color::Transparent);
+    side14.setSize(sf::Vector2f(248, 5));
+    side14.setPosition(435, 386);
+
+    side15.setFillColor(sf::Color::Transparent);
+    side15.setSize(sf::Vector2f(62, 61));
+    side15.setPosition(384, 434);
+
+    side16.setFillColor(sf::Color::Transparent);
+    side16.setSize(sf::Vector2f(75, 54));
+    side16.setPosition(387, 322);
+
+    side17.setFillColor(sf::Color::Transparent);
+    side17.setSize(sf::Vector2f(91, 66));
+    side17.setPosition(531, 284);
+
+    side18.setFillColor(sf::Color::Transparent);
+    side18.setSize(sf::Vector2f(8, 7));
+    side18.setPosition(518, 344);
+
+    side19.setFillColor(sf::Color::Transparent);
+    side19.setSize(sf::Vector2f(149, 450));
+    side19.setPosition(150, 0);
+
+    side20.setFillColor(sf::Color::Transparent);
+    side20.setSize(sf::Vector2f(155, 426));
+    side20.setPosition(0, 0);
+
+    side21.setFillColor(sf::Color::Transparent);
+    side21.setSize(sf::Vector2f(26, 79));
+    side21.setPosition(0, 431);
+
+    side22.setFillColor(sf::Color::Transparent);
+    side22.setSize(sf::Vector2f(76, 36));
+    side22.setPosition(16, 402);
+
+    side23.setFillColor(sf::Color::Transparent);
+    side23.setSize(sf::Vector2f(451, 169));
+    side23.setPosition(280, 0);
+
+    side24.setFillColor(sf::Color::Transparent);
+    side24.setSize(sf::Vector2f(44, 7));
+    side24.setPosition(367, 203);
+
+    side25.setFillColor(sf::Color::Transparent);
+    side25.setSize(sf::Vector2f(54, 64));
+    side25.setPosition(388, 194);
+
+    side26.setFillColor(sf::Color::Transparent);
+    side26.setSize(sf::Vector2f(299, 48));
+    side26.setPosition(400, 194);
+
+    side27.setFillColor(sf::Color::Transparent);
+    side27.setSize(sf::Vector2f(4, 4));
+    side27.setPosition(327, 446);
+
+    side28.setFillColor(sf::Color::Transparent);
+    side28.setSize(sf::Vector2f(41, 297));
+    side28.setPosition(306, 926);
+
+    side29.setFillColor(sf::Color::Transparent);
+    side29.setSize(sf::Vector2f(14, 80));
+    side29.setPosition(0, 870);
+
 }
 
 
@@ -427,4 +632,58 @@ int Map ::setArray(std::vector<sf::RectangleShape> &wallArray) {
     wallArray.push_back(tile22);
     wallArray.push_back(tile23);
     wallArray.push_back(tile24);
+
+    wallArray.push_back(rect1);
+    wallArray.push_back(rect2);
+    wallArray.push_back(rect3);
+    wallArray.push_back(rect4);
+    wallArray.push_back(rect5);
+    wallArray.push_back(rect6);
+    wallArray.push_back(rect7);
+    wallArray.push_back(rect8);
+    wallArray.push_back(rect9);
+    wallArray.push_back(rect10);
+    wallArray.push_back(rect11);
+    wallArray.push_back(rect12);
+    wallArray.push_back(rect13);
+    wallArray.push_back(rect14);
+    wallArray.push_back(rect15);
+    wallArray.push_back(rect16);
+    wallArray.push_back(rect17);
+    wallArray.push_back(rect18);
+    wallArray.push_back(rect19);
+    wallArray.push_back(rect20);
+    wallArray.push_back(rect21);
+    wallArray.push_back(rect22);
+    wallArray.push_back(rect23);
+
+    wallArray.push_back(side1);
+    wallArray.push_back(side2);
+    wallArray.push_back(side3);
+    wallArray.push_back(side4);
+    wallArray.push_back(side5);
+    wallArray.push_back(side6);
+    wallArray.push_back(side7);
+    wallArray.push_back(side8);
+    wallArray.push_back(side9);
+    wallArray.push_back(side10);
+    wallArray.push_back(side11);
+    wallArray.push_back(side12);
+    wallArray.push_back(side13);
+    wallArray.push_back(side14);
+    wallArray.push_back(side15);
+    wallArray.push_back(side16);
+    wallArray.push_back(side17);
+    wallArray.push_back(side18);
+    wallArray.push_back(side19);
+    wallArray.push_back(side20);
+    wallArray.push_back(side21);
+    wallArray.push_back(side22);
+    wallArray.push_back(side23);
+    wallArray.push_back(side24);
+    wallArray.push_back(side25);
+    wallArray.push_back(side26);
+    wallArray.push_back(side27);
+    wallArray.push_back(side28);
+    wallArray.push_back(side29);
 }

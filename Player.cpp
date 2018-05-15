@@ -26,7 +26,7 @@ void Player :: move() {
             vel = 2;
         }
         else {
-            speed=1;
+            speed = 1;
             rideBicycle=false;
             sprite.setTextureRect(sf::IntRect(28 * 2, counterWalking1 * 30, 28, 30));
         }
@@ -53,7 +53,7 @@ void Player :: move() {
             vel = 2;
         }
         else {
-            speed=1;
+            speed = 1;
             rideBicycle=false;
             sprite.setTextureRect(sf::IntRect(0 , counterWalking1* 30 , 30, 30));
 
@@ -80,7 +80,7 @@ void Player :: move() {
             vel = 2;
         }
         else{
-            speed=1;
+            speed = 1;
             rideBicycle=false;
             sprite.setTextureRect(sf::IntRect(28 , counterWalking1* 30 , 30, 30));
         }

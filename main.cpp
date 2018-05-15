@@ -108,31 +108,38 @@ int main() {
                 PokemonArray.push_back(graphicPokemon.floatzel);
                 player.click0 = true;
                 i++;
-            } else if (choosen == 1 && !player.click1) {
+            }
+            else if (choosen == 1 && !player.click1) {
                 PokemonArray.push_back(graphicPokemon.infernape);
                 player.click1 = true;
                 i++;
-            } else if (choosen == 2 && !player.click2) {
+            }
+            else if (choosen == 2 && !player.click2) {
                 PokemonArray.push_back(graphicPokemon.luxray);
                 player.click2 = true;
                 i++;
-            } else if (choosen == 3 && !player.click3) {
+            }
+            else if (choosen == 3 && !player.click3) {
                 PokemonArray.push_back(graphicPokemon.breloom);
                 player.click3 = true;
                 i++;
-            } else if (choosen == 4 && !player.click4) {
+            }
+            else if (choosen == 4 && !player.click4) {
                 PokemonArray.push_back(graphicPokemon.blastoise);
                 player.click4 = true;
                 i++;
-            } else if (choosen == 5 && !player.click5) {
+            }
+            else if (choosen == 5 && !player.click5) {
                 PokemonArray.push_back(graphicPokemon.rapidash);
                 player.click5 = true;
                 i++;
-            } else if (choosen == 6 && !player.click6) {
+            }
+            else if (choosen == 6 && !player.click6) {
                 PokemonArray.push_back(graphicPokemon.zapdos);
                 player.click6 = true;
                 i++;
-            } else if (choosen == 7 && !player.click7) {
+            }
+            else if (choosen == 7 && !player.click7) {
                 PokemonArray.push_back(graphicPokemon.bulbasaur);
                 player.click7 = true;
                 i++;
@@ -155,7 +162,7 @@ int main() {
             graphicPokemon.spriteCheck.setPosition(0, 255);
             window.draw(graphicPokemon.spriteCheck);
         }
-        if (player.click4) { //ricomincio da blastoise
+        if (player.click4) {
             graphicPokemon.spriteCheck.setPosition(226, 0);
             window.draw(graphicPokemon.spriteCheck);
         }
@@ -270,7 +277,8 @@ int main() {
                         sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                         player.setSelect(true);
                         player.options = false;
-                    } else if (sf::Mouse::getPosition(window).x > 100 &&
+                    }
+                    else if (sf::Mouse::getPosition(window).x > 100 &&
                                sf::Mouse::getPosition(window).x < 313 &&
                                sf::Mouse::getPosition(window).y > 440 &&
                                sf::Mouse::getPosition(window).y < 490 &&
@@ -284,11 +292,13 @@ int main() {
                         player.setSelectAttack(false);
                         player.setAttack(true);
                         typeAttack = 1;    // Attacco 1
-                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+                    }
+                    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
                         player.setAttack(true);
                         player.setSelectAttack(false);
                         typeAttack = 2;    // Attacco 2
-                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+                    }
+                    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
                         player.setAttack(true);
                         player.setSelectAttack(false);
                         typeAttack = 3;     // Attacco 3
@@ -303,7 +313,8 @@ int main() {
             if (gameState == Playing) {
                 gameState = Fighting;
             }
-        } else {
+        }
+        else {
             gameState = Playing;
         }
 
@@ -316,7 +327,8 @@ int main() {
             window.setView(view);
             //settings.prebattle(window, player, graphic);
 
-        } else if (gameState == Playing) {
+        }
+        else if (gameState == Playing) {
             // Setting View
 
             if (player.rect.getPosition().x + 24 > 900 / 2)
@@ -344,7 +356,8 @@ int main() {
             //Load spritePlayer
             if (player.rideBicycle) {
                 player.sprite.setTexture(graphic.texturePlayerBike);
-            } else {
+            }
+            else {
                 player.sprite.setTexture(graphic.texturePlayer);
             }
 
@@ -442,15 +455,18 @@ int main() {
                         PokemonArray[0]->update();
                         choosen1 = 0;
                         window.draw(PokemonArray[0]->sprite);
-                    } else if (player.pokemon1) {
+                    }
+                    else if (player.pokemon1) {
                         PokemonArray[1]->update();
                         choosen1 = 1;
                         window.draw(PokemonArray[1]->sprite);
-                    } else if (player.pokemon2) {
+                    }
+                    else if (player.pokemon2) {
                         PokemonArray[2]->update();
                         choosen1 = 2;
                         window.draw(PokemonArray[2]->sprite);
-                    } else if (player.pokemon3) {
+                    }
+                    else if (player.pokemon3) {
                         PokemonArray[3]->update();
                         choosen1 = 3;
                         window.draw(PokemonArray[3]->sprite);
@@ -479,11 +495,14 @@ int main() {
                             PokemonArray[choosen1]->update();
                             if (choosen1 == 0) {
                                 window.draw(PokemonArray[0]->sprite);
-                            } else if (choosen1 == 1) {
+                            }
+                            else if (choosen1 == 1) {
                                 window.draw(PokemonArray[1]->sprite);
-                            } else if (choosen1 == 2) {
+                            }
+                            else if (choosen1 == 2) {
                                 window.draw(PokemonArray[2]->sprite);
-                            } else if (choosen1 == 3) {
+                            }
+                            else if (choosen1 == 3) {
                                 window.draw(PokemonArray[3]->sprite);
                             }
 
@@ -521,8 +540,7 @@ int main() {
                     if (player.isEnemyTurn()) { // TURNO NEMICO
 
                         graphicPokemon.setPokemonOpponent(window, PokemonEnemyArray, player, choosen2);
-                        graphic.setTextAttack(PokemonEnemyArray[choosen2],
-                                              bullet); // Scrive l'attacco usato dal pokemon
+                        graphic.setTextAttack(PokemonEnemyArray[choosen2], bullet); // Scrive l'attacco usato dal pokemon
                         if (!player.enemyAttack) {
                             window.draw(graphic.enemyTurnText);
                         }
@@ -542,8 +560,7 @@ int main() {
                             sf::Time elapsed = clock1.getElapsedTime();
                             if (elapsed.asSeconds() >= 0.8) {
                                 clock1.restart();
-                                collision.PokemonAttack(*PokemonEnemyArray[choosen2], bullet, bulletArray, player,
-                                                        adder1,
+                                collision.PokemonAttack(*PokemonEnemyArray[choosen2], bullet, bulletArray, player, adder1,
                                                         effect);
                             }
 
@@ -638,7 +655,8 @@ int main() {
                     window.draw(graphic.gameOver);
                     //  window.draw(graphic.restart);
                     graphic.musicbattle.stop();
-                } else if (PokemonEnemyArray.empty()) {  // Vince il giocatore
+                }
+                else if (PokemonEnemyArray.empty()) {  // Vince il giocatore
                     player.setFight(false);
                     window.draw(graphic.win);
                     //  window.draw(graphic.restart);

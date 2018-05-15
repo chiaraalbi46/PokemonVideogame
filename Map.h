@@ -1,6 +1,4 @@
-//
-// Created by Niki on 12/05/2018.
-//
+
 
 #ifndef POKEMONVIDEOGAME_MAP_H
 #define POKEMONVIDEOGAME_MAP_H
@@ -96,6 +94,62 @@ public:
     sf:: RectangleShape tile22;
     sf:: RectangleShape tile23;
     sf:: RectangleShape tile24;
+
+    sf::RectangleShape rect1;
+    sf::RectangleShape rect2;
+    sf::RectangleShape rect3;
+    sf::RectangleShape rect4;
+    sf::RectangleShape rect5;
+    sf::RectangleShape rect6;
+    sf::RectangleShape rect7;
+    sf::RectangleShape rect8;
+    sf::RectangleShape rect9;
+    sf::RectangleShape rect10;
+    sf::RectangleShape rect11;
+    sf::RectangleShape rect12;
+    sf::RectangleShape rect13;
+    sf::RectangleShape rect14;
+    sf::RectangleShape rect15;
+    sf::RectangleShape rect16;
+    sf::RectangleShape rect17;
+    sf::RectangleShape rect18;
+    sf::RectangleShape rect19;
+    sf::RectangleShape rect20;
+    sf::RectangleShape rect21;
+    sf::RectangleShape rect22;
+    sf::RectangleShape rect23;
+
+    sf::RectangleShape side1;
+    sf::RectangleShape side2;
+    sf::RectangleShape side3;
+    sf::RectangleShape side4;
+    sf::RectangleShape side5;
+    sf::RectangleShape side6;
+    sf::RectangleShape side7;
+    sf::RectangleShape side8;
+    sf::RectangleShape side9;
+    sf::RectangleShape side10;
+    sf::RectangleShape side11;
+    sf::RectangleShape side12;
+    sf::RectangleShape side13;
+    sf::RectangleShape side14;
+    sf::RectangleShape side15;
+    sf::RectangleShape side16;
+    sf::RectangleShape side17;
+    sf::RectangleShape side18;
+    sf::RectangleShape side19;
+    sf::RectangleShape side20;
+    sf::RectangleShape side21;
+    sf::RectangleShape side22;
+    sf::RectangleShape side23;
+    sf::RectangleShape side24;
+    sf::RectangleShape side25;
+    sf::RectangleShape side26;
+    sf::RectangleShape side27;
+    sf::RectangleShape side28;
+    sf::RectangleShape side29;
+
+
 };
 
 #endif //POKEMONVIDEOGAME_MAP_H

@@ -103,9 +103,6 @@ public:
     bool two = false;
     bool three = false;
 
-    bool triangle1 = false;
-    bool triangle2 = false;
-
     bool start1 = false;  //Professore Oak
     bool start2 = false;
     bool start3 = false;
