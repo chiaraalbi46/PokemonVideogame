@@ -16,9 +16,7 @@ public:
 
     void collisionItem(Player &player, std:: vector<Item> &ItemArray, Graphic &graphic);
 
-    void collisionGym(Player &player, Graphic &graphic);
-
-    //  void collisionNpcItem(Graphic &graphic, std:: vector<NPC> NPCArray);
+    void collisionGym(sf:: RenderWindow &window, Player &player, Graphic &graphic, std :: vector<Item> &ItemArray);
 
     void PokemonAttack(Pokemon &pokemon, Bullet &bullet, vector<Bullet> &bulletArray, Player &player, int &adder1, Bullet &effect);
 

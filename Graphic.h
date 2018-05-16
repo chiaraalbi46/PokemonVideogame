@@ -18,14 +18,14 @@
 
 class Graphic {
 public:
-    Graphic() : bicycle("bicycle"), medal1("medal"), medal2("medal"), medal3("medal"), medal4("medal"), medal5("medal"), medal6("medal") ,
-                medal7("medal") , medal8("medal") , pokeball1 ("Megaball"), pokeball2 ("Masterball"), NPC1(), NPC2() {}
+    Graphic() : bicycle("bicycle"), medal1("medal1"), medal2("medal2"), medal3("medal3"), medal4("medal4"), medal5("medal5"), medal6("medal6") ,
+                medal7("medal7") , medal8("medal8"), pokeball1 ("Megaball"), pokeball2 ("Masterball"), NPC1(), NPC2() {}
 
     ~Graphic(){}
 
     int loadTextures(GraphicPokemon &strategy);
 
-    void setText(Player &player);
+    int setText(Player &player, std:: vector<Item> &ItemArray);
     void setNPC();
     void setFont();
     void setItem();
@@ -48,7 +48,6 @@ public:
     sf::SoundBuffer bufferItem;
     sf::Sound soundItem;
 
-    //Textures&sprites&texts
     sf::Sprite controls;
     sf:: Texture textureControls;
     sf::Text textControls;
@@ -69,14 +68,17 @@ public:
 
     sf:: Text textBicycle;
 
+    //Textures
     sf::Texture texturePlayer;
     sf::Texture texturePlayerBike;
 
     sf::Texture textureNPC1;
     sf::Texture textureNPC2;
     sf::Texture textureNPC3;
+    sf::Texture textureNPC4;
 
     sf::Texture textureBicycle;
+    sf::Texture textureMedal;
     sf::Texture textureMedal1;
     sf::Texture textureMedal2;
     sf::Texture textureMedal3;
@@ -88,9 +90,19 @@ public:
     sf::Texture texturePokeball1;
     sf::Texture texturePokeball2;
 
+    sf:: Texture textureMedalPickUp1;
+    sf:: Texture textureMedalPickUp2;
+    sf:: Texture textureMedalPickUp3;
+    sf:: Texture textureMedalPickUp4;
+    sf:: Texture textureMedalPickUp5;
+    sf:: Texture textureMedalPickUp6;
+    sf:: Texture textureMedalPickUp7;
+    sf:: Texture textureMedalPickUp8;
+
     sf::Texture texturePrebattle;
     sf:: Sprite prebattle;
 
+    sf::Sprite medal;
     sf::RectangleShape gym;
     sf:: Text textBattle;
 
@@ -119,10 +131,12 @@ public:
 
     sf:: Text restart;
 
+    sf:: Text medalsText;
     //NPC
     NPC NPC1;
     NPC NPC2;
     NPC NPC3;
+    NPC NPC4;
 
     Item bicycle;
     Item medal1;
@@ -133,10 +147,20 @@ public:
     Item medal6;
     Item medal7;
     Item medal8;
+
+    sf::Sprite medalPickUp1;
+    sf::Sprite medalPickUp2;
+    sf::Sprite medalPickUp3;
+    sf::Sprite medalPickUp4;
+    sf::Sprite medalPickUp5;
+    sf::Sprite medalPickUp6;
+    sf::Sprite medalPickUp7;
+    sf::Sprite medalPickUp8;
+
     Item pokeball1;
     Item pokeball2;
 
-
+    //Texture&Front
     sf::Font font;
 
 };

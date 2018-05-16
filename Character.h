@@ -29,6 +29,8 @@ public:
     sf::Sprite sprite;
     sf:: Text text;
 
+    int counterWalking = 0;
+
     bool moveLeft = true;
     bool moveRight = true;
     bool moveUp = true;
@@ -36,9 +38,8 @@ public:
 
 protected:
     Direction direction = Direction::Down;
-    int counterWalking = 0;
     int counterWalking1 = 0;
-    int counterWalking2 = 0;
+
 };
 
 

@@ -3,22 +3,16 @@
 #ifndef POKEMONVIDEOGAME_PLAYER_H
 #define POKEMONVIDEOGAME_PLAYER_H
 
-
 #include "Character.h"
 #include "Item.h"
 
-
-
 class Player: public Character {
 public:
-
     Player() : Character() {
-        rect.setSize(sf::Vector2f(25, 30));
-        rect.setPosition(1200, 800);
+        rect.setSize(sf::Vector2f(32,32));
+        rect.setPosition(358, 1740);
         rect.setFillColor(sf::Color::Transparent);
-        sprite.setTextureRect(sf::IntRect(0, counterWalking1 * 30, 28, 30));
     }
-
     ~Player() {}
 
     void update();
@@ -66,6 +60,11 @@ public:
 
     int vel = 0; // velocità collisione
 
+    int character;
+
+    bool girl = false;
+    bool boy  = false;
+
     bool rideBicycle = false;
     int score = 0;
 
@@ -88,6 +87,15 @@ public:
     bool click6 = false;
     bool click7 = false;
 
+    bool pickUp1 = false;
+    bool pickUp2 = false;
+    bool pickUp3 = false;
+    bool pickUp4 = false;
+    bool pickUp5 = false;
+    bool pickUp6 = false;
+    bool pickUp7 = false;
+    bool pickUp8 = false;
+
     bool enemyAttack = false;   // Fa attaccare nemico
 
     bool options = true;
@@ -102,6 +110,9 @@ public:
     bool one = true;      //Menu
     bool two = false;
     bool three = false;
+
+    bool triangle1 = false;
+    bool pass = false;
 
     bool start1 = false;  //Professore Oak
     bool start2 = false;
@@ -124,6 +135,4 @@ protected:
     bool enemyTurn = false;
 
 };
-
-
 #endif //POKEMONVIDEOGAME_PLAYER_H

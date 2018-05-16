@@ -29,7 +29,6 @@ public:
     }
 
     BulletType getType() const;
-    void setType(BulletType type);
 
     //attributi per gli spari
     int counterLifeTime = 0;

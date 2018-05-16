@@ -5,12 +5,12 @@
 
 void Map ::setBlock() {
 
-    block1.setPosition(918, 581);
-    block1.setSize(sf::Vector2f(196, 106));
+    block1.setPosition(920, 580);
+    block1.setSize(sf::Vector2f(193, 93));
     block1.setFillColor(sf::Color::Transparent);
 
-    block2.setPosition(762, 150);
-    block2.setSize(sf::Vector2f(111, 461));
+    block2.setPosition(765, 0);
+    block2.setSize(sf::Vector2f(83, 624));
     block2.setFillColor(sf::Color::Transparent);
 
     block3.setPosition(762, 605);
@@ -45,9 +45,13 @@ void Map ::setBlock() {
     block10.setSize(sf::Vector2f(265, 10));
     block10.setFillColor(sf::Color::Transparent);
 
-    block11.setPosition(1001, 363);
-    block11.setSize(sf::Vector2f(145, 63));
+    block11.setPosition(1032, 361);
+    block11.setSize(sf::Vector2f(118, 66));
     block11.setFillColor(sf::Color::Transparent);
+
+    block40.setPosition(1003, 351);
+    block40.setSize(sf::Vector2f(28, 68));
+    block40.setFillColor(sf::Color::Transparent);
 
     block12.setPosition(1140, 282);
     block12.setSize(sf::Vector2f(7, 60));
@@ -73,12 +77,12 @@ void Map ::setBlock() {
     block17.setSize(sf::Vector2f(7, 95));
     block17.setFillColor(sf::Color::Transparent);
 
-    block18.setPosition(1217, 505);
+    block18.setPosition(1215, 505);
     block18.setSize(sf::Vector2f(73, 7));
     block18.setFillColor(sf:: Color :: Transparent);
 
-    block19.setPosition(1320, 503);
-    block19.setSize(sf::Vector2f(73, 8));
+    block19.setPosition(1322, 503);
+    block19.setSize(sf::Vector2f(72, 8));
     block19.setFillColor(sf:: Color::Transparent);
 
     block20.setPosition(1217, 367);
@@ -153,17 +157,20 @@ void Map ::setBlock() {
     block38.setSize(sf::Vector2f(111, 217));
     block38.setFillColor(sf:: Color :: Transparent);
 
-    block33.setPosition(1187, 588);
-    block33.setSize(sf::Vector2f(321, 95));
+    block33.setPosition(1183, 580);
+    block33.setSize(sf::Vector2f(310, 93));
     block33.setFillColor(sf:: Color :: Transparent);
 
     block39.setPosition(735, 358);
     block39.setSize(sf::Vector2f(26, 8));
     block39.setFillColor(sf:: Color :: Transparent);
 
+    block41.setPosition(856, 150);
+    block41.setSize(sf::Vector2f(21, 460));
+    block41.setFillColor(sf:: Color :: Transparent);
 
-    wall1.setPosition(758, 680);
-    wall1.setSize(sf::Vector2f(219, 424));
+    wall1.setPosition(763, 680);
+    wall1.setSize(sf::Vector2f(218, 418));
     wall1.setFillColor(sf:: Color :: Transparent);
 
     wall2.setPosition(821, 1096);
@@ -174,40 +181,40 @@ void Map ::setBlock() {
     wall3.setSize(sf::Vector2f(226, 3));
     wall3.setFillColor(sf:: Color ::Transparent);
 
-    wall4.setPosition(1086, 719);
-    wall4.setSize(sf::Vector2f(24, 137));
+    wall4.setPosition(1080, 713);
+    wall4.setSize(sf::Vector2f(30, 136));
     wall4.setFillColor(sf:: Color :: Transparent);
 
     wall5.setPosition(978, 835);
     wall5.setSize(sf::Vector2f(109, 6));
     wall5.setFillColor(sf:: Color ::Transparent);
 
-    wall6.setPosition(987, 899);
-    wall6.setSize(sf::Vector2f(25, 39));
+    wall6.setPosition(987, 894);
+    wall6.setSize(sf::Vector2f(25, 36));
     wall6.setFillColor(sf:: Color :: Transparent);
 
     wall7.setPosition(1015, 919);
     wall7.setSize(sf::Vector2f(100, 4));
     wall7.setFillColor(sf:: Color :: Transparent);
 
-    wall8.setPosition(1118, 900);
-    wall8.setSize(sf::Vector2f(94, 39));
+    wall8.setPosition(1116, 892);
+    wall8.setSize(sf::Vector2f(100, 37));
     wall8.setFillColor(sf:: Color ::Transparent);
 
     wall9.setPosition(1138, 1001);
     wall9.setSize(sf::Vector2f(175, 5));
     wall9.setFillColor(sf:: Color :: Transparent);
 
-    wall10.setPosition(982, 1001);
-    wall10.setSize(sf::Vector2f(29, 4));
+    wall10.setPosition(981, 1001);
+    wall10.setSize(sf::Vector2f(27, 4));
     wall10.setFillColor(sf:: Color ::Transparent);
 
-    wall11.setPosition(1041, 1001);
-    wall11.setSize(sf::Vector2f(51, 4));
+    wall11.setPosition(1042, 1001);
+    wall11.setSize(sf::Vector2f(50, 4));
     wall11.setFillColor(sf:: Color ::Transparent);
 
-    wall12.setPosition(987, 1067);
-    wall12.setSize(sf::Vector2f(158, 35));
+    wall12.setPosition(981, 1062);
+    wall12.setSize(sf::Vector2f(165, 35));
     wall12.setFillColor(sf:: Color ::Transparent);
 
     wall13.setPosition(1251, 1100);
@@ -226,53 +233,53 @@ void Map ::setBlock() {
     wall16.setSize(sf::Vector2f(198, 4));
     wall16.setFillColor(sf:: Color ::Transparent);
 
-    wall17.setPosition(986, 1263);
-    wall17.setSize(sf::Vector2f(158, 52));
+    wall17.setPosition(984, 1255);
+    wall17.setSize(sf::Vector2f(163, 55));
     wall17.setFillColor(sf:: Color ::Transparent);
 
-    wall18.setPosition(1187, 1260);
-    wall18.setSize(sf::Vector2f(123, 48));
+    wall18.setPosition(1184, 1257);
+    wall18.setSize(sf::Vector2f(133, 44));
     wall18.setFillColor(sf:: Color :: Transparent);
 
-    wall19.setPosition(1319, 679);
-    wall19.setSize(sf::Vector2f(233, 614));
+    wall19.setPosition(1319, 681);
+    wall19.setSize(sf::Vector2f(242, 608));
     wall19.setFillColor(sf:: Color :: Transparent);
 
 
-    tile1.setPosition(1083, 1364);
-    tile1.setSize(sf::Vector2f(27, 109));
+    tile1.setPosition(1077, 1359);
+    tile1.setSize(sf::Vector2f(38, 113));
     tile1.setFillColor(sf:: Color :: Transparent);
 
     tile2.setPosition(924, 1383);
     tile2.setSize(sf::Vector2f(113, 93));
     tile2.setFillColor(sf:: Color :: Transparent);
 
-    tile3.setPosition(774, 1279);
-    tile3.setSize(sf::Vector2f(152, 58));
+    tile3.setPosition(767, 1279);
+    tile3.setSize(sf::Vector2f(162, 61));
     tile3.setFillColor(sf:: Color ::Transparent);
 
-    tile4.setPosition(1172, 1380);
-    tile4.setSize(sf::Vector2f(291, 81));
+    tile4.setPosition(1168, 1370);
+    tile4.setSize(sf::Vector2f(305, 93));
     tile4.setFillColor(sf:: Color ::Transparent);
 
     tile5.setPosition(1083, 1364);
     tile5.setSize(sf::Vector2f(27, 109));
     tile5.setFillColor(sf:: Color ::Transparent);
 
-    tile6.setPosition(1189, 1516);
-    tile6.setSize(sf::Vector2f(19, 26));
+    tile6.setPosition(1186, 1507);
+    tile6.setSize(sf::Vector2f(24, 32));
     tile6.setFillColor(sf:: Color ::Transparent);
 
     tile7.setPosition(1283, 1500);
     tile7.setSize(sf::Vector2f(108, 83));
     tile7.setFillColor(sf:: Color ::Transparent);
 
-    tile8.setPosition(1201, 1592);
-    tile8.setSize(sf::Vector2f(60, 53));
+    tile8.setPosition(1198, 1587);
+    tile8.setSize(sf::Vector2f(67, 65));
     tile8.setFillColor(sf:: Color ::Transparent);
 
-    tile9.setPosition(1268, 1639);
-    tile9.setSize(sf::Vector2f(286, 8));
+    tile9.setPosition(1264, 1635);
+    tile9.setSize(sf::Vector2f(290, 15));
     tile9.setFillColor(sf:: Color ::Transparent);
 
     tile10.setPosition(1434, 1453);
@@ -283,36 +290,36 @@ void Map ::setBlock() {
     tile11.setSize(sf::Vector2f(12, 10));
     tile11.setFillColor(sf:: Color ::Transparent);
 
-    tile12.setPosition(1470, 1694);
-    tile12.setSize(sf::Vector2f(82, 11));
+    tile12.setPosition(1466, 1691);
+    tile12.setSize(sf::Vector2f(87, 14));
     tile12.setFillColor(sf:: Color ::Transparent);
 
-    tile13.setPosition(1052, 1586);
-    tile13.setSize(sf::Vector2f(80, 62));
+    tile13.setPosition(1052, 1580);
+    tile13.setSize(sf::Vector2f(82, 66));
     tile13.setFillColor(sf:: Color ::Transparent);
 
-    tile14.setPosition(927, 1628);
-    tile14.setSize(sf::Vector2f(107, 87));
-    tile14.setFillColor(sf:: Color :: Transparent);
+    tile14.setPosition(923, 1623);
+    tile14.setSize(sf::Vector2f(112, 80));
+    tile14.setFillColor(sf:: Color ::Transparent);
 
-    tile15.setPosition(878, 1748);
-    tile15.setSize(sf::Vector2f(707, 108));
+    tile15.setPosition(882, 1738);
+    tile15.setSize(sf::Vector2f(627, 123));
     tile15.setFillColor(sf:: Color ::Transparent);
 
     tile16.setPosition(627, 1484);
     tile16.setSize(sf::Vector2f(247, 308));
     tile16.setFillColor(sf:: Color ::Transparent);
 
-    tile17.setPosition(1052, 1417);
-    tile17.setSize(sf::Vector2f(62, 47));
+    tile17.setPosition(1047, 1410);
+    tile17.setSize(sf::Vector2f(67, 58));
     tile17.setFillColor(sf:: Color :: Transparent);
 
     tile18.setPosition(1190, 1313);
-    tile18.setSize(sf::Vector2f(55, 29));
+    tile18.setSize(sf::Vector2f(55, 23));
     tile18.setFillColor(sf:: Color ::Transparent);
 
-    tile19.setPosition(1322, 1348);
-    tile19.setSize(sf::Vector2f(242, 42));
+    tile19.setPosition(1322, 1338);
+    tile19.setSize(sf::Vector2f(242, 48));
     tile19.setFillColor(sf:: Color :: Transparent);
 
     tile20.setPosition(1468, 1695);
@@ -323,8 +330,8 @@ void Map ::setBlock() {
     tile21.setSize(sf::Vector2f(41, 455));
     tile21.setFillColor(sf:: Color :: Transparent);
 
-    tile22.setPosition(662, 1264);
-    tile22.setSize(sf::Vector2f(102, 125));
+    tile22.setPosition(662, 1256);
+    tile22.setSize(sf::Vector2f(106, 126));
     tile22.setFillColor(sf:: Color ::Transparent);
 
     tile23.setPosition(499, 1420);
@@ -334,6 +341,7 @@ void Map ::setBlock() {
     tile24.setPosition(659, 1402);
     tile24.setSize(sf::Vector2f(23, 21));
     tile24.setFillColor(sf:: Color ::Transparent);
+
 
     rect1.setFillColor(sf::Color::Transparent);
     rect1.setSize(sf::Vector2f(877, 431));
@@ -420,12 +428,12 @@ void Map ::setBlock() {
     rect21.setPosition(403, 1199);
 
     rect22.setFillColor(sf::Color::Transparent);
-    rect22.setSize(sf::Vector2f(314, 452));
-    rect22.setPosition(419, 752);
+    rect22.setSize(sf::Vector2f(306, 499));
+    rect22.setPosition(419, 748);
 
     rect23.setFillColor(sf::Color::Transparent);
-    rect23.setSize(sf::Vector2f(57, 783));
-    rect23.setPosition(676, 0);
+    rect23.setSize(sf::Vector2f(52, 1382));
+    rect23.setPosition(673, 0);
 
     side1.setFillColor(sf::Color::Transparent);
     side1.setSize(sf::Vector2f(261, 100));
@@ -587,6 +595,8 @@ int Map ::setArray(std::vector<sf::RectangleShape> &wallArray) {
     wallArray.push_back(block37);
     wallArray.push_back(block38);
     wallArray.push_back(block39);
+    wallArray.push_back(block40);
+    wallArray.push_back(block41);
 
     wallArray.push_back(wall1);
     wallArray.push_back(wall2);

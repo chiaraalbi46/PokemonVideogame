@@ -39,6 +39,7 @@ int main() {
     sf::Clock clock;
     sf::Clock clock1;
 
+    int character = 0;
     Player player;
     NPC npc;
 
@@ -98,6 +99,7 @@ int main() {
         }
 
         settings.start1(window, player, graphic);
+        settings.choosePlayer(window, player);
         settings.start2(window, player, graphic);
         settings.start3(window, player, graphic);
 
@@ -108,38 +110,31 @@ int main() {
                 PokemonArray.push_back(graphicPokemon.floatzel);
                 player.click0 = true;
                 i++;
-            }
-            else if (choosen == 1 && !player.click1) {
+            } else if (choosen == 1 && !player.click1) {
                 PokemonArray.push_back(graphicPokemon.infernape);
                 player.click1 = true;
                 i++;
-            }
-            else if (choosen == 2 && !player.click2) {
+            } else if (choosen == 2 && !player.click2) {
                 PokemonArray.push_back(graphicPokemon.luxray);
                 player.click2 = true;
                 i++;
-            }
-            else if (choosen == 3 && !player.click3) {
+            } else if (choosen == 3 && !player.click3) {
                 PokemonArray.push_back(graphicPokemon.breloom);
                 player.click3 = true;
                 i++;
-            }
-            else if (choosen == 4 && !player.click4) {
+            } else if (choosen == 4 && !player.click4) {
                 PokemonArray.push_back(graphicPokemon.blastoise);
                 player.click4 = true;
                 i++;
-            }
-            else if (choosen == 5 && !player.click5) {
+            } else if (choosen == 5 && !player.click5) {
                 PokemonArray.push_back(graphicPokemon.rapidash);
                 player.click5 = true;
                 i++;
-            }
-            else if (choosen == 6 && !player.click6) {
+            } else if (choosen == 6 && !player.click6) {
                 PokemonArray.push_back(graphicPokemon.zapdos);
                 player.click6 = true;
                 i++;
-            }
-            else if (choosen == 7 && !player.click7) {
+            } else if (choosen == 7 && !player.click7) {
                 PokemonArray.push_back(graphicPokemon.bulbasaur);
                 player.click7 = true;
                 i++;
@@ -162,7 +157,7 @@ int main() {
             graphicPokemon.spriteCheck.setPosition(0, 255);
             window.draw(graphicPokemon.spriteCheck);
         }
-        if (player.click4) {
+        if (player.click4) { //ricomincio da blastoise
             graphicPokemon.spriteCheck.setPosition(226, 0);
             window.draw(graphicPokemon.spriteCheck);
         }
@@ -178,7 +173,6 @@ int main() {
             graphicPokemon.spriteCheck.setPosition(226, 255);
             window.draw(graphicPokemon.spriteCheck);
         }
-
         window.display();
 
         int counterPok = 0;
@@ -205,18 +199,9 @@ int main() {
 
             counterPok++;
         }
-
         gameState = Playing;
     }
 
-/*
-    // center camera
-    sf::View view;
-    view.reset(sf::FloatRect(0, 0, 900, 500));
-    view.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
-    sf::Vector2f position(900 / 2, 500 / 2);
-    sf::Vector2f viewSize = view.getSize();
-*/
     //NPC vector array
     std::vector<NPC> NPCArray;
     graphic.setNPC();
@@ -260,6 +245,13 @@ int main() {
     std::vector<sf::RectangleShape> wallArray;
     map0.setArray(wallArray);
 
+    if(player.girl) {
+        player.sprite.setTextureRect(sf::IntRect(player.counterWalking * 32, 4 * 32, 32, 32));
+    }
+    if(player.boy){
+        player.sprite.setTextureRect(sf::IntRect(player.counterWalking * 32, 0, 32, 32));
+    }
+
 
 // FIXME inizio while
     // run the program as long as the window is open
@@ -277,8 +269,7 @@ int main() {
                         sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                         player.setSelect(true);
                         player.options = false;
-                    }
-                    else if (sf::Mouse::getPosition(window).x > 100 &&
+                    } else if (sf::Mouse::getPosition(window).x > 100 &&
                                sf::Mouse::getPosition(window).x < 313 &&
                                sf::Mouse::getPosition(window).y > 440 &&
                                sf::Mouse::getPosition(window).y < 490 &&
@@ -292,13 +283,11 @@ int main() {
                         player.setSelectAttack(false);
                         player.setAttack(true);
                         typeAttack = 1;    // Attacco 1
-                    }
-                    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
                         player.setAttack(true);
                         player.setSelectAttack(false);
                         typeAttack = 2;    // Attacco 2
-                    }
-                    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
+                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
                         player.setAttack(true);
                         player.setSelectAttack(false);
                         typeAttack = 3;     // Attacco 3
@@ -308,13 +297,11 @@ int main() {
         }
         window.clear();
 
-
         if (player.isEnterGym()) {
             if (gameState == Playing) {
                 gameState = Fighting;
             }
-        }
-        else {
+        } else {
             gameState = Playing;
         }
 
@@ -325,8 +312,6 @@ int main() {
             view.setCenter(sf::Vector2f(450, 253.5));
             view.setSize(900, 507);
             window.setView(view);
-            //settings.prebattle(window, player, graphic);
-
         }
         else if (gameState == Playing) {
             // Setting View
@@ -335,10 +320,10 @@ int main() {
                 position.x = player.rect.getPosition().x + 24;
             if (player.rect.getPosition().y + 24 > 500 / 2)
                 position.y = player.rect.getPosition().y + 24;
-            if (player.rect.getPosition().x + viewSize.x / 2 > 1800)
-                position.x = 1700 - (viewSize.x / 2);
-            if (player.rect.getPosition().y + viewSize.y / 2 > 2000)
-                position.y = 700 - (viewSize.y / 2);
+            if (player.rect.getPosition().x + viewSize.x / 2 > 1900)
+                position.x = 1480;
+            if (player.rect.getPosition().y + viewSize.y / 2 > 2100)
+                position.y = 2100;
 
             view.setCenter(position);
             window.setView(view);
@@ -351,13 +336,18 @@ int main() {
         }
 
         if (gameState == Playing) {
-            graphic.setText(player);
+            if(player.boy){
+                player.character = 0;
+            }
+            else if (player.girl){
+                player.character = 4;
+            }
+            graphic.setText(player, ItemArray);
 
             //Load spritePlayer
             if (player.rideBicycle) {
                 player.sprite.setTexture(graphic.texturePlayerBike);
-            }
-            else {
+            } else {
                 player.sprite.setTexture(graphic.texturePlayer);
             }
 
@@ -372,19 +362,58 @@ int main() {
             collision.collisionItem(player, ItemArray, graphic);
 
             //collision gym
-            collision.collisionGym(player, graphic);
+            collision.collisionGym(window, player, graphic, ItemArray );
 
             collision.collisionMap(player, wallArray);
 
             //collision gym NPC  ???
             //   collision.collisionNpcItem(graphic, NPCArray);
 
+            if(player.pass){
+                player.moveRight = false;
+                player.moveUp = false;
+                player.moveLeft = false;
+                player.moveDown = false;
+                window.draw(graphic.medal);
+                if(player.pickUp1){
+                    window.draw(graphic.medalPickUp1);
+                }
+                if(player.pickUp2) {
+                    window.draw(graphic.medalPickUp2);
+                }
+                if(player.pickUp3){
+                    window.draw(graphic.medalPickUp3);
+                }
+                if(player.pickUp4){
+                    window.draw(graphic.medalPickUp4);
+                }
+                if(player.pickUp5){
+                    window.draw(graphic.medalPickUp5);
+                }
+                if(player.pickUp6){
+                    window.draw(graphic.medalPickUp6);
+                }
+                if(player.pickUp7){
+                    window.draw(graphic.medalPickUp7);
+                }
+                if(player.pickUp8){
+                    window.draw(graphic.medalPickUp8);
+                }
+                window.draw(graphic.medalsText);
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+                    player.pass = false;
+                    player.moveRight = true;
+                    player.moveUp = true;
+                    player.moveLeft = true;
+                    player.moveDown = true;
+                }
+            }
+
             // Draws item
             for (auto iter = ItemArray.begin(); iter != ItemArray.end(); iter++) {
                 iter->update();
                 window.draw(iter->sprite);
             }
-
 
             //Draw Wall
             int counter = 0;
@@ -427,7 +456,7 @@ int main() {
 
             if (!player.isPrebattle()) {
                 window.draw(graphic.prebattle);
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return) ){
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
                     player.setPrebattle(true);
                 }
             }
@@ -443,7 +472,6 @@ int main() {
                         window.draw(graphic.attack);   //Scegli attacco
                     }
                 }
-
                 bullet.update(typeAttack, adder1);
 
                 if (PokemonEnemyArray[choosen2]->isAlive) {
@@ -455,18 +483,15 @@ int main() {
                         PokemonArray[0]->update();
                         choosen1 = 0;
                         window.draw(PokemonArray[0]->sprite);
-                    }
-                    else if (player.pokemon1) {
+                    } else if (player.pokemon1) {
                         PokemonArray[1]->update();
                         choosen1 = 1;
                         window.draw(PokemonArray[1]->sprite);
-                    }
-                    else if (player.pokemon2) {
+                    } else if (player.pokemon2) {
                         PokemonArray[2]->update();
                         choosen1 = 2;
                         window.draw(PokemonArray[2]->sprite);
-                    }
-                    else if (player.pokemon3) {
+                    } else if (player.pokemon3) {
                         PokemonArray[3]->update();
                         choosen1 = 3;
                         window.draw(PokemonArray[3]->sprite);
@@ -476,7 +501,6 @@ int main() {
                 window.draw(graphic.hpText);
                 graphic.setTextHp(PokemonEnemyArray[choosen2]); // HP pokemon nemico
                 window.draw(graphic.hpEnemyText);
-
 
                 if (player.isFight()) {
                     if (!player.isEnemyTurn()) {    //TURNO GIOCATORE
@@ -495,17 +519,13 @@ int main() {
                             PokemonArray[choosen1]->update();
                             if (choosen1 == 0) {
                                 window.draw(PokemonArray[0]->sprite);
-                            }
-                            else if (choosen1 == 1) {
+                            } else if (choosen1 == 1) {
                                 window.draw(PokemonArray[1]->sprite);
-                            }
-                            else if (choosen1 == 2) {
+                            } else if (choosen1 == 2) {
                                 window.draw(PokemonArray[2]->sprite);
-                            }
-                            else if (choosen1 == 3) {
+                            } else if (choosen1 == 3) {
                                 window.draw(PokemonArray[3]->sprite);
                             }
-
                             player.setEnemyTurn(true);
                         }
 
@@ -514,7 +534,6 @@ int main() {
                             PokemonArray[choosen1]->updateDirection(player);
                             PokemonArray[choosen1]->update();
 
-                            graphic.soundShot.play();
                             sf::Time elapsed = clock.getElapsedTime();
                             if (elapsed.asSeconds() >= 0.8) {
                                 clock.restart();
@@ -540,7 +559,8 @@ int main() {
                     if (player.isEnemyTurn()) { // TURNO NEMICO
 
                         graphicPokemon.setPokemonOpponent(window, PokemonEnemyArray, player, choosen2);
-                        graphic.setTextAttack(PokemonEnemyArray[choosen2], bullet); // Scrive l'attacco usato dal pokemon
+                        graphic.setTextAttack(PokemonEnemyArray[choosen2],
+                                              bullet); // Scrive l'attacco usato dal pokemon
                         if (!player.enemyAttack) {
                             window.draw(graphic.enemyTurnText);
                         }
@@ -556,11 +576,11 @@ int main() {
 
                         if (player.enemyAttack) {
 
-
                             sf::Time elapsed = clock1.getElapsedTime();
                             if (elapsed.asSeconds() >= 0.8) {
                                 clock1.restart();
-                                collision.PokemonAttack(*PokemonEnemyArray[choosen2], bullet, bulletArray, player, adder1,
+                                collision.PokemonAttack(*PokemonEnemyArray[choosen2], bullet, bulletArray, player,
+                                                        adder1,
                                                         effect);
                             }
 
@@ -608,13 +628,11 @@ int main() {
                     //Draw text
                     for (auto iter = textArray.begin(); iter != textArray.end(); iter++) {
                         iter->update();
-                        //cout << "draw bullet" << endl;
                         window.draw(iter->text);
                     }
 
-
-                    //Distruzione testo
                     for (auto iter = textArray.begin(); iter != textArray.end(); iter++) {
+                        //Distruzione testo
                         if (iter->isDestroyed) {
                             textArray.erase(iter);
                             break;
@@ -651,23 +669,21 @@ int main() {
                 }
 
                 if (PokemonArray.empty()) {       // Vince il nemico
+                    window.clear();
                     player.setFight(false);
                     window.draw(graphic.gameOver);
                     //  window.draw(graphic.restart);
                     graphic.musicbattle.stop();
-                }
-                else if (PokemonEnemyArray.empty()) {  // Vince il giocatore
+                } else if (PokemonEnemyArray.empty()) {  // Vince il giocatore
+                    window.clear();
                     player.setFight(false);
                     window.draw(graphic.win);
                     //  window.draw(graphic.restart);
                     graphic.musicbattle.stop();
-
                 }
             }
             window.display();
-
         }
     }
     return 0;
-
 }

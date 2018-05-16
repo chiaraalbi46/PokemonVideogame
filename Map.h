@@ -49,6 +49,8 @@ public:
     sf:: RectangleShape block37;
     sf:: RectangleShape block38;
     sf:: RectangleShape block39;
+    sf:: RectangleShape block40;
+    sf:: RectangleShape block41;
 
     sf:: RectangleShape wall1;
     sf:: RectangleShape wall2;

@@ -1,13 +1,12 @@
 
 #include "Bullet.h"
 
-
 void Bullet::update(int &typeAttack, int &adder1) { //il proiettile si muove nelle due direzioni compatibilmente con i movimenti del pokemon
     if(typeAttack == 1) {
         adder1 = 60;
         setName("Energy sphere");
         lifeTime = 50;
-        attackDamage = 1;
+        attackDamage = 10;
         counter = 3;
         rect.setSize(sf::Vector2f(48, 48));
         if(direction == 1) {
@@ -24,7 +23,7 @@ void Bullet::update(int &typeAttack, int &adder1) { //il proiettile si muove nel
         adder1 = 0;
         setName("Laceration");
         lifeTime = 50;
-        attackDamage = 3;
+        attackDamage = 13;
         counter = 6;
         rect.setSize(sf::Vector2f(192, 192));
         if (direction == 1) {
@@ -41,7 +40,7 @@ void Bullet::update(int &typeAttack, int &adder1) { //il proiettile si muove nel
         adder1 = 60;
         setName("Vortex ball");
         lifeTime = 50;
-        attackDamage = 2;
+        attackDamage = 12;
         counter = 5;
         rect.setSize(sf::Vector2f(60, 67));
         if (direction == 1) {
@@ -117,9 +116,3 @@ void Bullet::setName(const string &name) {
 BulletType Bullet::getType() const {
     return type;
 }
-
-void Bullet::setType(BulletType type) {
-    Bullet::type = type;
-}
-
-

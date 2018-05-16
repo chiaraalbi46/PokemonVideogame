@@ -365,3 +365,30 @@ int Settings::start3(sf::RenderWindow &window, Player &player, Graphic &graphic)
         player.start3 = true;
     }
 }
+
+int Settings::choosePlayer(sf::RenderWindow &window,Player &player) {
+    window.clear();
+    sf:: Texture textureChoose;
+    sf:: Sprite sprite;
+    if (!textureChoose.loadFromFile("../Risorse/start.png")) {
+        return EXIT_FAILURE;
+    }
+    sprite.setTexture(textureChoose);
+    sprite.setPosition(0, 0);
+    window.draw(sprite);
+    window.display();
+
+    sf::Event event;
+    while (true) {
+        while (window.pollEvent(event)) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
+                player.boy = true;
+                return 0;
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
+                player.girl = true;
+                return 0;
+            }
+        }
+    }
+}

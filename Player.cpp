@@ -1,8 +1,6 @@
 
 #include "Player.h"
 
-
-
 void Player::update() {
     sprite.setPosition(rect.getPosition());
 }
@@ -16,19 +14,17 @@ void Player :: move() {
         moveLeft = true;
         moveRight = true;
         moveDown = true;
-
+        sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 * 3 + character * 32, 32, 32));
         //Use bicycle
         if (isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
             textBicycle = false;
             rideBicycle = true;
             speed = 3;
-            sprite.setTextureRect(sf::IntRect(30 * 2, counterWalking * 30, 30, 30));
             vel = 2;
         }
         else {
-            speed = 1;
+            speed=1;
             rideBicycle=false;
-            sprite.setTextureRect(sf::IntRect(28 * 2, counterWalking1 * 30, 28, 30));
         }
 
         if (rect.getPosition().y < 0) {
@@ -43,26 +39,19 @@ void Player :: move() {
         moveRight = true;
         moveUp = true;
         moveDown = true;
+        sprite.setTextureRect(sf::IntRect(counterWalking * 32, character * 32, 32, 32));
 
         //Use bicycle
         if ( isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
             textBicycle = false;
             rideBicycle=true;
-            sprite.setTextureRect(sf::IntRect(0, counterWalking * 30, 30, 30));
             speed = 3;
             vel = 2;
         }
         else {
-            speed = 1;
+            speed=1;
             rideBicycle=false;
-            sprite.setTextureRect(sf::IntRect(0 , counterWalking1* 30 , 30, 30));
-
         }
-
-        /*     if (rect.getPosition().y > 475) {
-                 moveDown = false;
-             }*/
-
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && moveLeft) {
         rect.move(-speed,0);
@@ -71,18 +60,16 @@ void Player :: move() {
         moveDown = true;
         moveUp = true;
         moveLeft = true;
-
+        sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 + character * 32, 32, 32));
         if ( isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
             textBicycle = false;
             rideBicycle=true;
-            sprite.setTextureRect(sf::IntRect(28, counterWalking * 30, 28, 30));
             speed = 3;
             vel = 2;
         }
         else{
-            speed = 1;
+            speed=1;
             rideBicycle=false;
-            sprite.setTextureRect(sf::IntRect(28 , counterWalking1* 30 , 30, 30));
         }
 
         if (rect.getPosition().x < 0) {
@@ -97,53 +84,34 @@ void Player :: move() {
         moveDown = true;
         moveUp = true;
         moveRight = true;
-
+        sprite.setTextureRect(sf::IntRect( counterWalking * 32,32 * 2 + character * 32, 32, 32));
         //Use bicycle
         if ( isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
             textBicycle = false;
             rideBicycle=true;
-            sprite.setTextureRect(sf::IntRect(30 * 3, counterWalking * 30, 30, 30));
             speed = 3;
             vel = 2;
         }
         else {
             speed=1;
             rideBicycle=false;
-            sprite.setTextureRect(sf::IntRect(28 * 3, counterWalking1 * 30, 28, 30));
-
         }
-
-        /* if (rect.getPosition().x > 770) {
-             moveRight = false;
-         } */
     }
 
     if(isEnterGym()) {
-
         moveLeft = false;
         moveDown = false;
         moveUp = false;
         moveRight = false;
     }
-
-
-    counterWalking1++;
-    if( counterWalking1==6){
-        counterWalking1=0;
-    }
     counterWalking++;
     if(counterWalking==3){
         counterWalking=0;
     }
-    counterWalking2++;
-    if(counterWalking2==4){
-        counterWalking2=0;
-    }
-
 };
 
-int Player::increaseScore(int pokeballValue) {
-    score += pokeballValue;
+int Player::increaseScore(int medalValue) {
+    score += medalValue;
 }
 int Player::getScore() const {
     return score;
@@ -232,5 +200,3 @@ bool Player::isPrebattle() const {
 void Player::setPrebattle(bool prebattle) {
     Player::prebattle = prebattle;
 }
-
-

@@ -20,8 +20,7 @@ public:
     sf::Sprite sprite;
     sf::RectangleShape rect;
 
-    int pokeballValue = 5;
-
+    int medalValue = 1;
 
     bool isPickedUp() const {
         return pickedUp;
@@ -39,12 +38,9 @@ public:
         Item::type = type;
     }
 
-
-
 protected:
     std::string type;
     bool pickedUp = false;
-
 };
 
 

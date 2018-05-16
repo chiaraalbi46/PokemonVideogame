@@ -1,6 +1,5 @@
 #include "Collision.h"
 
-
 void Collision ::collisionNPC(Player &player, std::vector<NPC> &NPCArray, NPC &npc) {
 
 //Player collides npc
@@ -35,61 +34,53 @@ void Collision ::collisionNPC(Player &player, std::vector<NPC> &NPCArray, NPC &n
     }
 }
 
-void Collision ::collisionItem(Player &player, std :: vector<Item> &ItemArray, Graphic &graphic) { //modificare con counterItem - score 
+void Collision ::collisionItem(Player &player, std :: vector<Item> &ItemArray, Graphic &graphic) {
     //player collides object
     for (auto itr = ItemArray.begin(); itr != ItemArray.end(); itr++) {
         if (player.rect.getGlobalBounds().intersects(itr->rect.getGlobalBounds())) {
             graphic.soundItem.play();
 
-            if (itr->getType() == "bicycle" ) {
+            if (itr->getType() == "bicycle") {
                 player.setBicyclePickUp(true);
                 player.textBicycle = true;
             }
-            else if (itr->getType() == "Megaball" || itr->getType() == "Masterball" ){
-                player.increaseScore(itr->pokeballValue);
+            else if (itr->getType() == "medal1") {
+                player.increaseScore(itr->medalValue);
+                player.pickUp1 = true;
+            }
+            else if (itr->getType() == "medal2"){
+                player.increaseScore(itr->medalValue);
+                player.pickUp2 = true;
+            }
+            else if (itr->getType() == "medal3") {
+                player.increaseScore(itr->medalValue);
+                player.pickUp3 = true;
+            }
+            else if (itr->getType() == "medal4") {
+                player.increaseScore(itr->medalValue);
+                player.pickUp4 = true;
+            }
+            else if (itr->getType() == "medal5") {
+                player.increaseScore(itr->medalValue);
+                player.pickUp5 = true;
+            }
+            else if (itr->getType() == "medal6") {
+                player.increaseScore(itr->medalValue);
+                player.pickUp6 = true;
+            }
+            else if (itr->getType() == "medal7") {
+                player.increaseScore(itr->medalValue);
+                player.pickUp7 = true;
+            }
+            else if (itr->getType() == "medal8") {
+                player.increaseScore(itr->medalValue);
+                player.pickUp8 = true;
             }
             itr->setPickedUp(true);
         }
     }
 
 };
-
-/*
-void Collision ::collisionNpcItem(Graphic &graphic, std:: vector<NPC> NPCArray, std:: vector<sf:: RectangleShape> &wallArray ) {
-
-    for (auto iter = wallArray.begin(); iter != wallArray.end(); iter++) {
-        for (auto iter1 = NPCArray.begin(); iter1 != NPCArray.end(); iter1++) {
-            if (iter1->rect.getGlobalBounds().intersects(iter1->rect.getGlobalBounds())) {
-
-                if (iter1->getDirection() == Character::Direction::Left) {
-                iter1->moveLeft = false;
-                iter1->rect.move(0.5, 0);
-                iter1->setDirection(Character::Direction::Left);
-
-                }
-                else if (iter1->getDirection() == Character::Direction::Right) {
-
-                iter1->moveRight = false;
-                iter1->rect.move(-0.5f, 0);
-                iter1->setDirection(Character::Direction::Right);
-
-                } else if (iter1->getDirection() == Character::Direction::Up) {
-                iter1->moveUp = false;
-                iter1->rect.move(0, 0.5);
-                iter1->setDirection(Character::Direction::Up);
-
-            }
-            else if (iter1->getDirection() == Character::Direction::Down) {
-
-                iter1->moveDown = false;
-                iter1->rect.move(0, -0.5f);
-                iter1->setDirection(Character::Direction::Down);
-            }
-        }
-    }
-
-
-}*/
 
 void Collision ::collisionMap(Player &player, std::vector<sf:: RectangleShape> &mapArray) {
     for (auto iter = mapArray.begin(); iter != mapArray.end(); iter++) {
@@ -99,19 +90,16 @@ void Collision ::collisionMap(Player &player, std::vector<sf:: RectangleShape> &
                 player.moveLeft = false;
                 player.rect.move(1 + player.vel, 0);
                 player.setDirection(Character::Direction::Left);
-            }
-            else if (player.getDirection() == Character::Direction::Right) {
+            } else if (player.getDirection() == Character::Direction::Right) {
                 player.moveRight = false;
                 player.rect.move(-1 - player.vel, 0);
                 player.setDirection(Character::Direction::Right);
-            }
-            else if (player.getDirection() == Character::Direction::Up) {
+            } else if (player.getDirection() == Character::Direction::Up) {
                 player.moveUp = false;
                 player.rect.move(0, 1 + player.vel);
                 player.setDirection(Character::Direction::Up);
 
-            }
-            else if (player.getDirection() == Character::Direction::Down) {
+            } else if (player.getDirection() == Character::Direction::Down) {
                 player.moveDown = false;
                 player.rect.move(0, -1 - player.vel);
                 player.setDirection(Character::Direction::Down);
@@ -120,7 +108,7 @@ void Collision ::collisionMap(Player &player, std::vector<sf:: RectangleShape> &
     }
 }
 
-void Collision::collisionGym(Player &player, Graphic &graphic) {
+void Collision::collisionGym(sf:: RenderWindow &window, Player &player, Graphic &graphic, std :: vector<Item> &ItemArray) {
     if (player.rect.getGlobalBounds().intersects(graphic.gym.getGlobalBounds())) {
 
         if (player.getDirection() == Character::Direction::Left) {
@@ -129,22 +117,24 @@ void Collision::collisionGym(Player &player, Graphic &graphic) {
             player.rect.move(1, 0);
             player.setDirection(Character::Direction::Left);
 
-        }
-        else if (player.getDirection() == Character::Direction::Right) {
+        } else if (player.getDirection() == Character::Direction::Right) {
 
             player.moveRight = false;
             player.rect.move(-1, 0);
             player.setDirection(Character::Direction::Right);
 
-        }
-        else if (player.getDirection() == Character::Direction::Up) {
-            player.setCollGym(true);
+        } else if (player.getDirection() == Character::Direction::Up) {
+            if(ItemArray.empty()) {
+                player.setCollGym(true);
+            }
+            else{
+                player.pass = true;
+            }
             player.moveUp = false;
             player.rect.move(0, 1);
             player.setDirection(Character::Direction::Up);
 
-        }
-        else if (player.getDirection() == Character::Direction::Down) {
+        } else if (player.getDirection() == Character::Direction::Down) {
 
             player.moveDown = false;
             player.rect.move(0, -1);

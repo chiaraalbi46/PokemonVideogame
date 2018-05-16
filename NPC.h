@@ -11,7 +11,9 @@
 
 class NPC : public Character {
 public:
-     NPC( ): Character (){}
+     NPC( ): Character (){
+         sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32, 32, 32));
+     }
 
     ~NPC() {}
 
@@ -20,7 +22,6 @@ public:
     void move() override;
 
     int generateRandom(int max);
-
 
 protected:
     int speed = 1;
