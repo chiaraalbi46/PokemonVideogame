@@ -4,7 +4,6 @@
 #define POKEMONVIDEOGAME_PLAYER_H
 
 #include "Character.h"
-#include "Item.h"
 
 class Player: public Character {
 public:
@@ -111,17 +110,18 @@ public:
     bool two = false;
     bool three = false;
 
-    bool triangle1 = false;
     bool pass = false;
 
     bool start1 = false;  //Professore Oak
     bool start2 = false;
     bool start3 = false;
 
-protected:
     int speed = 1;
-    bool bicyclePickUp = false;
     bool collGym = false;
+
+protected:
+
+    bool bicyclePickUp = false;
     bool enterGym = false;      // Entra o no in palestra
 
     bool prebattle = false;   //Capopalestra

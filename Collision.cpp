@@ -1,6 +1,6 @@
 #include "Collision.h"
 
-void Collision ::collisionNPC(Player &player, std::vector<NPC> &NPCArray, NPC &npc) {
+void Collision ::collisionNPC(Player &player, std::vector<NPC> &NPCArray) {
 
 //Player collides npc
     for (auto iter = NPCArray.begin(); iter != NPCArray.end(); iter++) {
@@ -12,19 +12,22 @@ void Collision ::collisionNPC(Player &player, std::vector<NPC> &NPCArray, NPC &n
                 player.rect.move(1, 0);
                 player.setDirection(Character::Direction::Left);
 
-            } else if (player.getDirection() == Character::Direction::Right) {
+            }
+            else if (player.getDirection() == Character::Direction::Right) {
 
                 player.moveRight = false;
                 player.rect.move(-1, 0);
                 player.setDirection(Character::Direction::Right);
 
-            } else if (player.getDirection() == Character::Direction::Up) {
+            }
+            else if (player.getDirection() == Character::Direction::Up) {
 
                 player.moveUp = false;
                 player.rect.move(0, 1);
                 player.setDirection(Character::Direction::Up);
 
-            } else if (player.getDirection() == Character::Direction::Down) {
+            }
+            else if (player.getDirection() == Character::Direction::Down) {
 
                 player.moveDown = false;
                 player.rect.move(0, -1);
@@ -90,16 +93,19 @@ void Collision ::collisionMap(Player &player, std::vector<sf:: RectangleShape> &
                 player.moveLeft = false;
                 player.rect.move(1 + player.vel, 0);
                 player.setDirection(Character::Direction::Left);
-            } else if (player.getDirection() == Character::Direction::Right) {
+            }
+            else if (player.getDirection() == Character::Direction::Right) {
                 player.moveRight = false;
                 player.rect.move(-1 - player.vel, 0);
                 player.setDirection(Character::Direction::Right);
-            } else if (player.getDirection() == Character::Direction::Up) {
+            }
+            else if (player.getDirection() == Character::Direction::Up) {
                 player.moveUp = false;
                 player.rect.move(0, 1 + player.vel);
                 player.setDirection(Character::Direction::Up);
 
-            } else if (player.getDirection() == Character::Direction::Down) {
+            }
+            else if (player.getDirection() == Character::Direction::Down) {
                 player.moveDown = false;
                 player.rect.move(0, -1 - player.vel);
                 player.setDirection(Character::Direction::Down);
@@ -107,8 +113,7 @@ void Collision ::collisionMap(Player &player, std::vector<sf:: RectangleShape> &
         }
     }
 }
-
-void Collision::collisionGym(sf:: RenderWindow &window, Player &player, Graphic &graphic, std :: vector<Item> &ItemArray) {
+void Collision::collisionGym(sf::RenderWindow &window, Player &player, Graphic &graphic, vector<Item> &ItemArray) {
     if (player.rect.getGlobalBounds().intersects(graphic.gym.getGlobalBounds())) {
 
         if (player.getDirection() == Character::Direction::Left) {
@@ -117,13 +122,15 @@ void Collision::collisionGym(sf:: RenderWindow &window, Player &player, Graphic 
             player.rect.move(1, 0);
             player.setDirection(Character::Direction::Left);
 
-        } else if (player.getDirection() == Character::Direction::Right) {
+        }
+        else if (player.getDirection() == Character::Direction::Right) {
 
             player.moveRight = false;
             player.rect.move(-1, 0);
             player.setDirection(Character::Direction::Right);
 
-        } else if (player.getDirection() == Character::Direction::Up) {
+        }
+        else if (player.getDirection() == Character::Direction::Up) {
             if(ItemArray.empty()) {
                 player.setCollGym(true);
             }
@@ -134,20 +141,21 @@ void Collision::collisionGym(sf:: RenderWindow &window, Player &player, Graphic 
             player.rect.move(0, 1);
             player.setDirection(Character::Direction::Up);
 
-        } else if (player.getDirection() == Character::Direction::Down) {
+        }
+        else if (player.getDirection() == Character::Direction::Down) {
 
             player.moveDown = false;
             player.rect.move(0, -1);
             player.setDirection(Character::Direction::Down);
         }
     }
-
 }
 
 //Pokemon attacks (shot)
 void Collision::PokemonAttack(Pokemon &pokemon, Bullet &bullet, vector<Bullet> &bulletArray, Player &player, int &adder1, Bullet &effect) {
     bullet = *pokemon.bulletPtr;
     effect = *pokemon.bulletPtr;
+
     if ( pokemon.direction == 2) {
         effect.rect.setPosition(550, 160);
         bullet.rect.setPosition(pokemon.rect.getPosition().x + pokemon.rect.getSize().x/3 + adder1,
@@ -166,11 +174,13 @@ void Collision::PokemonAttack(Pokemon &pokemon, Bullet &bullet, vector<Bullet> &
 
 //Collisioni bullet - pokemon avversario
 void Collision::BulletCollidesPokemon(Pokemon *pokemon, vector<Bullet> &bulletArray, Bullet &effect, Text &textDisplay,
-                                      std :: vector<Text> &textArray, float &a, Graphic &graphic) {
+                                      std :: vector<Text> &textArray, float &a) { //&graphic
     for (auto iter = bulletArray.begin(); iter != bulletArray.end(); iter++) {
         if (iter->rect.getGlobalBounds().intersects(pokemon->rect.getGlobalBounds())) {
+
             effect.updateEffects();    // Effetti
             a = a + 0.1f;
+
             //Debolezze
             if(pokemon->getType() == PokemonType ::PokemonFire && iter->getType() == BulletType ::BulletWater){
                 iter->attackDamage += 3;
@@ -214,7 +224,7 @@ void Collision::BulletCollidesPokemon(Pokemon *pokemon, vector<Bullet> &bulletAr
             textArray.push_back(textDisplay);
 
             pokemon->isAlive = pokemon->hp > 0;
-            //   cout <<"a = " << a << endl;
+
 
         }
     }

@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.7)
 project(PokemonVideogame)
 
 set(CMAKE_CXX_STANDARD 11)
+
+add_subdirectory(testDirectory)
+
 set(SFML_ROOT C:/Users/Niki/SFML)
 
 set(SOURCE_FILES main.cpp Bullet.cpp Bullet.h Character.cpp Character.h Collision.cpp Collision.h Graphic.cpp Graphic.h

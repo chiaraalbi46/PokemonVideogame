@@ -83,13 +83,13 @@ int Graphic::loadTextures(GraphicPokemon &strategy) {
     if (!textureNPC2.loadFromFile("../Risorse/npc2.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureNPC3.loadFromFile("../Risorse/npc3.png")) {
+/*    if (!textureNPC3.loadFromFile("../Risorse/npc3.png")) {
         return EXIT_FAILURE;
     }
     if (!textureNPC4.loadFromFile("../Risorse/npc4.png")) {
         return EXIT_FAILURE;
     }
-
+*/
     if (!textureControls.loadFromFile("../Risorse/controls.png")) {
         return EXIT_FAILURE;
     }
@@ -329,7 +329,7 @@ int Graphic ::setBattleText(sf::RenderWindow &window, Player &player) {
             }
         }
     }
-};
+}
 
 int Graphic :: setBackgroundBattle(sf::RenderWindow &window, Player &player){
     // Load Background
@@ -396,7 +396,7 @@ int Graphic :: setBackgroundBattle(sf::RenderWindow &window, Player &player){
     enemyTurnText.setCharacterSize(30);
     enemyTurnText.setFont(font);
 
-};
+}
 
 void Graphic ::setTextAttack(Pokemon *pokemon, Bullet &bullet) {
     //Text Attack
@@ -430,6 +430,6 @@ void Graphic :: setTextHp(Pokemon *pokemon){
     hpEnemyText.setFont(font);
 
 
-};
+}
 
 

@@ -2,15 +2,16 @@
 #ifndef POKEMONVIDEOGAME_BULLET_H
 #define POKEMONVIDEOGAME_BULLET_H
 
-using namespace std;
 #include <SFML/Graphics.hpp>
+using namespace std;
 
 enum class BulletType {BulletWater, BulletFire, BulletElectric, BulletGrass};
+
 class Bullet {
 public:
     Bullet(){
         rect.setSize(sf::Vector2f(48, 48));
-        rect.setPosition(30, 20); //di default
+        rect.setPosition(30, 20);
         rect.setFillColor(sf::Color::Blue);
         loadTexture();
         loadEffectTexture();
@@ -41,7 +42,7 @@ public:
 
     int direction = 0;
     bool isDestroyed = false;
-    float attackDamage;
+    int attackDamage;
 
     int adder;
 

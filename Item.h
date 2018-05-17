@@ -22,6 +22,9 @@ public:
 
     int medalValue = 1;
 
+    std::string type;
+    bool pickedUp = false;
+
     bool isPickedUp() const {
         return pickedUp;
     }
@@ -38,9 +41,6 @@ public:
         Item::type = type;
     }
 
-protected:
-    std::string type;
-    bool pickedUp = false;
 };
 
 

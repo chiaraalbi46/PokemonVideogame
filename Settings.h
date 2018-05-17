@@ -12,12 +12,13 @@ public:
     int choosePokemon(sf::RenderWindow &window, int &choosen2, std::vector<Pokemon*> PokemonArray, GraphicPokemon &graphicPokemon,
                       Player &player);
     int menu(sf::RenderWindow &window, int &press, Player &player);
-    int options(sf:: RenderWindow &window, Player &player, Graphic &graphic);
-    int credits(sf:: RenderWindow &window, Player &player, Graphic &graphic);
-    int start1(sf:: RenderWindow &window, Player &player, Graphic &graphic);
-    int start2(sf:: RenderWindow &window, Player &player, Graphic &graphic);
-    int start3(sf:: RenderWindow &window, Player &player, Graphic &graphic);
-    int choosePlayer(sf:: RenderWindow &window, Player &player);
+    int options(sf::RenderWindow &window, Player &player, Graphic &graphic);
+    int credits(sf::RenderWindow &window, Player &player, Graphic &graphic);
+    int start1(sf::RenderWindow &window, Player &player, Graphic &graphic);
+    int start2(sf::RenderWindow &window, Player &player, Graphic &graphic);
+    int start3(sf::RenderWindow &window, Player &player, Graphic &graphic);
+    int choosePlayer(sf::RenderWindow &window, Player &player);
+
 };
 
 #endif //POKEMONVIDEOGAME_SETTINGS_H

@@ -1,6 +1,4 @@
-//
-//
-//
+
 #include "NPC.h"
 void NPC::update() {
     sprite.setPosition(rect.getPosition());
@@ -22,7 +20,8 @@ void NPC::move() {
         }
 
 
-    } else if (direction == Character::Direction::Right && moveRight) {
+    }
+    else if (direction == Character::Direction::Right && moveRight) {
         rect.move(speed, 0);
         sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 * 3, 32, 32));
 

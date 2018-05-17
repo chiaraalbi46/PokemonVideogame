@@ -1,6 +1,4 @@
-//
-//
-//
+
 
 #ifndef POKEMONVIDEOGAME_NPC_H
 #define POKEMONVIDEOGAME_NPC_H
@@ -19,7 +17,7 @@ public:
 
     void update();
 
-    void move() override;
+    void move();
 
     int generateRandom(int max);
 

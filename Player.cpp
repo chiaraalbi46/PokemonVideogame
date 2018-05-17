@@ -15,6 +15,7 @@ void Player :: move() {
         moveRight = true;
         moveDown = true;
         sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 * 3 + character * 32, 32, 32));
+
         //Use bicycle
         if (isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
             textBicycle = false;
@@ -23,7 +24,7 @@ void Player :: move() {
             vel = 2;
         }
         else {
-            speed=1;
+            speed = 1;
             rideBicycle=false;
         }
 
@@ -44,13 +45,13 @@ void Player :: move() {
         //Use bicycle
         if ( isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
             textBicycle = false;
-            rideBicycle=true;
+            rideBicycle = true;
             speed = 3;
             vel = 2;
         }
         else {
-            speed=1;
-            rideBicycle=false;
+            speed = 1;
+            rideBicycle = false;
         }
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && moveLeft) {
@@ -63,13 +64,13 @@ void Player :: move() {
         sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 + character * 32, 32, 32));
         if ( isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
             textBicycle = false;
-            rideBicycle=true;
+            rideBicycle = true;
             speed = 3;
             vel = 2;
         }
         else{
-            speed=1;
-            rideBicycle=false;
+            speed = 1;
+            rideBicycle = false;
         }
 
         if (rect.getPosition().x < 0) {
@@ -85,16 +86,17 @@ void Player :: move() {
         moveUp = true;
         moveRight = true;
         sprite.setTextureRect(sf::IntRect( counterWalking * 32,32 * 2 + character * 32, 32, 32));
+
         //Use bicycle
         if ( isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
             textBicycle = false;
-            rideBicycle=true;
+            rideBicycle = true;
             speed = 3;
             vel = 2;
         }
         else {
-            speed=1;
-            rideBicycle=false;
+            speed = 1;
+            rideBicycle = false;
         }
     }
 
@@ -105,8 +107,8 @@ void Player :: move() {
         moveRight = false;
     }
     counterWalking++;
-    if(counterWalking==3){
-        counterWalking=0;
+    if(counterWalking == 3){
+        counterWalking = 0;
     }
 };
 

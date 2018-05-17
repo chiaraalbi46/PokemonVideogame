@@ -254,9 +254,8 @@ int main() {
 
 
 // FIXME inizio while
-    // run the program as long as the window is open
     while (window.isOpen()) {
-// check all the window's events that were triggered since the last iteration of the loop
+
         sf::Event event;
         while (window.pollEvent(event)) {
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || event.type == sf::Event::Closed)
@@ -356,7 +355,7 @@ int main() {
             player.move();
 
             //collisions NPC
-            collision.collisionNPC(player, NPCArray, npc);
+            collision.collisionNPC(player, NPCArray);
 
             //collisions item
             collision.collisionItem(player, ItemArray, graphic);
@@ -366,8 +365,6 @@ int main() {
 
             collision.collisionMap(player, wallArray);
 
-            //collision gym NPC  ???
-            //   collision.collisionNpcItem(graphic, NPCArray);
 
             if(player.pass){
                 player.moveRight = false;
@@ -483,15 +480,18 @@ int main() {
                         PokemonArray[0]->update();
                         choosen1 = 0;
                         window.draw(PokemonArray[0]->sprite);
-                    } else if (player.pokemon1) {
+                    }
+                    else if (player.pokemon1) {
                         PokemonArray[1]->update();
                         choosen1 = 1;
                         window.draw(PokemonArray[1]->sprite);
-                    } else if (player.pokemon2) {
+                    }
+                    else if (player.pokemon2) {
                         PokemonArray[2]->update();
                         choosen1 = 2;
                         window.draw(PokemonArray[2]->sprite);
-                    } else if (player.pokemon3) {
+                    }
+                    else if (player.pokemon3) {
                         PokemonArray[3]->update();
                         choosen1 = 3;
                         window.draw(PokemonArray[3]->sprite);
@@ -519,11 +519,14 @@ int main() {
                             PokemonArray[choosen1]->update();
                             if (choosen1 == 0) {
                                 window.draw(PokemonArray[0]->sprite);
-                            } else if (choosen1 == 1) {
+                            }
+                            else if (choosen1 == 1) {
                                 window.draw(PokemonArray[1]->sprite);
-                            } else if (choosen1 == 2) {
+                            }
+                            else if (choosen1 == 2) {
                                 window.draw(PokemonArray[2]->sprite);
-                            } else if (choosen1 == 3) {
+                            }
+                            else if (choosen1 == 3) {
                                 window.draw(PokemonArray[3]->sprite);
                             }
                             player.setEnemyTurn(true);
@@ -542,7 +545,7 @@ int main() {
                             }
 
                             collision.BulletCollidesPokemon(PokemonEnemyArray[choosen2], bulletArray, effect, text,
-                                                            textArray, a, graphic);
+                                                            textArray, a);
 
                             graphic.setTextAttack(PokemonArray[choosen1], bullet); // Scrive l'attacco usato dal pokemon
                             window.draw(graphic.attackText);  // Nome Attacco
@@ -585,7 +588,7 @@ int main() {
                             }
 
                             collision.BulletCollidesPokemon(PokemonArray[choosen1], bulletArray, effect, text,
-                                                            textArray, a, graphic);
+                                                            textArray, a);
 
                             window.draw(effect.effect1); // Effetto degli attacchi sul giocatore
                             window.draw(graphic.attackText);

@@ -366,7 +366,7 @@ int Settings::start3(sf::RenderWindow &window, Player &player, Graphic &graphic)
     }
 }
 
-int Settings::choosePlayer(sf::RenderWindow &window,Player &player) {
+int Settings::choosePlayer(sf::RenderWindow &window, Player &player) {
     window.clear();
     sf:: Texture textureChoose;
     sf:: Sprite sprite;

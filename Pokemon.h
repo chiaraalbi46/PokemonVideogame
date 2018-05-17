@@ -37,7 +37,7 @@ public:
 
     void updateDirection(Player &player);
     bool isAlive;
-    float hp;
+    int hp;
 
     int getHp() const;
 
