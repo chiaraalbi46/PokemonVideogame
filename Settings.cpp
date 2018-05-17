@@ -1,16 +1,6 @@
 #include "Settings.h"
 
 int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, GraphicPokemon &graphicPokemon, Player &player) {
-/*
-    sf::Text textChoosePokemon;
-    textChoosePokemon.setString("Choose 3 Pokemon");
-    textChoosePokemon.setFont(graphicPokemon.font);
-    textChoosePokemon.setFillColor(sf:: Color:: Black  );
-    textChoosePokemon.setCharacterSize(30);
-    textChoosePokemon.setPosition(5, 5);
-    window.draw(textChoosePokemon);
-*/
-
 
     sf::Event event;
     while (true) {
@@ -25,7 +15,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 return 0;
             }
 
-            //Infernape
+                //Infernape
             else if (sf::Mouse::getPosition(window).x > 451 && sf::Mouse::getPosition(window).x < 674 &&
                      sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 253 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -34,7 +24,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 return 0;
             }
 
-            //Luxray
+                //Luxray
             else if (sf::Mouse::getPosition(window).x > 451 && sf::Mouse::getPosition(window).x < 674 &&
                      sf::Mouse::getPosition(window).y > 255 && sf::Mouse::getPosition(window).y < 507 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -43,7 +33,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 return 0;
             }
 
-            //Breloom
+                //Breloom
             else if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 224 &&
                      sf::Mouse::getPosition(window).y > 255 && sf::Mouse::getPosition(window).y < 507 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -52,7 +42,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 return 0;
             }
 
-            //Blastoise
+                //Blastoise
             else if (sf::Mouse::getPosition(window).x > 226 && sf::Mouse::getPosition(window).x < 449 &&
                      sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 253 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -61,7 +51,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 return 0;
             }
 
-            //Rapidash
+                //Rapidash
             else if (sf::Mouse::getPosition(window).x > 676 && sf::Mouse::getPosition(window).x < 900 &&
                      sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 253 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -70,7 +60,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 return 0;
             }
 
-            //Zapdos
+                //Zapdos
             else if (sf::Mouse::getPosition(window).x > 676 && sf::Mouse::getPosition(window).x < 900 &&
                      sf::Mouse::getPosition(window).y > 255 && sf::Mouse::getPosition(window).y < 507 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -79,7 +69,7 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 return 0;
             }
 
-            //Bulbasaur
+                //Bulbasaur
             else if (sf::Mouse::getPosition(window).x > 226 && sf::Mouse::getPosition(window).x < 449 &&
                      sf::Mouse::getPosition(window).y > 255 && sf::Mouse::getPosition(window).y < 507 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -87,10 +77,8 @@ int Settings::choosePokemonBattle(sf::RenderWindow &window, int &choosen, Graphi
                 choosen = 7;
                 return 0;
             }
-
-
-
         }
+
         window.draw(graphicPokemon.spritePokemon);
         if(player.click0) {
             graphicPokemon.spriteCheck.setPosition(0, 0);
@@ -170,12 +158,12 @@ int Settings::choosePokemon(sf::RenderWindow &window, int &choosen2, std::vector
             else if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 163 &&
                      sf::Mouse::getPosition(window).y > 130 && sf::Mouse::getPosition(window).y < 170 &&
                      sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                choosen2 = 2;
                 player.setSelect(false);
                 player.pokemon0 = false;
                 player.pokemon1 = false;
                 player.pokemon2 = true;
                 player.pokemon3 = false;
-                choosen2 = 2;
                 return 0;
             }
             else if (sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 163 &&
@@ -277,7 +265,6 @@ int Settings :: menu(sf::RenderWindow &window, int &press, Player &player) {
             window.draw(triangle);
             window.display();
         }
-
     }
 }
 
@@ -297,12 +284,11 @@ int Settings::options(sf::RenderWindow &window, Player &player, Graphic &graphic
             }
         }
     }
-
 }
 
 int Settings::credits(sf::RenderWindow &window, Player &player, Graphic &graphic) {
     window.clear();
-    window.draw(graphic.controls);
+    window.draw(graphic.credits);
     window.draw(graphic.textControls);
     window.display();
 

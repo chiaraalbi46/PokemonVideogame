@@ -18,14 +18,7 @@ int Graphic::loadTextures(GraphicPokemon &strategy) {
         return EXIT_FAILURE;
     }
 
-    //Texture Pokeball
-    if (!texturePokeball1.loadFromFile("../Risorse/pokeball1.png")) {
-        return EXIT_FAILURE;
-    }
-    if (!texturePokeball2.loadFromFile("../Risorse/pokeball2.png")) {
-        return EXIT_FAILURE;
-    }
-
+    //Texture medal
     if (!textureMedal1.loadFromFile("../Risorse/medaglia1.png")) {
         return EXIT_FAILURE;
     }
@@ -76,21 +69,20 @@ int Graphic::loadTextures(GraphicPokemon &strategy) {
         return EXIT_FAILURE;
     }
 
-    // load NPC texture
+    //Texture NPC
     if (!textureNPC1.loadFromFile("../Risorse/npc1.png")) {
         return EXIT_FAILURE;
     }
     if (!textureNPC2.loadFromFile("../Risorse/npc2.png")) {
         return EXIT_FAILURE;
     }
-/*    if (!textureNPC3.loadFromFile("../Risorse/npc3.png")) {
-        return EXIT_FAILURE;
-    }
-    if (!textureNPC4.loadFromFile("../Risorse/npc4.png")) {
-        return EXIT_FAILURE;
-    }
-*/
+
+    //Texture menu
     if (!textureControls.loadFromFile("../Risorse/controls.png")) {
+        return EXIT_FAILURE;
+    }
+
+    if (!textureCredits.loadFromFile("../Risorse/credits.jpg")) {
         return EXIT_FAILURE;
     }
 
@@ -104,6 +96,7 @@ int Graphic::loadTextures(GraphicPokemon &strategy) {
         return EXIT_FAILURE;
     }
 
+    //Texture prebattle
     if (!texturePrebattle.loadFromFile("../Risorse/prebattle.png")) {
         return EXIT_FAILURE;
     }
@@ -124,12 +117,6 @@ int Graphic::setMusicBattle(Player &player) {
         return EXIT_FAILURE;
     }
 
-    if (!bufferShot.loadFromFile("../Risorse/attacksound.ogg")) {
-        return EXIT_FAILURE;
-    }
-    soundShot.setBuffer(bufferShot);
-    soundShot.setVolume(60);
-
     if (!bufferItem.loadFromFile("../Risorse/itempickup.ogg")) {
         return EXIT_FAILURE;
     }
@@ -146,16 +133,6 @@ void Graphic::setNPC() {
     NPC2.rect.setSize(sf::Vector2f(20, 20));
     NPC2.rect.setPosition(463, 636);
     NPC2.sprite.setTexture(textureNPC2);
-
-    NPC3.rect.setSize(sf::Vector2f(32, 32));
-    NPC3.rect.setPosition(1162, 1689);
-    NPC3.sprite.setTexture(textureNPC3);
-
-    NPC4.rect.setSize(sf::Vector2f(32, 32));
-    NPC4.rect.setPosition(1127, 956);
-    NPC4.sprite.setTexture(textureNPC3);
-
-    //  NPC5.rect.setPosition(1120, 534);
 
 }
 
@@ -206,16 +183,6 @@ void Graphic:: setItem(){
     medal8.rect.setPosition(1510, 1312);
     medal8.sprite.setTexture(textureMedal8);
 
-    pokeball1.setType("Megaball");
-    pokeball1.rect.setSize(sf::Vector2f(48, 48));
-    pokeball1.rect.setPosition(1510, 1312);
-    pokeball1.sprite.setTexture(texturePokeball1);
-
-    pokeball2.setType("Masterball");
-    pokeball2.rect.setSize(sf::Vector2f(48, 48));
-    pokeball2.rect.setPosition(250, 150);
-    pokeball2.sprite.setTexture(texturePokeball2);
-
     gym.setPosition(1050, 75);
     gym.setSize(sf::Vector2f(50,50));
     gym.setFillColor(sf:: Color :: Transparent);
@@ -224,6 +191,9 @@ void Graphic:: setItem(){
 void Graphic ::setMenu() {
     controls.setTexture(textureControls);
     controls.setPosition(0, 0);
+
+    credits.setTexture(textureCredits);
+    credits.setPosition(0, 0);
 
     textControls.setString("Press A for return to menu");
     textControls.setFont(font);
@@ -249,11 +219,17 @@ int Graphic::setText(Player &player, std:: vector<Item> &ItemArray){
     player.text.setFont(font);
     player.text.setFillColor(sf:: Color::Red);
     player.text.setCharacterSize(30);
-    player.text.setPosition(player.rect.getPosition().x -150, player.rect.getPosition().y - 300);
+    player.text.setPosition(player.rect.getPosition().x - 413, player.rect.getPosition().y - 233);
+
+     if(player.text.getPosition().x < 0){
+        player.text.setPosition(3, player.rect.getPosition().y - 233);
+    }
+    if(player.text.getPosition().y < 0){
+        player.text.setPosition(2, 2);
+    }
 
     textBicycle.setString("Press Z to use the bicycle");
     textBicycle.setFont(font);
-    textBicycle.setOutlineColor(sf:: Color:: Black);
     textBicycle.setFillColor(sf:: Color:: Red);
     textBicycle.setCharacterSize(30);
     textBicycle.setPosition(245, 1260);
@@ -263,7 +239,6 @@ int Graphic::setText(Player &player, std:: vector<Item> &ItemArray){
     medalsText.setString(medals.str());
     medalsText.setFont(font);
     medalsText.setFillColor(sf:: Color::Red);
-    medalsText.setOutlineColor(sf:: Color:: Black);
     medalsText.setCharacterSize(30);
     medalsText.setPosition(880, 151);
 
@@ -332,6 +307,7 @@ int Graphic ::setBattleText(sf::RenderWindow &window, Player &player) {
 }
 
 int Graphic :: setBackgroundBattle(sf::RenderWindow &window, Player &player){
+
     // Load Background
     if (!textureBattle.loadFromFile("../Risorse/backgroundbattle.png")) {
         return EXIT_FAILURE;
@@ -372,12 +348,6 @@ int Graphic :: setBackgroundBattle(sf::RenderWindow &window, Player &player){
     prebattle.setTexture(texturePrebattle);
     prebattle.setPosition(0, 0);
 
-    restart.setString("-Press Enter for play again" );
-    restart.setPosition(70, 420 );
-    restart.setFillColor(sf::Color:: Green);
-    restart.setCharacterSize(22);
-    restart.setFont(font);
-
     lostText1.setString("-Your pokemon has lost " );
     lostText1.setPosition(70, 420 );
     lostText1.setFillColor(sf::Color::Magenta);
@@ -399,7 +369,7 @@ int Graphic :: setBackgroundBattle(sf::RenderWindow &window, Player &player){
 }
 
 void Graphic ::setTextAttack(Pokemon *pokemon, Bullet &bullet) {
-    //Text Attack
+
     ostringstream text;
     text << "- " << pokemon->getName() << " use " <<  bullet.getName() ;
     attackText.setString(text.str());
@@ -411,7 +381,7 @@ void Graphic ::setTextAttack(Pokemon *pokemon, Bullet &bullet) {
 }
 
 void Graphic :: setTextHp(Pokemon *pokemon){
-    //Text Attack
+
     ostringstream hp;
     hp << pokemon->getName() << " HP : " <<  pokemon->getHp() ;
     hpText.setString(hp.str());
@@ -420,7 +390,6 @@ void Graphic :: setTextHp(Pokemon *pokemon){
     hpText.setCharacterSize(26);
     hpText.setFont(font);
 
-    //Text Attack
     ostringstream hp1;
     hp1 << pokemon->getName() << " HP : " <<  pokemon->getHp() ;
     hpEnemyText.setString(hp1.str());

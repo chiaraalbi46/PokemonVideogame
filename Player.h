@@ -9,7 +9,7 @@ class Player: public Character {
 public:
     Player() : Character() {
         rect.setSize(sf::Vector2f(32,32));
-        rect.setPosition(358, 1740);
+        rect.setPosition(450, 1605);
         rect.setFillColor(sf::Color::Transparent);
     }
     ~Player() {}
@@ -54,10 +54,7 @@ public:
     bool isFight() const;
     void setFight(bool fight);
 
-    bool isGameRestart() const;
-    void setGameRestart(bool gameRestart);
-
-    int vel = 0; // velocità collisione
+    int vel = 0; //Velocità collisione
 
     int character;
 
@@ -95,7 +92,7 @@ public:
     bool pickUp7 = false;
     bool pickUp8 = false;
 
-    bool enemyAttack = false;   // Fa attaccare nemico
+    bool enemyAttack = false;   //Fa attaccare il nemico
 
     bool options = true;
 
@@ -120,18 +117,16 @@ public:
     bool collGym = false;
 
 protected:
-
     bool bicyclePickUp = false;
-    bool enterGym = false;      // Entra o no in palestra
+    bool enterGym = false;      //Entra o no in palestra
 
     bool prebattle = false;   //Capopalestra
-    bool fight = true;        // Combatto
-    bool gameRestart = false;
-    bool cambio = true;    // cambia pokemon quando muore un altro
-    bool select = false;        // Seleziona pokemon
-    bool selectAttack = false;  // scelgo il mio attacco
-    bool attack = false;        // il mio pokemon attacca
-    bool enemy = false;         // E' il nemico
+    bool fight = true;        //Combatto
+    bool cambio = true;    //Cambia pokemon quando muore un altro
+    bool select = false;        //Seleziona pokemon
+    bool selectAttack = false;  //Scelgo il mio attacco
+    bool attack = false;        //Il mio pokemon attacca
+    bool enemy = false;         //E' il nemico
     bool enemyTurn = false;
 
 };

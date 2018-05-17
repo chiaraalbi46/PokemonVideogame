@@ -62,6 +62,8 @@ void Player :: move() {
         moveUp = true;
         moveLeft = true;
         sprite.setTextureRect(sf::IntRect(counterWalking * 32, 32 + character * 32, 32, 32));
+
+        //Use bicycle
         if ( isBicyclePickUp() && sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
             textBicycle = false;
             rideBicycle = true;
@@ -76,7 +78,6 @@ void Player :: move() {
         if (rect.getPosition().x < 0) {
             moveLeft = false;
         }
-
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && moveRight) {
         rect.move(speed, 0);
@@ -180,13 +181,6 @@ bool Player::isCambio() const {
 }
 void Player::setCambio(bool cambio) {
     Player::cambio = cambio;
-}
-
-bool Player::isGameRestart() const {
-    return gameRestart;
-}
-void Player::setGameRestart(bool gameRestart) {
-    Player::gameRestart = gameRestart;
 }
 
 bool Player::isFight() const {

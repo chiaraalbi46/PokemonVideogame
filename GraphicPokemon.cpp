@@ -3,9 +3,9 @@
 #include "GraphicPokemon.h"
 
 
-
 int GraphicPokemon ::loadTexturePokemon(Player &player) {
-    //load pokemon texture
+
+    //Load pokemon texture
     if (!textureInfernape.loadFromFile("../Risorse/infernape.png")) {
         return EXIT_FAILURE;
     }
@@ -81,7 +81,6 @@ void GraphicPokemon::setPokemonOpponent(sf::RenderWindow &window, vector <Pokemo
 
 int GraphicPokemon ::setCheck(GraphicPokemon &graphicPokemon) {
 
-    //   sf::Texture pokemonTexture;
     if (!pokemonTexture.loadFromFile("../Risorse/sfondoscelta.png")) {
         return EXIT_FAILURE;
     }

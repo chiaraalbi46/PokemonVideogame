@@ -1,8 +1,8 @@
 #include "Collision.h"
 
+//Player collides npc
 void Collision ::collisionNPC(Player &player, std::vector<NPC> &NPCArray) {
 
-//Player collides npc
     for (auto iter = NPCArray.begin(); iter != NPCArray.end(); iter++) {
         if (player.rect.getGlobalBounds().intersects(iter->rect.getGlobalBounds())) {
 
@@ -37,8 +37,9 @@ void Collision ::collisionNPC(Player &player, std::vector<NPC> &NPCArray) {
     }
 }
 
+//Player collides object
 void Collision ::collisionItem(Player &player, std :: vector<Item> &ItemArray, Graphic &graphic) {
-    //player collides object
+
     for (auto itr = ItemArray.begin(); itr != ItemArray.end(); itr++) {
         if (player.rect.getGlobalBounds().intersects(itr->rect.getGlobalBounds())) {
             graphic.soundItem.play();
@@ -85,7 +86,9 @@ void Collision ::collisionItem(Player &player, std :: vector<Item> &ItemArray, G
 
 };
 
+//Player collides map
 void Collision ::collisionMap(Player &player, std::vector<sf:: RectangleShape> &mapArray) {
+
     for (auto iter = mapArray.begin(); iter != mapArray.end(); iter++) {
         if (player.rect.getGlobalBounds().intersects(iter->getGlobalBounds())) {
 
@@ -113,7 +116,10 @@ void Collision ::collisionMap(Player &player, std::vector<sf:: RectangleShape> &
         }
     }
 }
+
+//Player collides gym
 void Collision::collisionGym(sf::RenderWindow &window, Player &player, Graphic &graphic, vector<Item> &ItemArray) {
+
     if (player.rect.getGlobalBounds().intersects(graphic.gym.getGlobalBounds())) {
 
         if (player.getDirection() == Character::Direction::Left) {
@@ -151,8 +157,9 @@ void Collision::collisionGym(sf::RenderWindow &window, Player &player, Graphic &
     }
 }
 
-//Pokemon attacks (shot)
+//Pokemon attacks
 void Collision::PokemonAttack(Pokemon &pokemon, Bullet &bullet, vector<Bullet> &bulletArray, Player &player, int &adder1, Bullet &effect) {
+
     bullet = *pokemon.bulletPtr;
     effect = *pokemon.bulletPtr;
 
@@ -172,13 +179,14 @@ void Collision::PokemonAttack(Pokemon &pokemon, Bullet &bullet, vector<Bullet> &
     }
 }
 
-//Collisioni bullet - pokemon avversario
+//Bullets collision
 void Collision::BulletCollidesPokemon(Pokemon *pokemon, vector<Bullet> &bulletArray, Bullet &effect, Text &textDisplay,
-                                      std :: vector<Text> &textArray, float &a) { //&graphic
+                                      std :: vector<Text> &textArray, float &a) {
+
     for (auto iter = bulletArray.begin(); iter != bulletArray.end(); iter++) {
         if (iter->rect.getGlobalBounds().intersects(pokemon->rect.getGlobalBounds())) {
 
-            effect.updateEffects();    // Effetti
+            effect.updateEffects(); // Effetti
             a = a + 0.1f;
 
             //Debolezze
@@ -195,7 +203,7 @@ void Collision::BulletCollidesPokemon(Pokemon *pokemon, vector<Bullet> &bulletAr
                 iter->attackDamage += 3;
             }
 
-            //Forza
+            //Forze
             if(pokemon->getType() == PokemonType ::PokemonFire && iter->getType() == BulletType ::BulletGrass){
                 iter->attackDamage -= 1;
             }
@@ -209,8 +217,6 @@ void Collision::BulletCollidesPokemon(Pokemon *pokemon, vector<Bullet> &bulletAr
                 iter->attackDamage -= 1;
             }
 
-
-            cout << "I punti vita di " << pokemon->getName() << " sono  " << pokemon->getHp() << endl;
             pokemon->hp = pokemon->hp - iter->attackDamage;
 
             //Text Display
@@ -218,13 +224,11 @@ void Collision::BulletCollidesPokemon(Pokemon *pokemon, vector<Bullet> &bulletAr
             attackDamageText << "-" << iter->attackDamage;
             textDisplay.text.setString(attackDamageText.str());
 
-            //la scritta va verso l'alto
             textDisplay.text.setPosition(pokemon->rect.getPosition().x + pokemon->rect.getSize().x / 2,
                                          pokemon->rect.getPosition().y - 15);
             textArray.push_back(textDisplay);
 
             pokemon->isAlive = pokemon->hp > 0;
-
 
         }
     }

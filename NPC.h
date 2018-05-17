@@ -17,7 +17,7 @@ public:
 
     void update();
 
-    void move();
+    void move() override;
 
     int generateRandom(int max);
 

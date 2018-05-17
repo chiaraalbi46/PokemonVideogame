@@ -15,7 +15,9 @@ public:
 
     ~Item() {}
 
-    void update();
+    void update(){
+        sprite.setPosition(rect.getPosition());
+    }
 
     sf::Sprite sprite;
     sf::RectangleShape rect;

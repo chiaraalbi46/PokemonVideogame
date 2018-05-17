@@ -18,8 +18,6 @@ void NPC::move() {
         if (rect.getPosition().x < 433) {
             moveLeft = false;
         }
-
-
     }
     else if (direction == Character::Direction::Right && moveRight) {
         rect.move(speed, 0);

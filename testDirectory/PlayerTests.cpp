@@ -12,9 +12,9 @@ TEST(PlayerTest, Constructor){
     ASSERT_EQ(32, Ash.rect.getSize().x);
     ASSERT_EQ(40, Ash.rect.getSize().y);
 
-    //la posizione di default e' (358, 1740)
-    ASSERT_EQ(358, Ash.rect.getPosition().x);
-    ASSERT_EQ(1740, Ash.rect.getPosition().y);
+    //la posizione di default e' (450, 1605)
+    ASSERT_EQ(450, Ash.rect.getPosition().x);
+    ASSERT_EQ(1605, Ash.rect.getPosition().y);
 
     ASSERT_EQ(1, Ash.speed);
     ASSERT_EQ(false, Ash.rideBicycle);

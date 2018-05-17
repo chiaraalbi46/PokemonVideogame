@@ -31,7 +31,6 @@ public:
 
     BulletType getType() const;
 
-    //attributi per gli spari
     int counterLifeTime = 0;
     int lifeTime; //"lunghezza" del tratto del proiettile
 

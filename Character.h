@@ -20,8 +20,12 @@ public:
 
     virtual void move () = 0;
 
-    Direction getDirection() const;
-    void setDirection(Direction direction);
+    Direction getDirection() const{
+        return direction;
+    }
+    void setDirection(Direction direction){
+        Character::direction = direction;
+    }
 
     sf::RectangleShape rect;
     sf::Sprite sprite;

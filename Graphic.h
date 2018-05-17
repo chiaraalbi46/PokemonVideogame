@@ -19,7 +19,7 @@
 class Graphic {
 public:
     Graphic() : bicycle("bicycle"), medal1("medal1"), medal2("medal2"), medal3("medal3"), medal4("medal4"), medal5("medal5"), medal6("medal6") ,
-                medal7("medal7") , medal8("medal8"), pokeball1 ("Megaball"), pokeball2 ("Masterball"), NPC1(), NPC2() {}
+                medal7("medal7") , medal8("medal8"), NPC1(), NPC2() {}
 
     ~Graphic(){}
 
@@ -42,15 +42,16 @@ public:
     sf::Music musicplayer;
     sf::Music musicbattle;
 
-    sf::SoundBuffer bufferShot;
-    sf::Sound soundShot;
-
     sf::SoundBuffer bufferItem;
     sf::Sound soundItem;
 
+    //Textures&texts&sprites
     sf::Sprite controls;
     sf:: Texture textureControls;
     sf::Text textControls;
+
+    sf::Sprite credits;
+    sf:: Texture textureCredits;
 
     sf:: Sprite start1;
     sf:: Sprite start2;
@@ -68,14 +69,11 @@ public:
 
     sf:: Text textBicycle;
 
-    //Textures
     sf::Texture texturePlayer;
     sf::Texture texturePlayerBike;
 
     sf::Texture textureNPC1;
     sf::Texture textureNPC2;
-    sf::Texture textureNPC3;
-    sf::Texture textureNPC4;
 
     sf::Texture textureBicycle;
     sf::Texture textureMedal;
@@ -87,8 +85,6 @@ public:
     sf::Texture textureMedal6;
     sf::Texture textureMedal7;
     sf::Texture textureMedal8;
-    sf::Texture texturePokeball1;
-    sf::Texture texturePokeball2;
 
     sf:: Texture textureMedalPickUp1;
     sf:: Texture textureMedalPickUp2;
@@ -129,24 +125,7 @@ public:
     sf:: Sprite gameOver;
     sf::Texture textureGameOver;
 
-    sf:: Text restart;
-
     sf:: Text medalsText;
-    //NPC
-    NPC NPC1;
-    NPC NPC2;
-    NPC NPC3;
-    NPC NPC4;
-
-    Item bicycle;
-    Item medal1;
-    Item medal2;
-    Item medal3;
-    Item medal4;
-    Item medal5;
-    Item medal6;
-    Item medal7;
-    Item medal8;
 
     sf::Sprite medalPickUp1;
     sf::Sprite medalPickUp2;
@@ -157,10 +136,22 @@ public:
     sf::Sprite medalPickUp7;
     sf::Sprite medalPickUp8;
 
-    Item pokeball1;
-    Item pokeball2;
+    //NPC
+    NPC NPC1;
+    NPC NPC2;
 
-    //Texture&Front
+    //Item
+    Item bicycle;
+    Item medal1;
+    Item medal2;
+    Item medal3;
+    Item medal4;
+    Item medal5;
+    Item medal6;
+    Item medal7;
+    Item medal8;
+
+    //Front
     sf::Font font;
 
 };

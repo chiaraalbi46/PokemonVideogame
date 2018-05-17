@@ -1,7 +1,8 @@
 
 #include "Bullet.h"
 
-void Bullet::update(int &typeAttack, int &adder1) { //il proiettile si muove nelle due direzioni compatibilmente con i movimenti del pokemon
+void Bullet::update(int &typeAttack, int &adder1) {
+
     if(typeAttack == 1) {
         adder1 = 60;
         setName("Energy sphere");
@@ -99,7 +100,7 @@ void Bullet ::updateEffects() {
     effect1.setTexture(effect1Texture);
 
     counterAnimation1++;
-    if(counterAnimation1 >= 5) {  //attack1
+    if(counterAnimation1 >= 5) {
         counterAnimation1 = 0;
     }
 
