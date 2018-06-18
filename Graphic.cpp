@@ -6,118 +6,118 @@ using namespace std;
 int Graphic::loadTextures(GraphicPokemon &strategy) {
 
     //Texture player
-    if (!texturePlayer.loadFromFile("../Risorse/player.png")) {
+    if (!texturePlayer.loadFromFile("player.png")) {
         return EXIT_FAILURE;
     }
-    if (!texturePlayerBike.loadFromFile("../Risorse/playerbicycle.png")) {
+    if (!texturePlayerBike.loadFromFile("playerbicycle.png")) {
         return EXIT_FAILURE;
     }
 
     //Texture Bike
-    if (!textureBicycle.loadFromFile("../Risorse/bicycle.png")) {
+    if (!textureBicycle.loadFromFile("bicycle.png")) {
         return EXIT_FAILURE;
     }
 
     //Texture medal
-    if (!textureMedal1.loadFromFile("../Risorse/medaglia1.png")) {
+    if (!textureMedal1.loadFromFile("medaglia1.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedal2.loadFromFile("../Risorse/medaglia2.png")) {
+    if (!textureMedal2.loadFromFile("medaglia2.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedal3.loadFromFile("../Risorse/medaglia3.png")) {
+    if (!textureMedal3.loadFromFile("medaglia3.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedal4.loadFromFile("../Risorse/medaglia4.png")) {
+    if (!textureMedal4.loadFromFile("medaglia4.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedal5.loadFromFile("../Risorse/medaglia5.png")) {
+    if (!textureMedal5.loadFromFile("medaglia5.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedal6.loadFromFile("../Risorse/medaglia6.png")) {
+    if (!textureMedal6.loadFromFile("medaglia6.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedal7.loadFromFile("../Risorse/medaglia7.png")) {
+    if (!textureMedal7.loadFromFile("medaglia7.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedal8.loadFromFile("../Risorse/medaglia8.png")) {
+    if (!textureMedal8.loadFromFile("medaglia8.png")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureMedalPickUp1.loadFromFile("../Risorse/medalpickup1.png")) {
+    if (!textureMedalPickUp1.loadFromFile("medalpickup1.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedalPickUp2.loadFromFile("../Risorse/medalpickup2.png")) {
+    if (!textureMedalPickUp2.loadFromFile("medalpickup2.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedalPickUp3.loadFromFile("../Risorse/medalpickup3.png")) {
+    if (!textureMedalPickUp3.loadFromFile("medalpickup3.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedalPickUp4.loadFromFile("../Risorse/medalpickup4.png")) {
+    if (!textureMedalPickUp4.loadFromFile("medalpickup4.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedalPickUp5.loadFromFile("../Risorse/medalpickup5.png")) {
+    if (!textureMedalPickUp5.loadFromFile("medalpickup5.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedalPickUp6.loadFromFile("../Risorse/medalpickup6.png")) {
+    if (!textureMedalPickUp6.loadFromFile("medalpickup6.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedalPickUp7.loadFromFile("../Risorse/medalpickup7.png")) {
+    if (!textureMedalPickUp7.loadFromFile("medalpickup7.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureMedalPickUp8.loadFromFile("../Risorse/medalpickup8.png")) {
+    if (!textureMedalPickUp8.loadFromFile("medalpickup8.png")) {
         return EXIT_FAILURE;
     }
 
     //Texture NPC
-    if (!textureNPC1.loadFromFile("../Risorse/npc1.png")) {
+    if (!textureNPC1.loadFromFile("npc1.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureNPC2.loadFromFile("../Risorse/npc2.png")) {
+    if (!textureNPC2.loadFromFile("npc2.png")) {
         return EXIT_FAILURE;
     }
 
     //Texture menu
-    if (!textureControls.loadFromFile("../Risorse/controls.png")) {
+    if (!textureControls.loadFromFile("controls.png")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureCredits.loadFromFile("../Risorse/credits.jpg")) {
+    if (!textureCredits.loadFromFile("credits.jpg")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureStart1.loadFromFile("../Risorse/start1.png")) {
+    if (!textureStart1.loadFromFile("start1.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureStart2.loadFromFile("../Risorse/start2.png")) {
+    if (!textureStart2.loadFromFile("start2.png")) {
         return EXIT_FAILURE;
     }
-    if (!textureStart3.loadFromFile("../Risorse/start3.png")) {
+    if (!textureStart3.loadFromFile("start3.png")) {
         return EXIT_FAILURE;
     }
 
     //Texture prebattle
-    if (!texturePrebattle.loadFromFile("../Risorse/prebattle.png")) {
+    if (!texturePrebattle.loadFromFile("prebattle.png")) {
         return EXIT_FAILURE;
     }
 }
 
 void Graphic::setFont() {
-    font.loadFromFile("../Risorse/pokemonnormal.ttf");
+    font.loadFromFile("pokemonnormal.ttf");
 }
 
 int Graphic::setMusicBattle(Player &player) {
 
-    if (!musicplayer.openFromFile("../Risorse/musicplayer.ogg")) {
+    if (!musicplayer.openFromFile("musicplayer.ogg")) {
         return EXIT_FAILURE;
     }
     musicplayer.setVolume(20);
 
-    if (!musicbattle.openFromFile("../Risorse/soundBattle.ogg")) {
+    if (!musicbattle.openFromFile("soundBattle.ogg")) {
         return EXIT_FAILURE;
     }
 
-    if (!bufferItem.loadFromFile("../Risorse/itempickup.ogg")) {
+    if (!bufferItem.loadFromFile("itempickup.ogg")) {
         return EXIT_FAILURE;
     }
     soundItem.setBuffer(bufferItem);
@@ -212,22 +212,7 @@ void Graphic ::setMenu() {
 }
 
 int Graphic::setText(Player &player, std:: vector<Item> &ItemArray){
-
-    ostringstream pokeballText;
-    pokeballText << "Score:  "<< player.getScore();
-    player.text.setString(pokeballText.str());
-    player.text.setFont(font);
-    player.text.setFillColor(sf:: Color::Red);
-    player.text.setCharacterSize(30);
-    player.text.setPosition(player.rect.getPosition().x - 413, player.rect.getPosition().y - 233);
-
-     if(player.text.getPosition().x < 0){
-        player.text.setPosition(3, player.rect.getPosition().y - 233);
-    }
-    if(player.text.getPosition().y < 0){
-        player.text.setPosition(2, 2);
-    }
-
+    
     textBicycle.setString("Press Z to use the bicycle");
     textBicycle.setFont(font);
     textBicycle.setFillColor(sf:: Color:: Red);
@@ -242,7 +227,7 @@ int Graphic::setText(Player &player, std:: vector<Item> &ItemArray){
     medalsText.setCharacterSize(30);
     medalsText.setPosition(880, 151);
 
-    if (!textureMedal.loadFromFile("../Risorse/medal.png")) {
+    if (!textureMedal.loadFromFile("medal.png")) {
         return EXIT_FAILURE;
     }
     medal.setTexture(textureMedal);
@@ -309,37 +294,37 @@ int Graphic ::setBattleText(sf::RenderWindow &window, Player &player) {
 int Graphic :: setBackgroundBattle(sf::RenderWindow &window, Player &player){
 
     // Load Background
-    if (!textureBattle.loadFromFile("../Risorse/backgroundbattle.png")) {
+    if (!textureBattle.loadFromFile("backgroundbattle.png")) {
         return EXIT_FAILURE;
     }
     spriteBattle.setTexture(textureBattle);
     spriteBattle.setPosition(0, 0);
 
-    if (!optionsTexture.loadFromFile("../Risorse/options.png")) {// Mostra opzioni scelta
+    if (!optionsTexture.loadFromFile("options.png")) {// Mostra opzioni scelta
         return EXIT_FAILURE;
     }
     options.setTexture(optionsTexture);
     options.setPosition(100, 400);
 
-    if (!attackTexture.loadFromFile("../Risorse/attacco.png")) {// Mostra opzioni scelta attacchi
+    if (!attackTexture.loadFromFile("attacco.png")) {// Mostra opzioni scelta attacchi
         return EXIT_FAILURE;
     }
     attack.setTexture(attackTexture);
     attack.setPosition(50, 400);
 
-    if (!attackBackgroundTexture.loadFromFile("../Risorse/sfondoattacco.png")){//sfondo nome attacco
+    if (!attackBackgroundTexture.loadFromFile("sfondoattacco.png")){//sfondo nome attacco
         return EXIT_FAILURE;
     }
     attackBackground.setTexture(attackBackgroundTexture);
     attackBackground.setPosition(0, 390);
 
-    if (!textureWin.loadFromFile("../Risorse/win.png")) {
+    if (!textureWin.loadFromFile("win.png")) {
         return EXIT_FAILURE;
     }
     win.setTexture(textureWin);
     win.setPosition(0, 0);
 
-    if (!textureGameOver.loadFromFile("../Risorse/gameover.png")) {
+    if (!textureGameOver.loadFromFile("gameover.png")) {
         return EXIT_FAILURE;
     }
     gameOver.setTexture(textureGameOver);

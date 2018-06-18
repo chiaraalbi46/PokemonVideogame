@@ -59,7 +59,7 @@ int main() {
     graphic.setFont();
     graphicPokemon.loadTexturePokemon(player);
 
-    if (!graphic.textureMap1e.loadFromFile("../Risorse/map.png")) {
+    if (!graphic.textureMap1e.loadFromFile("map.png")) {
         return EXIT_FAILURE;
     }
     graphic.map.setTexture(graphic.textureMap1e);

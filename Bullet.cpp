@@ -72,13 +72,13 @@ int Bullet ::loadTexture() {
     sf::Texture bullet2Texture;
     sf::Texture bullet3Texture;
 
-    if (!bullet1Texture.loadFromFile("../Risorse/attack1.png"))
+    if (!bullet1Texture.loadFromFile("attack1.png"))
         return EXIT_FAILURE;
 
-    if (!bullet2Texture.loadFromFile("../Risorse/attack2.png"))
+    if (!bullet2Texture.loadFromFile("attack2.png"))
         return EXIT_FAILURE;
 
-    if (!bullet3Texture.loadFromFile("../Risorse/attack3.png"))
+    if (!bullet3Texture.loadFromFile("attack3.png"))
         return EXIT_FAILURE;
 
     attack1Texture = bullet1Texture;
@@ -90,7 +90,7 @@ int Bullet ::loadTexture() {
 int Bullet ::loadEffectTexture() {
     sf::Texture bulletEffect1Texture;
 
-    if (!bulletEffect1Texture.loadFromFile("../Risorse/effect1.png"))
+    if (!bulletEffect1Texture.loadFromFile("effect1.png"))
         return EXIT_FAILURE;
     effect1Texture = bulletEffect1Texture;
 }

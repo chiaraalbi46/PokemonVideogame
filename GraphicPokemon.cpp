@@ -6,35 +6,35 @@
 int GraphicPokemon ::loadTexturePokemon(Player &player) {
 
     //Load pokemon texture
-    if (!textureInfernape.loadFromFile("../Risorse/infernape.png")) {
+    if (!textureInfernape.loadFromFile("infernape.png")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureFloatzel.loadFromFile("../Risorse/floatzel.png")) {
+    if (!textureFloatzel.loadFromFile("floatzel.png")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureLuxray.loadFromFile("../Risorse/luxray.png")) {
+    if (!textureLuxray.loadFromFile("luxray.png")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureBreloom.loadFromFile("../Risorse/breloom.png")) {
+    if (!textureBreloom.loadFromFile("breloom.png")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureRapidash.loadFromFile("../Risorse/rapidash.png")) {
+    if (!textureRapidash.loadFromFile("rapidash.png")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureBlastoise.loadFromFile("../Risorse/blastoise.png")) {
+    if (!textureBlastoise.loadFromFile("blastoise.png")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureZapdos.loadFromFile("../Risorse/zapdos.png")) {
+    if (!textureZapdos.loadFromFile("zapdos.png")) {
         return EXIT_FAILURE;
     }
 
-    if (!textureBulbasaur.loadFromFile("../Risorse/bulbasaur.png")) {
+    if (!textureBulbasaur.loadFromFile("bulbasaur.png")) {
         return EXIT_FAILURE;
     }
 
@@ -81,12 +81,12 @@ void GraphicPokemon::setPokemonOpponent(sf::RenderWindow &window, vector <Pokemo
 
 int GraphicPokemon ::setCheck(GraphicPokemon &graphicPokemon) {
 
-    if (!pokemonTexture.loadFromFile("../Risorse/sfondoscelta.png")) {
+    if (!pokemonTexture.loadFromFile("sfondoscelta.png")) {
         return EXIT_FAILURE;
     }
     graphicPokemon.spritePokemon.setTexture(pokemonTexture);
 
-    if (!texturecheck.loadFromFile("../Risorse/check.png")) {
+    if (!texturecheck.loadFromFile("check.png")) {
         return EXIT_FAILURE;
     }
     spriteCheck.setTexture(texturecheck);

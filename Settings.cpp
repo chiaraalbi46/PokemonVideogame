@@ -184,7 +184,7 @@ int Settings::choosePokemon(sf::RenderWindow &window, int &choosen2, std::vector
 int Settings :: menu(sf::RenderWindow &window, int &press, Player &player) {
     sf:: Texture textureMenu;
     sf:: Sprite spriteMenu;
-    if (!textureMenu.loadFromFile("../Risorse/menu.png")) {
+    if (!textureMenu.loadFromFile("menu.png")) {
         return EXIT_FAILURE;
     }
     spriteMenu.setTexture(textureMenu);
@@ -192,7 +192,7 @@ int Settings :: menu(sf::RenderWindow &window, int &press, Player &player) {
     sf:: Sprite triangle;
     sf:: Texture textureTriangle;
 
-    if (!textureTriangle.loadFromFile("../Risorse/triangle.png")) {
+    if (!textureTriangle.loadFromFile("triangle.png")) {
         return EXIT_FAILURE;
     }
     triangle.setTexture(textureTriangle);
@@ -356,7 +356,7 @@ int Settings::choosePlayer(sf::RenderWindow &window, Player &player) {
     window.clear();
     sf:: Texture textureChoose;
     sf:: Sprite sprite;
-    if (!textureChoose.loadFromFile("../Risorse/start.png")) {
+    if (!textureChoose.loadFromFile("start.png")) {
         return EXIT_FAILURE;
     }
     sprite.setTexture(textureChoose);
